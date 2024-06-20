@@ -16,6 +16,8 @@ body {
 header {
     background-image: linear-gradient(to bottom right, #fe9516, #fe4c16, #fe1616);
     padding: 1rem 2rem;
+    position: absolute;
+    overflow: hidden;
     width: 100vw;
 }
 
@@ -183,6 +185,10 @@ header .inicio .textinicio .btnsinicio a:hover {
 @media (max-width: 1500px) {
     header .inicio .textinicio .imgabso {
         left: -300px;
+    }
+
+    header .inicio {
+        padding: 0;
     }
 }
 
