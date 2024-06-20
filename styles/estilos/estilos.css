@@ -9,11 +9,16 @@
     font-family: 'Montserrat';
 }
 
+body {
+    width: 100vw;
+}
+
 header {
     background-image: linear-gradient(to bottom right, #fe9516, #fe4c16, #fe1616);
     padding: 1rem 2rem;
     overflow: hidden;
     position: absolute;
+    width: 100vw;
 }
 
 header nav img {
@@ -115,10 +120,10 @@ header .inicio img {
 
 header .inicio .textinicio .imgabso {
     position: absolute;
-    width: 600px;
-    top: 10px;
-    left: -330px;
-    transform: rotate(40deg);
+    width: 500px;
+    top: 170px;
+    left: -230px;
+    transform: rotate(60deg);
     filter: drop-shadow(1px 1rem 1rem #000);
 }
 
@@ -134,10 +139,10 @@ header .inicio .textinicio .imgabso2 {
 header .inicio .textinicio .imgabso3 {
     position: absolute;
     width: 400px;
-    top: 450px;
-    right: -190px;
+    top: 490px;
+    right: -150px;
     transform: rotate(-30deg);
-    filter: drop-shadow(-5rem 1rem 1rem #000);
+    filter: drop-shadow(-2rem 1rem 1rem #000);
 }
 
 header .inicio .textinicio h1 {
@@ -175,4 +180,89 @@ header .inicio .textinicio .btnsinicio a:hover {
     background-color: white;
     color: #fe1616;
     transform: translateY(-8px);
+}
+
+@media (max-width: 1500px) {
+    header .inicio .textinicio .imgabso {
+        left: -300px;
+    }
+}
+
+@media (max-width: 1200px) {
+    header .inicio .textinicio .imgabso {
+        display: none;
+    }
+
+    header .inicio .textinicio .imgabso2 {
+        left: 170px;
+    }
+
+    header .inicio .textinicio .imgabso3 {
+        top: 550px;
+        transform: rotate(-10deg);
+    }
+}
+
+@media (max-width: 1000px) {
+    header .inicio .textinicio .imgabso3,
+    header .inicio .textinicio .imgabso2,
+    header .inicio .textinicio .imgabso {
+        display: none;
+    }
+
+    header .inicio img {
+        width: 400px;
+    }
+
+    header .inicio .textinicio h1 {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 850px) {
+    header .inicio {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .link{
+        display: none;
+    }
+
+    header .inicio img {
+        width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    header .inicio .textinicio h1 {
+        font-size: 50px;
+    }
+
+    header .inicio .textinicio p {
+        font-size: 14px;
+    }
+
+    header .inicio .textinicio .btnsinicio {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header .inicio .textinicio .btnsinicio a {
+        flex: 0 0 auto;
+        text-align: center;
+    }
+
+    header .inicio .textinicio .btnsinicio a:hover {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 350px) {
+    header .inicio img {
+        width: 250px;
+    }
 }
