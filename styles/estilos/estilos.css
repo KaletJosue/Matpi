@@ -180,6 +180,12 @@ header .inicio img {
     width: 500px;
 }
 
+@media (min-width: 1100px) {
+    header .inicio {
+        padding: 2rem 15rem;
+    }
+}
+
 @media (max-width: 1100px) {
     header .inicio .textinicio .imgabso1 {
         left: -300px;
