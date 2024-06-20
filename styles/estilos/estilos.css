@@ -16,8 +16,6 @@ body {
 header {
     background-image: linear-gradient(to bottom right, #fe9516, #fe4c16, #fe1616);
     padding: 1rem 2rem;
-    overflow: hidden;
-    position: absolute;
     width: 100vw;
 }
 
