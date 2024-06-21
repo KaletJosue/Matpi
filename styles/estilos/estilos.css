@@ -491,6 +491,11 @@ header .inicio img {
     .containercards .contentcards .cincocards .textcards h1 {
         font-size: 20px;
     }
+
+    .containercards .contentcards .cuatrocards .textcards button:hover,
+    .containercards .contentcards .cincocards .textcards button:hover {
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 800px) {
