@@ -20,7 +20,7 @@ html::-webkit-scrollbar {
 header {
     background-image: linear-gradient(to bottom right, #fe9516, #fe4c16, #fe1616);
     padding: 1rem 2rem;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     width: 100vw;
 }
@@ -128,7 +128,7 @@ header .inicio .textinicio p {
     font-weight: 300;
 }
 
-header .inicio .textinicio .imgabso1 {
+header .inicio .imgabso1 {
     position: absolute;
     left: -250px;
     transform: rotate(45deg);
@@ -136,7 +136,7 @@ header .inicio .textinicio .imgabso1 {
     filter: drop-shadow(2rem 1px 1rem #000);
 }
 
-header .inicio .textinicio .imgabso2 {
+header .inicio .imgabso2 {
     position: absolute;
     left: 200px;
     top: -150px;
@@ -145,7 +145,7 @@ header .inicio .textinicio .imgabso2 {
     filter: drop-shadow(2rem 1px 1rem #000);
 }
 
-header .inicio .textinicio .imgabso3 {
+header .inicio .imgabso3 {
     position: absolute;
     right: -100px;
     top: 550px;
@@ -180,40 +180,321 @@ header .inicio img {
     width: 500px;
 }
 
-@media (min-width: 1100px) {
-    header .inicio {
-        padding: 2rem 15rem;
+.menu {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-17px);
+}
+
+.menu p {
+    padding: .7rem 3rem;
+    background-color: #ffaa43;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.imgsmenu {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 1rem 15rem;
+    transform: translateY(-20px);
+    align-items: center;
+    width: 100vw;
+    overflow: hidden;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.imgsmenu::-webkit-scrollbar {
+    width: 0;
+    height: 3px;
+}
+
+.imgsmenu::-webkit-scrollbar-thumb {
+    background-color: #ffaa43;
+    border-radius: 5px;
+}
+
+.imgsmenu .cardsmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    gap: .5rem;
+}
+
+.imgsmenu .cardsmenu img {
+    width: 100px;
+    cursor: pointer;
+}
+
+.imgsmenu .cardsmenu:hover {
+    transform: scale(1.1);
+}
+
+.imgsmenu .cardsmenu p {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    color: black;
+    font-weight: 600;
+}
+
+.containercards {
+    background-color: #f9ebe0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem;
+    position: relative;
+    transform: translateY(-20px);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.containercards .circulo {
+    position: absolute;
+    right: -250px;
+    top: -300px;
+    z-index: -1;
+}
+
+.containercards .circulo2 {
+    position: absolute;
+    left: -200px;
+    bottom: -100px;
+    z-index: -1;
+}
+
+.containercards .contentcards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    gap: 1rem;
+}
+
+.containercards .contentcards .unocards {
+    grid-row: 1;
+    grid-column: 1/3;
+}
+
+.containercards .contentcards .doscards {
+    grid-row: 1;
+    grid-column: 3/5;
+}
+
+.containercards .contentcards .trescards {
+    grid-row: 1;
+    grid-column: 5/7;
+}
+
+.containercards .contentcards .cuatrocards {
+    grid-row: 2;
+    grid-column: 1/4;
+}
+
+.containercards .contentcards .cincocards {
+    grid-row: 2;
+    grid-column: 4/7;
+}
+
+.containercards .contentcards div img {
+    width: 200px;
+}
+
+.containercards .contentcards .unocards,
+.containercards .contentcards .doscards,
+.containercards .contentcards .trescards,
+.containercards .contentcards .cuatrocards,
+.containercards .contentcards .cincocards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    background-color: #fefeff;
+    gap: 1rem;
+    transition: all .2s ease;
+}
+
+.containercards .contentcards .doscards {
+    background-color: #fe4c16;
+}
+
+.containercards .contentcards .cuatrocards {
+    background-color: #fe9516;
+}
+
+.containercards .contentcards .unocards .textcards h1,
+.containercards .contentcards .doscards .textcards h1,
+.containercards .contentcards .trescards .textcards h1 {
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.containercards .contentcards .unocards .textcards p,
+.containercards .contentcards .doscards .textcards p,
+.containercards .contentcards .trescards .textcards ul li {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: .3rem;
+}
+
+.containercards .contentcards .unocards .textcards h2,
+.containercards .contentcards .doscards .textcards h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.containercards .contentcards .doscards .textcards h1,
+.containercards .contentcards .doscards .textcards p,
+.containercards .contentcards .doscards .textcards h2 {
+    color: white;
+}
+
+.containercards .contentcards .cuatrocards .textcards h1 {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.containercards .contentcards .cuatrocards .textcards button {
+    padding: .7rem 2rem;
+    border: solid 2px white;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+    border-radius: 30px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.containercards .contentcards .cuatrocards .textcards button:hover {
+    background-color: white;
+    color: #fe9516;
+    transform: translateX(10px);
+}
+
+.containercards .contentcards .cincocards .textcards h1 {
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1rem;
+}
+
+.containercards .contentcards .cincocards .textcards button {
+    padding: .7rem 2rem;
+    border: solid 2px #fe1616;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fe1616;
+    border-radius: 30px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.containercards .contentcards .cincocards .textcards button:hover {
+    background-color: #fe1616;
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+@media (max-width: 1900px) {
+    .containercards .contentcards .unocards,
+    .containercards .contentcards .doscards,
+    .containercards .contentcards .trescards,
+    .containercards .contentcards .cuatrocards,
+    .containercards .contentcards .cincocards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .containercards .contentcards .cuatrocards .textcards,
+    .containercards .contentcards .cincocards .textcards {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1500px) {
+    .imgsmenu {
+        padding: 1rem 3rem;
+    }
+}
+
+@media (max-width: 1300px) {
+    .containercards {
+        padding: 5rem;
     }
 }
 
 @media (max-width: 1100px) {
-    header .inicio .textinicio .imgabso1 {
-        left: -300px;
+     .imgabso1 {
+        display: none;
     }
 
-    header .inicio .textinicio .imgabso3 {
+    .imgabso3 {
         top: 600px;
+    }
+
+    header .inicio {
+        padding: 2rem 15rem;
+    }
+
+    .containercards {
+        padding: 5rem 2rem;
     }
 }
 
 @media (max-width: 1000px) {
-    header .inicio .textinicio .imgabso1,
-    header .inicio .textinicio .imgabso3 {
+    .imgabso1,
+    .imgabso3 {
         display: none;
     }
 
-    header .inicio .textinicio .imgabso2 {
+    .imgabso2 {
         top: -200px;
     }
 
     header .inicio {
         display: flex;
         flex-direction: column;
+        padding: 4rem 3rem;
+    }
+
+    .containercards .contentcards {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .containercards .contentcards .cuatrocards .textcards h1,
+    .containercards .contentcards .cincocards .textcards h1 {
+        font-size: 20px;
     }
 }
 
 @media (max-width: 800px) {
-    header .inicio .textinicio .imgabso2 {
+    .imgabso2 {
         display: none;
     }
 
@@ -225,6 +506,10 @@ header .inicio img {
 @media (max-width: 600px) {
     header .inicio img {
         width: 350px;
+    }
+
+    header .inicio {
+        padding: 1rem 0;
     }
 }
 
@@ -241,6 +526,10 @@ header .inicio img {
 @media (max-width: 400px) {
     header .inicio img {
         width: 300px;
+    }
+
+    .containercards .contentcards .trescards .textcards h1 {
+        font-size: 30px;
     }
 }
 
@@ -266,6 +555,10 @@ header .inicio img {
 
     header .inicio {
         padding: 1rem;
+    }
+
+    .containercards .contentcards .trescards .textcards h1 {
+        font-size: 25px;
     }
 }
 
