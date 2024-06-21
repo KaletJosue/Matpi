@@ -178,6 +178,7 @@ header .inicio .textinicio .btnsinicio a:hover {
 
 header .inicio img {
     width: 500px;
+    filter: drop-shadow(1rem 1px 1rem #000);
 }
 
 .menu {
@@ -414,6 +415,117 @@ header .inicio img {
     transform: translateX(10px);
 }
 
+.novedades {
+    padding: 5rem 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transform: translateY(-20px);
+}
+
+.novedades h1 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #fe9516;
+    margin-bottom: 3rem;
+}
+
+.novedades .contentnovedades {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.novedades .contentnovedades .innove {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.novedades .contentnovedades .innove h2 {
+    font-size: 25px;
+    font-weight: 900;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    color: #000000;
+}
+
+.novedades .contentnovedades .innove p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.novedades img {
+    width: 250px;
+    height: auto;
+    transition: all .2s ease;
+}
+
+.redes {
+    background-color: #fe4c16;
+}
+
+.redes .contentredes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 50rem 5rem 15rem;
+    margin-top: 5rem;
+    gap: 5rem;
+}
+
+.redes .contentredes img {
+    width: 400px;
+    position: absolute;
+    right: 200px;
+    filter: drop-shadow(1rem 1px 1rem #000);
+}
+
+.redes .contentredes .textcontentredes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.redes .contentredes .textcontentredes .btnscontentredes {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.redes .contentredes .textcontentredes .btnscontentredes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    padding: .7rem 2rem;
+    background-color: transparent;
+    color: white;
+    border: solid 2px white;
+    gap: .2rem;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+
+.redes .contentredes .textcontentredes .btnscontentredes a:hover {
+    background-color: white;
+    color: #fe4c16;
+}
+
+.redes .contentredes h1 {
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 1900px) {
     .containercards .contentcards .unocards,
     .containercards .contentcards .doscards,
@@ -463,6 +575,14 @@ header .inicio img {
     .containercards {
         padding: 5rem 2rem;
     }
+
+    .redes .contentredes img {
+        right: 20px;
+    }
+
+    .redes .contentredes {
+        padding: 5rem 25rem 5rem 5rem;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -496,6 +616,10 @@ header .inicio img {
     .containercards .contentcards .cincocards .textcards button:hover {
         transform: translateX(0);
     }
+
+    .novedades .contentnovedades {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 800px) {
@@ -506,6 +630,17 @@ header .inicio img {
     .link {
         display: none;
     }
+
+    .redes .contentredes {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 5rem;
+    }
+
+    .redes .contentredes img {
+        width: 300px;
+        position: relative;
+    }
 }
 
 @media (max-width: 600px) {
@@ -515,6 +650,10 @@ header .inicio img {
 
     header .inicio {
         padding: 1rem 2rem 4rem 2rem;
+    }
+
+    .novedades .contentnovedades {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -535,6 +674,40 @@ header .inicio img {
 
     .containercards .contentcards .trescards .textcards h1 {
         font-size: 30px;
+    }
+
+    .novedades h1 {
+        font-size: 30px;
+        margin-bottom: 1rem;
+    }
+
+    .novedades img {
+        width: 200px;
+    }
+
+    .novedades {
+        padding: 5rem 1rem;
+    }
+
+    .redes .contentredes {
+        padding: 5rem 1rem;
+        gap: 3rem;
+    }
+
+    .redes .contentredes img {
+        width: 200px;
+    }
+
+    .redes .contentredes .textcontentredes h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .redes .contentredes .textcontentredes .btnscontentredes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 

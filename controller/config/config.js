@@ -13,3 +13,5 @@ sr.reveal('.doscards',{delay:100, origin:'left'});
 sr.reveal('.trescards',{delay:100, origin:'left'});
 sr.reveal('.cuatrocards',{delay:100, origin:'left'});
 sr.reveal('.cincocards',{delay:100, origin:'left'});
+sr.reveal('.imgcon',{delay:100, origin:'left'});
+sr.reveal('.textcontentredes',{delay:100, origin:'left'});
