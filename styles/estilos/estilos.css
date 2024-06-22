@@ -473,6 +473,7 @@ header .inicio img {
     height: 400px;
     padding: 10rem;
     margin-top: 5rem;
+    width: 100vw;
 }
 
 .redes img {
@@ -661,6 +662,10 @@ header .inicio img {
 
     .redes img {
         width: 400px;
+    }
+
+    .redes .textredes .btnsredes a:hover {
+        transform: translateY(0);
     }
 }
 
