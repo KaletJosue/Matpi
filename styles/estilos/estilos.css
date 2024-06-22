@@ -467,6 +467,7 @@ header .inicio img {
 
 .redes {
     background-color: #fe4c16;
+    position: relative;
 }
 
 .redes .contentredes {
@@ -483,6 +484,7 @@ header .inicio img {
     position: absolute;
     right: 200px;
     filter: drop-shadow(1rem 1px 1rem #000);
+    z-index: 1;
 }
 
 .redes .contentredes .textcontentredes {
@@ -515,6 +517,7 @@ header .inicio img {
 .redes .contentredes .textcontentredes .btnscontentredes a:hover {
     background-color: white;
     color: #fe4c16;
+    transform: scale(0.97);
 }
 
 .redes .contentredes h1 {
@@ -524,6 +527,89 @@ header .inicio img {
     width: 100%;
     display: flex;
     align-items: center;
+}
+
+.dulcepecado {
+    padding: 10rem 15rem;
+    background-color: #f9ebe0;
+    position: relative;
+    overflow: hidden;
+}
+
+.dulcepecado .indulcepecado {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dulcepecado .leftdulce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dulcepecado .leftdulce img {
+    width: 500px;
+}
+
+.dulcepecado .rightdulce {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dulcepecado .rightdulce h1 {
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.dulcepecado .rightdulce p {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.dulcepecado .rightdulce a {
+    padding: .7rem 2rem;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #fe1616;
+    color: #f9ebe0;
+    border-radius: 30px;
+    border: solid 2px #fe1616;
+    transition: all .2s ease;
+}
+
+.dulcepecado .rightdulce a:hover {
+    background-color: #f9ebe0;
+    color: #fe1616;
+    transform: translateX(10px);
+}
+
+.dulcepecado .cir {
+    position: absolute;
+    right: -200px;
+    bottom: -300px;
+}
+
+.dulcepecado .cir2 {
+    position: absolute;
+}
+
+.dulcepecado .cir3 {
+    position: absolute;
+    top: -200px;
+    width: 400px;
+    right: 200px;
+}
+
+.dulcepecado .cir4 {
+    position: absolute;
+    top: -400px;
+    left: -500px;
 }
 
 @media (max-width: 1900px) {
@@ -556,6 +642,11 @@ header .inicio img {
 @media (max-width: 1300px) {
     .containercards {
         padding: 5rem;
+    }
+
+    .dulcepecado .cir,
+    .dulcepecado .cir3 {
+        display: none;
     }
 }
 
@@ -620,6 +711,27 @@ header .inicio img {
     .novedades .contentnovedades {
         grid-template-columns: 1fr 1fr;
     }
+
+    .dulcepecado {
+        padding: 10rem 3rem;
+    }
+
+    .dulcepecado .indulcepecado {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dulcepecado .rightdulce {
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .dulcepecado .rightdulce a:hover {
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 800px) {
@@ -654,6 +766,14 @@ header .inicio img {
 
     .novedades .contentnovedades {
         grid-template-columns: 1fr;
+    }
+
+    .dulcepecado {
+        padding: 10rem 1rem;
+    }
+
+    .dulcepecado .leftdulce img {
+        width: 300px;
     }
 }
 
@@ -708,6 +828,14 @@ header .inicio img {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .dulcepecado .rightdulce h1 {
+        font-size: 30px;
+    }
+
+    .dulcepecado .leftdulce img {
+        width: 200px;
     }
 }
 
