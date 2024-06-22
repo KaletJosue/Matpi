@@ -466,150 +466,61 @@ header .inicio img {
 }
 
 .redes {
-    background-color: #fe4c16;
-    position: relative;
-}
-
-.redes .contentredes {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5rem 50rem 5rem 15rem;
+    background-color: #fe4c16;
+    height: 400px;
+    padding: 10rem;
     margin-top: 5rem;
-    gap: 5rem;
 }
 
-.redes .contentredes img {
-    width: 400px;
-    position: absolute;
-    right: 200px;
-    filter: drop-shadow(1rem 1px 1rem #000);
-    z-index: 1;
+.redes img {
+    width: 500px;
+    z-index: 10;
+    filter: drop-shadow(1rem 1px 1rem black);
 }
 
-.redes .contentredes .textcontentredes {
+.redes .textredes {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-}
-
-.redes .contentredes .textcontentredes .btnscontentredes {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.redes .contentredes .textcontentredes .btnscontentredes a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 700;
-    padding: .7rem 2rem;
-    background-color: transparent;
-    color: white;
-    border: solid 2px white;
-    gap: .2rem;
-    border-radius: 30px;
-    transition: all .2s ease;
-}
-
-.redes .contentredes .textcontentredes .btnscontentredes a:hover {
-    background-color: white;
-    color: #fe4c16;
-    transform: scale(0.97);
-}
-
-.redes .contentredes h1 {
-    font-size: 25px;
-    font-weight: 900;
-    color: white;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.dulcepecado {
-    padding: 10rem 15rem;
-    background-color: #f9ebe0;
-    position: relative;
-    overflow: hidden;
-}
-
-.dulcepecado .indulcepecado {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
 }
 
-.dulcepecado .leftdulce {
+.redes .textredes h1 {
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+}
+
+.redes .textredes .btnsredes {
     display: flex;
-    flex-direction: column;
+    gap: .2rem;
+}
+
+.redes .textredes .btnsredes a {
+    display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.dulcepecado .leftdulce img {
-    width: 500px;
-}
-
-.dulcepecado .rightdulce {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.dulcepecado .rightdulce h1 {
-    font-size: 50px;
-    font-weight: 900;
-}
-
-.dulcepecado .rightdulce p {
+    padding: .7rem 2rem;
+    gap: .4rem;
     font-size: 15px;
     font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.dulcepecado .rightdulce a {
-    padding: .7rem 2rem;
-    font-size: 15px;
-    font-weight: 700;
-    background-color: #fe1616;
-    color: #f9ebe0;
+    color: white;
+    background-color: transparent;
     border-radius: 30px;
-    border: solid 2px #fe1616;
+    border: solid 2px white;
     transition: all .2s ease;
 }
 
-.dulcepecado .rightdulce a:hover {
-    background-color: #f9ebe0;
-    color: #fe1616;
-    transform: translateX(10px);
+.redes .textredes .btnsredes a i {
+    font-size: 20px;
 }
 
-.dulcepecado .cir {
-    position: absolute;
-    right: -200px;
-    bottom: -300px;
-}
-
-.dulcepecado .cir2 {
-    position: absolute;
-}
-
-.dulcepecado .cir3 {
-    position: absolute;
-    top: -200px;
-    width: 400px;
-    right: 200px;
-}
-
-.dulcepecado .cir4 {
-    position: absolute;
-    top: -400px;
-    left: -500px;
+.redes .textredes .btnsredes a:hover {
+    background-color: white;
+    color: #fe4c16;
+    transform: translateY(-10px);
 }
 
 @media (max-width: 1900px) {
@@ -637,6 +548,10 @@ header .inicio img {
     .imgsmenu {
         padding: 1rem 3rem;
     }
+
+    .redes .textredes h1 {
+        font-size: 30px;
+    }
 }
 
 @media (max-width: 1300px) {
@@ -644,9 +559,9 @@ header .inicio img {
         padding: 5rem;
     }
 
-    .dulcepecado .cir,
-    .dulcepecado .cir3 {
-        display: none;
+    .redes {
+        height: 320px;
+        padding: 10rem 5rem;
     }
 }
 
@@ -673,6 +588,22 @@ header .inicio img {
 
     .redes .contentredes {
         padding: 5rem 25rem 5rem 5rem;
+    }
+
+    .redes img {
+        width: 400px;
+    }
+
+    .redes .textredes .btnsredes a {
+        font-size: 13px;
+    }
+
+    .redes .textredes .btnsredes a i {
+        font-size: 15px;
+    }
+
+    .redes .textredes h1 {
+        font-size: 25px;
     }
 }
 
@@ -712,25 +643,24 @@ header .inicio img {
         grid-template-columns: 1fr 1fr;
     }
 
-    .dulcepecado {
-        padding: 10rem 3rem;
+    .redes {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
     }
 
-    .dulcepecado .indulcepecado {
+    .redes .textredes {
         display: flex;
-        flex-direction: column-reverse;
-        gap: 1rem;
         align-items: center;
+        justify-content: center;
         text-align: center;
     }
 
-    .dulcepecado .rightdulce {
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .dulcepecado .rightdulce a:hover {
-        transform: translateX(0);
+    .redes img {
+        width: 400px;
     }
 }
 
@@ -743,15 +673,8 @@ header .inicio img {
         display: none;
     }
 
-    .redes .contentredes {
-        display: flex;
-        flex-direction: column-reverse;
-        padding: 5rem;
-    }
-
-    .redes .contentredes img {
-        width: 300px;
-        position: relative;
+    .redes {
+        padding: 5rem 1rem;
     }
 }
 
@@ -767,14 +690,6 @@ header .inicio img {
     .novedades .contentnovedades {
         grid-template-columns: 1fr;
     }
-
-    .dulcepecado {
-        padding: 10rem 1rem;
-    }
-
-    .dulcepecado .leftdulce img {
-        width: 300px;
-    }
 }
 
 @media (max-width: 500px) {
@@ -784,6 +699,23 @@ header .inicio img {
 
     header .inicio .textinicio h1 {
         font-size: 60px;
+    }
+
+    .redes img {
+        width: 300px;
+    }
+
+    .redes .textredes h1 {
+        font-size: 20px;
+    }
+
+    .redes .textredes .btnsredes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .redes .textredes .btnsredes:hover {
+        transform: translateY(0);
     }
 }
 
@@ -809,32 +741,7 @@ header .inicio img {
         padding: 5rem 1rem;
     }
 
-    .redes .contentredes {
-        padding: 5rem 1rem;
-        gap: 3rem;
-    }
-
-    .redes .contentredes img {
-        width: 200px;
-    }
-
-    .redes .contentredes .textcontentredes h1 {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .redes .contentredes .textcontentredes .btnscontentredes {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .dulcepecado .rightdulce h1 {
-        font-size: 30px;
-    }
-
-    .dulcepecado .leftdulce img {
+    .redes img {
         width: 200px;
     }
 }
