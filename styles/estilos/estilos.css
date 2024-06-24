@@ -353,6 +353,10 @@ header .inicio img {
     margin-bottom: .3rem;
 }
 
+.containercards .contentcards .trescards img {
+    filter: drop-shadow(0 1px 1rem #00000054);
+}
+
 .containercards .contentcards .unocards .textcards h2,
 .containercards .contentcards .doscards .textcards h2 {
     font-size: 20px;
@@ -524,6 +528,240 @@ header .inicio img {
     transform: translateY(-10px);
 }
 
+.imghouse {
+    filter: drop-shadow(0 1px 1rem #0000006d);
+}
+
+.dulce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9ebe0;
+    position: relative;
+    overflow: hidden;
+    padding: 10rem 15rem;
+    gap: 2rem;
+}
+
+.dulce .imgdulce {
+    width: 700px;
+}
+
+.dulce .textdulce {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dulce .textdulce h1 {
+    font-size: 50px;
+    font-weight: 900;
+    z-index: 1;
+}
+
+.dulce .textdulce h1 span {
+    color: #fe9516;
+}
+
+.dulce .textdulce p {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    z-index: 1;
+}
+
+.dulce .textdulce p span {
+    font-weight: 900;
+    color: #fe9516;
+}
+
+.dulce .textdulce a {
+    font-size: 15px;
+    font-weight: 700;
+    border: solid 2px #fe9516;
+    background-color: #fe9516;
+    padding: .7rem 2rem;
+    color: #ffffff;
+    border-radius: 30px;
+    transition: all .17s ease;
+    z-index: 1;
+}
+
+.dulce .textdulce a:hover {
+    transform: translateX(20px);
+}
+
+.dulce .cirdulce2 {
+    position: absolute;
+    left: -400px;
+    top: -400px;
+}
+
+.dulce .cirdulce {
+    position: absolute;
+    right: -200px;
+    bottom: -250px;
+}
+
+.conlast {
+    background-image: linear-gradient(#fe9516, #fe4c16, #fe1616);
+}
+
+.conlast .inlast {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem 15rem 10rem 15rem;
+    gap: 5rem;
+}
+
+.conlast .inlast .last {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conlast .inlast .last .textlast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.conlast .inlast .last .textlast h1 {
+    font-size: 70px;
+    font-weight: 900;
+    color: white;
+}
+
+.conlast .inlast .last .textlast p {
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.conlast .inlast .last .textlast a {
+    font-size: 15px;
+    font-weight: 800;
+    padding: .7rem 2rem;
+    color: white;
+    border: solid 2px white;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+
+.conlast .inlast .last .textlast a:hover {
+    transform: translateX(20px);
+    background-color: white;
+    color: #fe1616;
+}
+
+.conlast .inlast .last img {
+    width: 500px;
+    filter: drop-shadow(1px 1px 1rem #000);
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+}
+
+footer .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+footer .container .sec h2 {
+    position: relative;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+footer .container .sec p {
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+footer .container .sci {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+}
+
+footer .container .sci li a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+footer .container .quicklins {
+    position: relative;
+}
+
+footer .container .quicklins ul li {
+    list-style: none;
+}
+
+footer .container .quicklins ul li a {
+    color: white;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+footer .container .contact .info {
+    position: relative;
+}
+
+footer .container .contact .info li {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+
+footer .container .contact .info li span {
+    color: white;
+    font-size: 20px;
+}
+
+footer .container .contact .info li a {
+    color: white;
+}
+
+.copyrightText {
+    width: 100%;
+    padding: 20px 100px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+}
+
+.divhr {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.divhr hr {
+    width: 90%;
+    border: none;
+    border-bottom: solid 3px rgba(255, 255, 255, 0.5);
+}
+
+
 @media (max-width: 1900px) {
     .containercards .contentcards .unocards,
     .containercards .contentcards .doscards,
@@ -534,6 +772,7 @@ header .inicio img {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
     }
 
     .containercards .contentcards .cuatrocards .textcards,
@@ -542,6 +781,7 @@ header .inicio img {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 }
 
@@ -553,6 +793,10 @@ header .inicio img {
     .redes .textredes h1 {
         font-size: 30px;
     }
+
+    .conlast .inlast {
+        padding: 5rem 10rem 10rem 10rem;
+    }
 }
 
 @media (max-width: 1300px) {
@@ -563,6 +807,26 @@ header .inicio img {
     .redes {
         height: 320px;
         padding: 10rem 5rem;
+    }
+
+    .dulce .imgdulce {
+        width: 500px;
+    }
+
+    .dulce {
+        padding: 10rem;
+    }
+
+    .dulce .cirdulce {
+        right: -400px;
+    }
+
+    .conlast .inlast {
+        padding: 5rem 5rem 10rem 5rem;
+    }
+
+    .conlast .inlast .last img {
+        width: 300px;
     }
 }
 
@@ -605,6 +869,10 @@ header .inicio img {
 
     .redes .textredes h1 {
         font-size: 25px;
+    }
+
+    .dulce {
+        padding: 10rem 5rem;
     }
 }
 
@@ -667,6 +935,55 @@ header .inicio img {
     .redes .textredes .btnsredes a:hover {
         transform: translateY(0);
     }
+
+    .dulce {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dulce .textdulce {
+        align-items: center;
+        text-align: center;
+    }
+
+    .dulce .textdulce a:hover {
+        transform: translateX(0);
+    }
+
+    .conlast .inlast .last {
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .conlast .inlast .last:not(:nth-child(2)) {
+        flex-direction: column-reverse;
+    }
+
+    .conlast .inlast .last:nth-child(2) {
+        flex-direction: column;
+    }
+
+    .conlast .inlast .last .textlast {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer {
+        padding: 40px;
+    }
+
+    footer .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    .copyrightText {
+        padding: 20px 40px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -681,6 +998,10 @@ header .inicio img {
     .redes {
         padding: 5rem 1rem;
     }
+
+    footer .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 @media (max-width: 600px) {
@@ -694,6 +1015,22 @@ header .inicio img {
 
     .novedades .contentnovedades {
         grid-template-columns: 1fr;
+    }
+
+    .dulce {
+        padding: 10rem 2rem;
+    }
+
+    .dulce .imgdulce {
+        width: 400px;
+    }
+
+    .conlast .inlast {
+        padding: 5rem 1rem 10rem 1rem;
+    }
+
+    .conlast .inlast .last .textlast h1 {
+        font-size: 50px;
     }
 }
 
@@ -749,6 +1086,23 @@ header .inicio img {
     .redes img {
         width: 200px;
     }
+
+    .dulce .imgdulce {
+        width: 300px;
+    }
+
+    .dulce .textdulce h1 {
+        font-size: 30px;
+        margin-bottom: 1rem;
+    }
+
+    .conlast .inlast .last .textlast h1 {
+        font-size: 30px;
+    }
+
+    .conlast .inlast .last img {
+        width: 200px;
+    }
 }
 
 @media (max-width: 300px) {
@@ -778,6 +1132,10 @@ header .inicio img {
 
     .containercards .contentcards .trescards .textcards h1 {
         font-size: 25px;
+    }
+
+    .dulce .imgdulce {
+        width: 200px;
     }
 }
 

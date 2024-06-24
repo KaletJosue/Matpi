@@ -15,5 +15,5 @@ sr.reveal('.cuatrocards',{delay:100, origin:'left'});
 sr.reveal('.cincocards',{delay:100, origin:'left'});
 sr.reveal('.imgcon',{delay:100, origin:'top'});
 sr.reveal('.textredes',{delay:100, origin:'left'});
-sr.reveal('.rightdulce',{delay:200, origin:'bottom'});
-sr.reveal('.imgdulce',{delay:100, origin:'top'});
+sr.reveal('.textdulce',{delay:400, origin:'left'});
+sr.reveal('.imgdulce',{delay:10, origin:'bottom'});
