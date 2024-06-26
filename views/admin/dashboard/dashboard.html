@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/admin/dashboard/dashboard.css" />
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Administrador | Matpi</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="head">
+            <div class="user-img">
+                <img src="/assets/logo.png" alt="" class="menu-btn">
+            </div>
+            <div class="user-details">
+                <p class="title">Matpi</p>
+                <p class="name">Restaurante</p>
+            </div>
+        </div>
+
+        <div class="nav">
+            <div class="menu">
+                <p class="title">Main</p>
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-user"></i>
+                            <span class="text">Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-file-text"></i>
+                            <span class="text">Posts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Schedules</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-chart-bar"></i>
+                            <span class="text">Income</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Settings</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-gear"></i>
+                            <span class="text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="menu">
+            <p class="title">Account</p>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="icon ph-bold ph-info"></i>
+                        <span class="text">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ph-bold ph-sign-out"></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="closeIcon"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/admin/dashboard/dashboard.js" type="module"></script>
+</body>
+
+</html>

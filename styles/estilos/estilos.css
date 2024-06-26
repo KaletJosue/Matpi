@@ -619,6 +619,7 @@ header .inicio img {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
 }
 
 .conlast .inlast .last .textlast {
@@ -692,7 +693,7 @@ footer .container .sec p {
 footer .container .sci {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4,50px);
+    grid-template-columns: repeat(4, 50px);
 }
 
 footer .container .sci li a {
@@ -763,6 +764,7 @@ footer .container .contact .info li a {
 
 
 @media (max-width: 1900px) {
+
     .containercards .contentcards .unocards,
     .containercards .contentcards .doscards,
     .containercards .contentcards .trescards,
@@ -831,7 +833,7 @@ footer .container .contact .info li a {
 }
 
 @media (max-width: 1100px) {
-     .imgabso1 {
+    .imgabso1 {
         display: none;
     }
 
@@ -877,6 +879,7 @@ footer .container .contact .info li a {
 }
 
 @media (max-width: 1000px) {
+
     .imgabso1,
     .imgabso3 {
         display: none;
@@ -1035,7 +1038,7 @@ footer .container .contact .info li a {
 }
 
 @media (max-width: 500px) {
-    .link{
+    .link {
         display: none;
     }
 
@@ -1138,4 +1141,3 @@ footer .container .contact .info li a {
         width: 200px;
     }
 }
-
