@@ -444,7 +444,7 @@ a p:hover span {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
   transition: all 0.3s ease;
 }
 
@@ -513,7 +513,8 @@ span.icon {
 
 button#okBtn {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #56b3f6;
@@ -522,7 +523,7 @@ button#okBtn {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 
@@ -542,7 +543,7 @@ button#okBtn:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
 }
 
 .modal2.active {
@@ -610,7 +611,8 @@ span.icon2 {
 
 button#okBtn2 {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #f65656;
@@ -619,7 +621,7 @@ button#okBtn2 {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 
@@ -639,7 +641,7 @@ button#okBtn2:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
 }
 
 .modal3.active {
@@ -707,7 +709,8 @@ span.icon3 {
 
 button#okBtn3 {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #b156f6;
@@ -716,7 +719,7 @@ button#okBtn3 {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 
@@ -736,7 +739,7 @@ button#okBtn3:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
 }
 
 .modal4.active {
@@ -804,7 +807,8 @@ span.icon4 {
 
 button#okBtn4 {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #56f656;
@@ -813,7 +817,7 @@ button#okBtn4 {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 
@@ -833,7 +837,7 @@ button#okBtn4:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
 }
 
 .modal5.active {
@@ -901,7 +905,8 @@ span.icon5 {
 
 button#okBtn5 {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #f65656;
@@ -910,7 +915,7 @@ button#okBtn5 {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 
@@ -930,7 +935,7 @@ button#okBtn5:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-family: 'Poppins';
+
 }
 
 .modal6.active {
@@ -998,7 +1003,8 @@ span.icon6 {
 
 button#okBtn6 {
   padding: 8px 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   background: transparent;
   color: #fff;
   border: 1px solid #f65656;
@@ -1007,7 +1013,7 @@ button#okBtn6 {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  font-family: 'Poppins';
+
   transition: all 0.3s;
 }
 

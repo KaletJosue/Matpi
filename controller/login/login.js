@@ -194,7 +194,9 @@ regis.addEventListener('click', (e) => {
                                 Correo: email_regis,
                                 Id: user.uid,
                                 Nombre: name,
-                                Rol: "Usuario"
+                                Rol: "Usuario",
+                                DarkMode: "desactive",
+                                URL: "",
                             })
                         })
 
