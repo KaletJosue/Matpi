@@ -273,7 +273,6 @@ onAuthStateChanged(auth, (user) => {
         })
 
     } else {
-        const body = document.body
         const tryAgain = document.getElementById('okBtn')
         const modal = document.querySelector('.modal')
 
@@ -281,7 +280,5 @@ onAuthStateChanged(auth, (user) => {
         tryAgain.addEventListener('click', () => {
             location.href = "/views/login/login.html"
         })
-
-        body.style.display = "none"
     }
 });

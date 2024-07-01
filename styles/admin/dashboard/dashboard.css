@@ -35,6 +35,11 @@
     font-family: 'Montserrat';
 }
 
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 body {
     background-color: var(--color-gray-white);
 }
@@ -243,7 +248,7 @@ body {
 }
 
 .contentmain {
-    padding: 1rem 2rem 1rem 7rem;
+    padding: 1rem 2rem 2rem 7rem;
     display: flex;
     gap: 2rem;
 }
@@ -335,6 +340,54 @@ body {
     font-size: 13px;
     font-weight: 500;
     color: var(--color-black);
+}
+
+.contentmain .leftmain .orders h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--color-black);
+}
+
+.contentmain .leftmain .orders .condefa {
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    border-radius: 10px;
+    padding: 1rem 3rem;
+}
+
+.contentmain .leftmain .orders .default {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contentmain .leftmain .orders .default tbody tr th {
+    padding: 1rem 2rem;
+    border-bottom: solid 2px var(--color-fondo);
+    color: var(--color-black);
+}
+
+.contentmain .leftmain .orders .default tbody tr:last-child th {
+    padding-bottom: 2rem;
+    border: none;
+}
+
+.contentmain .leftmain .orders .default tbody tr:first-child th {
+    font-size: 17px;
+    font-weight: 800;
+    padding-top: 2rem;
+}
+
+.contentmain .leftmain .orders .default tbody tr:not(:first-child) th {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.contentmain .leftmain .orders .default tbody tr th:last-child {
+    color: #fe4c16;
+    font-weight: 700;
 }
 
 .contentmain .rigthmain .hamburguer {
@@ -451,6 +504,25 @@ body {
     background-color: var(--color-white);
     border-radius: 10px;
     box-shadow: var(--box-shadow-suave);
+    position: relative;
+}
+
+.contentmain .rigthmain .reminders .contentreminders .reminder::before {
+    content: 'Eliminar';
+    position: absolute;
+    right: -100%;
+    padding: 1rem 2rem;
+    font-size: 13px;
+    font-weight: 800;
+    background-color: #fe1616;
+    color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    transition: all .2s ease;
+}
+
+.contentmain .rigthmain .reminders .contentreminders .reminder.active::before {
+    right: 40px;
 }
 
 .contentmain .rigthmain .reminders .contentreminders .reminder:nth-child(2) .leftreminder i {
@@ -474,16 +546,19 @@ body {
 .contentmain .rigthmain .reminders .contentreminders .reminder .leftreminder .textleftreminder p {
     font-size: 13px;
     font-weight: 700;
+    color: var(--color-black);
 }
 
 .contentmain .rigthmain .reminders .contentreminders .reminder .leftreminder .textleftreminder h3 {
     font-size: 10px;
     font-weight: 600;
+    color: var(--color-black);
 }
 
 .contentmain .rigthmain .reminders .contentreminders .reminder .rightreminder i {
     font-size: 20px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .circular-progress,
@@ -1046,6 +1121,10 @@ button#cancelBtn2:hover {
     .contentmain .rigthmain .hamburguer .texthamgurger h3 {
         font-size: 14px;
     }
+
+    .contentmain .leftmain .orders .default tbody tr th:nth-child(2) {
+        display: none;
+    }
 }
 
 @media (width < 1100px) {
@@ -1076,6 +1155,16 @@ button#cancelBtn2:hover {
     .contentmain .leftmain .users .contentuser {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (width < 1000px) {
+    .contentmain .leftmain .orders .default tbody tr th:nth-child(3) {
+        display: none;
+    }
+
+    .contentmain .leftmain .orders .condefa {
+        padding: 1rem 1.5rem;
     }
 }
 
@@ -1212,6 +1301,11 @@ button#cancelBtn2:hover {
 
     .contentmain .leftmain .users .contentuser {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .contentmain .leftmain .orders .condefa {
+        overflow: hidden;
+        overflow-x: auto;
     }
 }
 
