@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query, updateDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCHMlDhb4hdGrKWIhLeaBCDCfCNADGbcaQ",
@@ -374,6 +374,17 @@ onAuthStateChanged(auth, (user) => {
             });
         });
 
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+
+        const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+        const hoursStr = hours < 10 ? '0' + hours : hours;
+
         addreminder.addEventListener('click', () => {
             modal3.classList.add('active')
             closeBtn3.addEventListener('click', () => {
@@ -386,52 +397,67 @@ onAuthStateChanged(auth, (user) => {
                 namereminder = document.getElementById('name_reminder').value
                 var iconreminder = $('.select2').val()
                 var colorreminder = pickr.getColor().toHEXA().toString()
+                const formattedTime = `${hoursStr}:${minutesStr} ${ampm}`;
 
                 if (namereminder.length != 0) {
-                    if (hourreminder.length != 0) {
-                        if (iconreminder != 0) {
+                    if (namereminder.length < 36) {
+                        if (hourreminder.length != 0) {
+                            if (iconreminder != 0) {
 
-                            onAuthStateChanged(auth, (user) => {
-                                if (user) {
-                                    const uid = user.uid;
+                                onAuthStateChanged(auth, (user) => {
+                                    if (user) {
+                                        const uid = user.uid;
 
-                                    addDoc(collection(db, "Users", user.uid, "Data_Reminder"), {
-                                        Nombre: namereminder,
-                                        Hora_Inicial: 'asd',
-                                        Hora_Final: hourreminder,
-                                        Icon: iconreminder,
-                                        Color: colorreminder,
-                                        IdUser: user.uid,
-                                    })
+                                        addDoc(collection(db, "Users", user.uid, "Data_Reminder"), {
+                                            Nombre: namereminder,
+                                            Hora_Inicial: 'asd',
+                                            Hora_Final: hourreminder,
+                                            Hora_Inicial: formattedTime,
+                                            Icon: iconreminder,
+                                            Color: colorreminder,
+                                            IdUser: user.uid,
+                                        })
 
-                                    modal3.classList.remove('active')
-                                    text5.textContent = 'El recordatorio con nombre ' + '( ' + namereminder + ' )' + ' se agrego correctamente'
-                                    modal5.classList.add('active')
-                                    tryAgain5.addEventListener('click', () => {
-                                        modal5.classList.remove('active')
-                                        setTimeout(function () {
-                                            location.reload();
-                                        }, 1000)
-                                    })
-                                    window.addEventListener('click', event => {
-                                        if (event.target == modal4) {
+                                        modal3.classList.remove('active')
+                                        text5.textContent = 'El recordatorio con nombre ' + '( ' + namereminder + ' )' + ' se agrego correctamente'
+                                        modal5.classList.add('active')
+                                        tryAgain5.addEventListener('click', () => {
                                             modal5.classList.remove('active')
-                                        }
-                                    })
+                                            setTimeout(function () {
+                                                location.reload();
+                                            }, 1000)
+                                        })
+                                        window.addEventListener('click', event => {
+                                            if (event.target == modal5) {
+                                                modal5.classList.remove('active')
+                                            }
+                                        })
 
-                                } else {
-                                    const tryAgain = document.getElementById('okBtn')
-                                    const modal = document.querySelector('.modal')
+                                    } else {
+                                        const tryAgain = document.getElementById('okBtn')
+                                        const modal = document.querySelector('.modal')
 
-                                    modal.classList.add('active')
-                                    tryAgain.addEventListener('click', () => {
-                                        location.href = "/views/login/login.html"
-                                    })
-                                }
-                            });
+                                        modal.classList.add('active')
+                                        tryAgain.addEventListener('click', () => {
+                                            location.href = "/views/login/login.html"
+                                        })
+                                    }
+                                });
 
+                            } else {
+                                text4.textContent = "Selecciona un icono para este recordatorio"
+                                modal4.classList.add('active')
+                                tryAgain4.addEventListener('click', () => {
+                                    modal4.classList.remove('active')
+                                })
+                                window.addEventListener('click', event => {
+                                    if (event.target == modal4) {
+                                        modal4.classList.remove('active')
+                                    }
+                                })
+                            }
                         } else {
-                            text4.textContent = "Selecciona un icono para este recordatorio"
+                            text4.textContent = "Digita la hora a la que finalizara este recordatorio"
                             modal4.classList.add('active')
                             tryAgain4.addEventListener('click', () => {
                                 modal4.classList.remove('active')
@@ -443,7 +469,7 @@ onAuthStateChanged(auth, (user) => {
                             })
                         }
                     } else {
-                        text4.textContent = "Digita la hora a la que finalizara este recordatorio"
+                        text4.textContent = "El nombre del recordatorio es demasiado largo"
                         modal4.classList.add('active')
                         tryAgain4.addEventListener('click', () => {
                             modal4.classList.remove('active')
@@ -481,59 +507,110 @@ onAuthStateChanged(auth, (user) => {
                 const uid = user.uid;
 
                 getDocs(query(collection(db, "Users", user.uid, "Data_Reminder"), where('IdUser', "==", user.uid))).
-                then((querySnapshot) => {
-                    querySnapshot.forEach((doc2) => {
-                        const contentreminder = document.querySelector('.contentreminders')
-                        var reminder = document.createElement('div')
-                        var leftreminder = document.createElement('div')
-                        var i = document.createElement('i')
-                        var textreminder = document.createElement('div')
-                        var p = document.createElement('p')
-                        var h3 = document.createElement('h3')
-                        var rightreminder = document.createElement('div')
-                        var i2 = document.createElement('i')
+                    then((querySnapshot) => {
+                        querySnapshot.forEach((doc2) => {
+                            const contentreminder = document.querySelector('.contentreminders')
+                            var reminder = document.createElement('div')
+                            var leftreminder = document.createElement('div')
+                            var i = document.createElement('i')
+                            var textreminder = document.createElement('div')
+                            var p = document.createElement('p')
+                            var h3 = document.createElement('h3')
+                            var rightreminder = document.createElement('div')
+                            var i2 = document.createElement('i')
+                            var deletereminder = document.createElement('p')
 
-                        reminder.className = 'reminder'
-                        leftreminder.className = 'leftreminder'
-                        textreminder.className = 'textleftreminder'
-                        rightreminder.className = 'rightreminder'
+                            reminder.className = 'reminder'
+                            leftreminder.className = 'leftreminder'
+                            textreminder.className = 'textleftreminder'
+                            rightreminder.className = 'rightreminder'
+                            deletereminder.className = 'deletereminder'
 
-                        if (doc2.data().Icon == 'opcion1') {
-                            i.className = 'ph-fill ph-speaker-high'
-                        } else if (doc2.data().Icon == 'opcion2') {
-                            i.className = 'ph-fill ph-pencil-simple'
-                        } if (doc2.data().Icon == 'opcion3') {
-                            i.className = 'ph-fill ph-watch'
-                        } else if (doc2.data().Icon == 'opcion4') {
-                            i.className = 'ph-fill ph-folder-simple'
-                        }
+                            if (doc2.data().Icon == 'opcion1') {
+                                i.className = 'ph-fill ph-speaker-high'
+                            } else if (doc2.data().Icon == 'opcion2') {
+                                i.className = 'ph-fill ph-pencil-simple'
+                            } if (doc2.data().Icon == 'opcion3') {
+                                i.className = 'ph-fill ph-watch'
+                            } else if (doc2.data().Icon == 'opcion4') {
+                                i.className = 'ph-fill ph-folder-simple'
+                            }
 
-                        i.style.backgroundColor = doc2.data().Color
+                            i.style.backgroundColor = doc2.data().Color
 
-                        p.textContent = doc2.data().Nombre     
-                        h3.textContent = doc2.data().Hora_Inicial + ' - ' + doc2.data().Hora_Final  
-                        
-                        i2.className = 'ri-more-2-fill'
+                            p.textContent = doc2.data().Nombre
+                            h3.textContent = doc2.data().Hora_Inicial + ' - ' + doc2.data().Hora_Final
+                            deletereminder.textContent = 'Eliminar'
 
-                        contentreminder.appendChild(reminder)
-                        reminder.appendChild(leftreminder)
-                        leftreminder.appendChild(i)
-                        leftreminder.appendChild(textreminder)
-                        textreminder.appendChild(p)
-                        textreminder.appendChild(h3)
-                        reminder.appendChild(rightreminder)
-                        rightreminder.appendChild(i2)
+                            i2.className = 'ri-more-2-fill'
 
-                        i2.addEventListener('click', () => {
-                            reminder.classList.toggle('active')
+                            contentreminder.appendChild(reminder)
+                            reminder.appendChild(leftreminder)
+                            reminder.appendChild(deletereminder)
+                            leftreminder.appendChild(i)
+                            leftreminder.appendChild(textreminder)
+                            textreminder.appendChild(p)
+                            textreminder.appendChild(h3)
+                            reminder.appendChild(rightreminder)
+                            rightreminder.appendChild(i2)
+
+                            i2.addEventListener('click', () => {
+                                reminder.classList.toggle('active')
+
+                                onAuthStateChanged(auth, (user) => {
+                                    if (user) {
+                                        const uid = user.uid;
+
+                                        deletereminder.addEventListener('click', async function () {
+                                            try {
+
+                                                const querySnapshot = await getDocs(collection(db, "Users", user.uid, "Data_Reminder"))
+                                                querySnapshot.forEach(async (doc) => {
+                                                    if (doc.data().Nombre == p.textContent) {
+                                                        await deleteDoc(doc.ref)
+
+                                                        text5.textContent = 'El recordatorio con nombre ' + '( ' + doc.data().Nombre + ' )' + ' se elimino correctamente'
+                                                        modal5.classList.add('active')
+                                                        tryAgain5.addEventListener('click', () => {
+                                                            modal5.classList.remove('active')
+                                                            setTimeout(function () {
+                                                                location.reload();
+                                                            }, 1)
+                                                        })
+                                                        window.addEventListener('click', event => {
+                                                            if (event.target == modal5) {
+                                                                modal5.classList.remove('active')
+                                                            }
+                                                        })
+                                                    }
+                                                })
+
+                                            } catch (error) {
+
+                                            }
+
+                                        })
+
+                                    } else {
+                                        const tryAgain = document.getElementById('okBtn')
+                                        const modal = document.querySelector('.modal')
+
+                                        modal.classList.add('active')
+                                        tryAgain.addEventListener('click', () => {
+                                            location.href = "/views/login/login.html"
+                                        })
+                                    }
+                                });
+
+                            })
+
                         })
                     })
-                })
 
             } else {
                 const tryAgain = document.getElementById('okBtn')
                 const modal = document.querySelector('.modal')
-        
+
                 modal.classList.add('active')
                 tryAgain.addEventListener('click', () => {
                     location.href = "/views/login/login.html"
