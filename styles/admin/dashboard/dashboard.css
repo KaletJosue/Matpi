@@ -120,6 +120,20 @@ body {
 
 .nav {
     flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-x: hidden;
+}
+
+.nav::-webkit-scrollbar {
+    width: 4px;
+    margin-left: 2rem;
+}
+
+.nav::-webkit-scrollbar-thumb {
+    background-color: var(--color-fondo);
+    border-radius: 10px;
 }
 
 .menu ul li {
@@ -245,6 +259,7 @@ body {
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .contentmain {
@@ -494,6 +509,18 @@ body {
     height: 100%;
     overflow: hidden;
     overflow-y: auto;
+    height: 350px;
+    background-color: transparent;
+}
+
+.contentmain .rigthmain .reminders .contentreminders::-webkit-scrollbar {
+    width: 7px;
+    background-color: var(--color-fondo);
+}
+
+.contentmain .rigthmain .reminders .contentreminders::-webkit-scrollbar-thumb {
+    background-color: #fe9516;
+    border-radius: 10px;
 }
 
 .contentmain .rigthmain .reminders .contentreminders .reminder {
@@ -503,7 +530,6 @@ body {
     padding: 1rem;
     background-color: var(--color-white);
     border-radius: 10px;
-    box-shadow: var(--box-shadow-suave);
     position: relative;
 }
 
@@ -523,10 +549,7 @@ body {
 
 .contentmain .rigthmain .reminders .contentreminders .reminder.active::before {
     right: 40px;
-}
-
-.contentmain .rigthmain .reminders .contentreminders .reminder:nth-child(2) .leftreminder i {
-    background-color: #f65656;
+    cursor: pointer;
 }
 
 .contentmain .rigthmain .reminders .contentreminders .reminder .leftreminder {
@@ -537,7 +560,6 @@ body {
 
 .contentmain .rigthmain .reminders .contentreminders .reminder .leftreminder i {
     padding: .8rem;
-    background-color: green;
     border-radius: 7px;
     font-size: 15px;
     color: white;
@@ -821,6 +843,311 @@ button#cancelBtn2:hover {
     background: #56b3f6;
 }
 
+/* Modal3 */
+
+.modal3 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5055628c;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.modal3.active {
+    display: flex;
+}
+
+.modal-content3 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 600px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content3::before {
+    background-color: #56d3f67a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon3 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.closeIcon3:hover {
+    color: #c7cad1;
+}
+
+.modal-body3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon3 {
+    font-size: 50px;
+    color: #56b3f6;
+}
+
+.right-items3 {
+    margin-left: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: .3rem;
+    z-index: 1;
+}
+
+.right-items3 input,
+.right-items3 select {
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+}
+
+button#okBtn3 {
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #56b3f6;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn3:hover {
+    background: #56b3f6;
+}
+
+/* Modal4 */
+
+.modal4 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000008c;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000000000;
+    transition: all 0.3s ease;
+}
+
+.modal4.active {
+    display: flex;
+}
+
+.modal-content4 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content4::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon4 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon4:hover {
+    color: #c7cad1;
+}
+
+.modal-body4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon4 {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items4 {
+    margin-left: 30px;
+}
+
+button#okBtn4 {
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn4:hover {
+    background: #f65656;
+}
+
+/* Modal5 */
+
+.modal5 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000008c;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000000000;
+    transition: all 0.3s ease;
+}
+
+.modal5.active {
+    display: flex;
+}
+
+.modal-content5 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content5::before {
+    background-color: #56f6667a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon5 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon5:hover {
+    color: #c7cad1;
+}
+
+.modal-body5 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon5 {
+    font-size: 50px;
+    color: #56f68b;
+}
+
+.right-items5 {
+    margin-left: 30px;
+}
+
+button#okBtn5 {
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #56f68b;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn5:hover {
+    background: #56f68b;
+}
+
 .theme-switch {
     --toggle-size: 9px;
     /* the size is adjusted using font-size,
@@ -1034,9 +1361,10 @@ button#cancelBtn2:hover {
 }
 
 @media (width < 1600px) {
+
     .circular-progress,
     .circular-progress2,
-    .circular-progress3  {
+    .circular-progress3 {
         height: 100px;
         width: 100px;
     }
@@ -1087,12 +1415,17 @@ button#cancelBtn2:hover {
         grid-column: 1/5;
         justify-content: center;
     }
+
+    .contentmain .rigthmain .reminders .contentreminders {
+        height: 610px;
+    }
 }
 
 @media (width < 1200px) {
+
     .circular-progress,
     .circular-progress2,
-    .circular-progress3  {
+    .circular-progress3 {
         height: 80px;
         width: 80px;
     }
@@ -1117,7 +1450,7 @@ button#cancelBtn2:hover {
     .contentmain .rigthmain .hamburguer .texthamgurger p {
         font-size: 12px;
     }
-    
+
     .contentmain .rigthmain .hamburguer .texthamgurger h3 {
         font-size: 14px;
     }
@@ -1156,6 +1489,10 @@ button#cancelBtn2:hover {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    .contentmain .rigthmain .reminders .contentreminders {
+        height: 930px;
+    }
 }
 
 @media (width < 1000px) {
@@ -1165,6 +1502,10 @@ button#cancelBtn2:hover {
 
     .contentmain .leftmain .orders .condefa {
         padding: 1rem 1.5rem;
+    }
+
+    .contentmain .rigthmain .reminders .contentreminders {
+        height: 850px;
     }
 }
 
@@ -1176,6 +1517,10 @@ button#cancelBtn2:hover {
 
     .contentmain .leftmain .users .contentuser {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .contentmain .rigthmain .reminders .contentreminders {
+        height: 300px;
     }
 }
 
@@ -1252,6 +1597,28 @@ button#cancelBtn2:hover {
         width: 100%;
         text-align: center;
     }
+
+    .modal3 {
+        padding: 20px;
+    }
+
+    .modal-content3 {
+        height: 400px;
+    }
+
+    .modal-content3 .modal-body3 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content3 .modal-body3 .right-items3 {
+        margin-left: -10px;
+    }
 }
 
 @media (width < 600px) {
@@ -1299,6 +1666,68 @@ button#cancelBtn2:hover {
         margin-left: -10px;
     }
 
+    .modal-content3 .modal-body3 .right-items3 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, .5fr);
+    }
+
+    .modal-content3 .modal-body3 .right-items3 p:first-child {
+        grid-row: 1;
+    }
+
+    .modal-content3 .modal-body3 .right-items3 .name_reminder {
+        grid-row: 2;
+    }
+
+    .modal-content3 .modal-body3 .right-items3 .select2 {
+        grid-row: 6;
+    } 
+
+    .modal4 {
+        padding: 20px;
+    }
+
+    .modal-content4 {
+        height: 400px;
+    }
+
+    .modal-content4 .modal-body4 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content4 .modal-body4 .right-items4 {
+        margin-left: -10px;
+    }
+
+    .modal5 {
+        padding: 20px;
+    }
+
+    .modal-content5 {
+        height: 400px;
+    }
+
+    .modal-content5 .modal-body5 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content5 .modal-body5 .right-items5 {
+        margin-left: -10px;
+    }
+
     .contentmain .leftmain .users .contentuser {
         grid-template-columns: 1fr 1fr;
     }
@@ -1318,6 +1747,10 @@ button#cancelBtn2:hover {
     .contentmain .leftmain .users .contentuser .user img {
         height: 80px;
         width: 80px;
+    }
+
+    .modal-content3 {
+        height: 500px;
     }
 }
 

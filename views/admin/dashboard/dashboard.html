@@ -8,10 +8,21 @@
     <link rel="stylesheet" href="/styles/admin/dashboard/dashboard.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title>Administrador | Matpi</title>
+    <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Flatpicker -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Pickr -->
+    <link href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr"></script>
 </head>
 
 <body>
@@ -43,7 +54,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="icon ph-bold ph-user"></i>
+                            <i class="icon ph-bold ph-users"></i>
                             <span class="text">Users</span>
                         </a>
                     </li>
@@ -111,10 +122,10 @@
                         </label>
                     </a>
                 </li>
-                <li>
+                <li class="btnacount">
                     <a href="#">
-                        <i class="icon ph-bold ph-info"></i>
-                        <span class="text">Help</span>
+                        <i class="icon ph-bold ph-user"></i>
+                        <span class="text">Cuenta</span>
                     </a>
                 </li>
                 <li id="logout">
@@ -264,33 +275,10 @@
                         <i class="ph-bold ph-bell-simple"></i>
                     </div>
                     <div class="contentreminders">
-                        <div class="reminder">
-                            <div class="leftreminder">
-                                <i class="ph-fill ph-speaker-high"></i>
-                                <div class="textleftreminder">
-                                    <p>Workshop</p>
-                                    <h3>08:00 AM - 12:00 PM</h3>
-                                </div>
-                            </div>
-                            <div class="rightreminder">
-                                <i class="ri-more-2-fill"></i>
-                            </div>
-                        </div>
-                        <div class="reminder">
-                            <div class="leftreminder">
-                                <i class="ph-fill ph-pencil-simple"></i>
-                                <div class="textleftreminder">
-                                    <p>Workshop</p>
-                                    <h3>08:00 AM - 12:00 PM</h3>
-                                </div>
-                            </div>
-                            <div class="rightreminder">
-                                <i class="ri-more-2-fill"></i>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="bottomreminder">
-                        <button>Agregar Recordatorio</button>
+                        <button class="addreminder">Agregar Recordatorio</button>
                     </div>
                 </div>
             </div>
@@ -321,6 +309,58 @@
                     <p>Estás a punto de salir de Matpi</p>
                     <button id="okBtn2">Salir</button>
                     <button id="cancelBtn2">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="ph-fill ph-alarm"></i></span>
+                <div class="right-items3">
+                    <p>Nombre</p>
+                    <p>Hora Fin</p>
+                    <input type="text" class="name_reminder" id="name_reminder" autocomplete="off">
+                    <input type="text" id="timepicker" placeholder="Selecciona una hora" autocomplete="off">
+                    <p>Icono</p>
+                    <p>Color</p>
+                    <select id="opciones" class="select2" style="width: 100%">
+                        <option value="0">Selecciona un icono</option>
+                        <option value="opcion1" data-icon="ph-fill ph-speaker-high">Opcion 1</option>
+                        <option value="opcion2" data-icon="ph-fill ph-pencil-simple">Opcion 2</option>
+                        <option value="opcion3" data-icon="ph-fill ph-watch">Opcion 3</option>
+                        <option value="opcion4" data-icon="ph-fill ph-folder-simple">Opcion 4</option>
+                    </select>
+                    <div id="color-picker"></div>
+                    <button id="okBtn3">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal4">
+        <div class="modal-content4">
+            <div class="modal-body4">
+                <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items4">
+                    <h1>¡Oooops!</h1>
+                    <p class="text4"></p>
+                    <button id="okBtn4">Intentar de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal5">
+        <div class="modal-content5">
+            <div class="modal-body5">
+                <span class="icon5"><i class="ph-fill ph-check-fat"></i></span>
+                <div class="right-items5">
+                    <h1>¡Hecho!</h1>
+                    <p class="text5"></p>
+                    <button id="okBtn5">Cerrar</button>
                 </div>
             </div>
         </div>

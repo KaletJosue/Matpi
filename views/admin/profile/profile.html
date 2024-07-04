@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/admin/profile/profile.css" />
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Perfil - Administrador | Matpi</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="perfil">
+        <div class="topperfil">
+            <img src="" alt="" class="imgper">
+            <div class="texttopperfil">
+                <h3 class="name"></h3>
+                <p class="correo"></p>
+            </div>
+        </div>
+        <div class="contentperfil">
+            <div class="perfil1">
+                <div class="leftperfil">
+                    <i class="ph-bold ph-identification-card"></i>
+                    <div class="textperfil">
+                        <h3>Informacion Personal</h3>
+                        <p>Informacion de tu documento y demas</p>
+                    </div>
+                </div>
+                <i class="ph-bold ph-caret-right"></i>
+            </div>
+            <div class="perfil2">
+                <div class="leftperfil">
+                    <i class="ph-bold ph-user"></i>
+                    <div class="textperfil">
+                        <h3>Datos de tu Cuenta</h3>
+                        <p>Datos que representan tu cuenta en Matpi</p>
+                    </div>
+                </div>
+                <i class="ph-bold ph-caret-right"></i>
+            </div>
+            <div class="perfil3">
+                <div class="leftperfil">
+                    <i class="ph-fill ph-lock-key"></i>
+                    <div class="textperfil">
+                        <h3>Seguridad</h3>
+                        <p>Configura la seguridad de tu cuenta</p>
+                    </div>
+                </div>
+                <i class="ph-bold ph-caret-right"></i>
+            </div>
+            <div class="perfil4">
+                <div class="leftperfil">
+                    <i class="ph-fill ph-map-pin"></i>
+                    <div class="textperfil">
+                        <h3>Direcciones</h3>
+                        <p>Configura la seguridad de tu cuenta</p>
+                    </div>
+                </div>
+                <i class="ph-bold ph-caret-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="closeIcon"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/admin/profile/profile.js" type="module"></script>
+</body>
+
+</html>

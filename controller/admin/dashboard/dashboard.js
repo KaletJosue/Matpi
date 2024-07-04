@@ -21,8 +21,19 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
 
-        // sidebar.active
+        // btnaccount
+        var btnaccount = document.querySelector('.btnacount')
+        var imgaccount = document.querySelector('.imghead')
 
+        btnaccount.addEventListener('click', () => {
+            location.href = '/views/admin/profile/profile.html'
+        })
+
+        imgaccount.addEventListener('click', () => {
+            location.href = '/views/admin/profile/profile.html'
+        })
+
+        // sidebar.active
         const btnmenu = document.querySelector('.menu-btn')
         const sidebar = document.querySelector('.sidebar')
 
@@ -126,7 +137,6 @@ onAuthStateChanged(auth, (user) => {
         });
 
         // name and rol
-
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
@@ -243,6 +253,7 @@ onAuthStateChanged(auth, (user) => {
             body.classList.toggle('dark-mode')
         })
 
+        // logout
         const closeBtn2 = document.querySelector('.closeIcon2')
         const tryAgain2 = document.getElementById('okBtn2')
         const cancelAgain2 = document.getElementById('cancelBtn2')
@@ -271,6 +282,264 @@ onAuthStateChanged(auth, (user) => {
                 }
             })
         })
+
+        // Add Reminders
+        const closeBtn3 = document.querySelector('.closeIcon3')
+        const tryAgain3 = document.getElementById('okBtn3')
+        const modal3 = document.querySelector('.modal3')
+
+        const tryAgain4 = document.getElementById('okBtn4')
+        const modal4 = document.querySelector('.modal4')
+        const text4 = document.querySelector('.text4')
+
+        const tryAgain5 = document.getElementById('okBtn5')
+        const modal5 = document.querySelector('.modal5')
+        const text5 = document.querySelector('.text5')
+
+        var addreminder = document.querySelector('.addreminder')
+        let hourreminder = '';
+
+        flatpickr("#timepicker", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i K",
+            time_24hr: false,
+            onClose: function (selectedDates, dateStr, instance) {
+                hourreminder = dateStr;
+            }
+        });
+
+        const pickr = Pickr.create({
+            el: '#color-picker',
+            theme: 'classic',
+            default: 'null',
+
+            swatches: [
+                'rgba(244, 67, 54, 1)',
+                'rgba(233, 30, 99, 1)',
+                'rgba(156, 39, 176, 1)',
+                'rgba(103, 58, 183, 1)',
+                'rgba(63, 81, 181, 1)',
+                'rgba(33, 150, 243, 1)',
+                'rgba(3, 169, 244, 1)',
+                'rgba(0, 188, 212, 1)',
+                'rgba(0, 150, 136, 1)',
+                'rgba(76, 175, 80, 1)',
+                'rgba(139, 195, 74, 1)',
+                'rgba(205, 220, 57, 1)',
+                'rgba(255, 235, 59, 1)',
+                'rgba(255, 193, 7, 1)'
+            ],
+
+            components: {
+
+                // Main components
+                preview: true,
+                opacity: false,
+                hue: true,
+
+                // Input / output Options
+                interaction: {
+                    hex: true,
+                    rgba: true,
+                    hsla: true,
+                    hsva: true,
+                    cmyk: true,
+                    input: true,
+                    clear: true,
+                    save: true
+                }
+            }
+        });
+
+        function formatState(state) {
+            if (!state.id) {
+                return state.text;
+            }
+            var icon = $(state.element).data('icon');
+            if (icon) {
+                var $state = $(
+                    '<span><i class="' + icon + '"></i> ' + state.text + '</span>'
+                );
+                return $state;
+            }
+            return state.text;
+        }
+
+        $(document).ready(function () {
+            $('#opciones').select2({
+                templateResult: formatState,
+                templateSelection: formatState,
+                minimumResultsForSearch: Infinity
+            });
+        });
+
+        addreminder.addEventListener('click', () => {
+            modal3.classList.add('active')
+            closeBtn3.addEventListener('click', () => {
+                modal3.classList.remove('active')
+            })
+            tryAgain3.addEventListener('click', () => {
+
+                // variables
+                var namereminder
+                namereminder = document.getElementById('name_reminder').value
+                var iconreminder = $('.select2').val()
+                var colorreminder = pickr.getColor().toHEXA().toString()
+
+                if (namereminder.length != 0) {
+                    if (hourreminder.length != 0) {
+                        if (iconreminder != 0) {
+
+                            onAuthStateChanged(auth, (user) => {
+                                if (user) {
+                                    const uid = user.uid;
+
+                                    addDoc(collection(db, "Users", user.uid, "Data_Reminder"), {
+                                        Nombre: namereminder,
+                                        Hora_Inicial: 'asd',
+                                        Hora_Final: hourreminder,
+                                        Icon: iconreminder,
+                                        Color: colorreminder,
+                                        IdUser: user.uid,
+                                    })
+
+                                    modal3.classList.remove('active')
+                                    text5.textContent = 'El recordatorio con nombre ' + '( ' + namereminder + ' )' + ' se agrego correctamente'
+                                    modal5.classList.add('active')
+                                    tryAgain5.addEventListener('click', () => {
+                                        modal5.classList.remove('active')
+                                        setTimeout(function () {
+                                            location.reload();
+                                        }, 1000)
+                                    })
+                                    window.addEventListener('click', event => {
+                                        if (event.target == modal4) {
+                                            modal5.classList.remove('active')
+                                        }
+                                    })
+
+                                } else {
+                                    const tryAgain = document.getElementById('okBtn')
+                                    const modal = document.querySelector('.modal')
+
+                                    modal.classList.add('active')
+                                    tryAgain.addEventListener('click', () => {
+                                        location.href = "/views/login/login.html"
+                                    })
+                                }
+                            });
+
+                        } else {
+                            text4.textContent = "Selecciona un icono para este recordatorio"
+                            modal4.classList.add('active')
+                            tryAgain4.addEventListener('click', () => {
+                                modal4.classList.remove('active')
+                            })
+                            window.addEventListener('click', event => {
+                                if (event.target == modal4) {
+                                    modal4.classList.remove('active')
+                                }
+                            })
+                        }
+                    } else {
+                        text4.textContent = "Digita la hora a la que finalizara este recordatorio"
+                        modal4.classList.add('active')
+                        tryAgain4.addEventListener('click', () => {
+                            modal4.classList.remove('active')
+                        })
+                        window.addEventListener('click', event => {
+                            if (event.target == modal4) {
+                                modal4.classList.remove('active')
+                            }
+                        })
+                    }
+                } else {
+                    text4.textContent = "Escribe un nombre para este recordatorio"
+                    modal4.classList.add('active')
+                    tryAgain4.addEventListener('click', () => {
+                        modal4.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                        if (event.target == modal4) {
+                            modal4.classList.remove('active')
+                        }
+                    })
+                }
+
+            })
+            window.addEventListener('click', event => {
+                if (event.target == modal3) {
+                    modal3.classList.remove('active')
+                }
+            })
+        })
+
+        // See Reminders
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                getDocs(query(collection(db, "Users", user.uid, "Data_Reminder"), where('IdUser', "==", user.uid))).
+                then((querySnapshot) => {
+                    querySnapshot.forEach((doc2) => {
+                        const contentreminder = document.querySelector('.contentreminders')
+                        var reminder = document.createElement('div')
+                        var leftreminder = document.createElement('div')
+                        var i = document.createElement('i')
+                        var textreminder = document.createElement('div')
+                        var p = document.createElement('p')
+                        var h3 = document.createElement('h3')
+                        var rightreminder = document.createElement('div')
+                        var i2 = document.createElement('i')
+
+                        reminder.className = 'reminder'
+                        leftreminder.className = 'leftreminder'
+                        textreminder.className = 'textleftreminder'
+                        rightreminder.className = 'rightreminder'
+
+                        if (doc2.data().Icon == 'opcion1') {
+                            i.className = 'ph-fill ph-speaker-high'
+                        } else if (doc2.data().Icon == 'opcion2') {
+                            i.className = 'ph-fill ph-pencil-simple'
+                        } if (doc2.data().Icon == 'opcion3') {
+                            i.className = 'ph-fill ph-watch'
+                        } else if (doc2.data().Icon == 'opcion4') {
+                            i.className = 'ph-fill ph-folder-simple'
+                        }
+
+                        i.style.backgroundColor = doc2.data().Color
+
+                        p.textContent = doc2.data().Nombre     
+                        h3.textContent = doc2.data().Hora_Inicial + ' - ' + doc2.data().Hora_Final  
+                        
+                        i2.className = 'ri-more-2-fill'
+
+                        contentreminder.appendChild(reminder)
+                        reminder.appendChild(leftreminder)
+                        leftreminder.appendChild(i)
+                        leftreminder.appendChild(textreminder)
+                        textreminder.appendChild(p)
+                        textreminder.appendChild(h3)
+                        reminder.appendChild(rightreminder)
+                        rightreminder.appendChild(i2)
+
+                        i2.addEventListener('click', () => {
+                            reminder.classList.toggle('active')
+                        })
+                    })
+                })
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+        
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
 
     } else {
         const tryAgain = document.getElementById('okBtn')
