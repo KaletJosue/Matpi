@@ -28,8 +28,6 @@ onAuthStateChanged(auth, (user) => {
                 const uid = user.uid;
 
                 const body = document.body
-                const checkbox = document.querySelector('.theme-switch__checkbox');
-                const palanca = document.querySelector('.theme-switch__checkbox')
 
                 getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
                     then((querySnapshot) => {
@@ -38,64 +36,16 @@ onAuthStateChanged(auth, (user) => {
                                 then((docSnap) => {
                                     if (doc2.data().DarkMode == "desactive") {
                                         body.classList.remove('dark-mode')
-                                        checkbox.checked = false
                                     }
                                     else if (doc2.data().DarkMode == "active") {
                                         body.classList.add('dark-mode')
-                                        checkbox.checked = true
                                     }
                                     else {
                                         body.classList.add('dark-mode')
-                                        checkbox.checked = true
                                     }
                                 })
                         })
                     })
-
-                palanca.addEventListener('click', () => {
-                    getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
-                        then((querySnapshot) => {
-                            querySnapshot.forEach((doc2) => {
-                                getDoc(doc(db, "Users", user.uid, "Private_Data", doc2.data().DarkMode)).
-                                    then((docSnap) => {
-                                        if (doc2.data().DarkMode == "desactive") {
-                                            getDocs(collection(db, "Users", user.uid, "Private_Data"))
-                                                .then((querySnapshot) => {
-                                                    querySnapshot.forEach((doc) => {
-                                                        updateDoc(doc.ref, {
-                                                            DarkMode: 'active'
-                                                        })
-                                                    })
-                                                })
-                                        }
-                                        else if (doc2.data().DarkMode == "active") {
-                                            getDocs(collection(db, "Users", user.uid, "Private_Data"))
-                                                .then((querySnapshot) => {
-                                                    querySnapshot.forEach((doc) => {
-                                                        updateDoc(doc.ref, {
-                                                            DarkMode: 'desactive'
-                                                        })
-                                                    })
-                                                })
-                                        }
-                                        else {
-                                            getDocs(collection(db, "Users", user.uid, "Private_Data"))
-                                                .then((querySnapshot) => {
-                                                    querySnapshot.forEach((doc) => {
-                                                        updateDoc(doc.ref, {
-                                                            DarkMode: 'desactive'
-                                                        })
-                                                    })
-                                                })
-                                        }
-                                    })
-                            })
-                        })
-                })
-
-                palanca.addEventListener('click', () => {
-                    body.classList.toggle('dark-mode')
-                })
 
             } else {
                 const tryAgain = document.getElementById('okBtn')

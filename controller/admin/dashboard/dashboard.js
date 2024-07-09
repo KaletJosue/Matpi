@@ -296,6 +296,11 @@ onAuthStateChanged(auth, (user) => {
         const modal5 = document.querySelector('.modal5')
         const text5 = document.querySelector('.text5')
 
+        const tryAgain6 = document.getElementById('okBtn6')
+        const cancel6 = document.getElementById('okBtnNone6')
+        const modal6 = document.querySelector('.modal6')
+        const text6 = document.querySelector('.text6')
+
         var addreminder = document.querySelector('.addreminder')
         let hourreminder = '';
 
@@ -377,11 +382,7 @@ onAuthStateChanged(auth, (user) => {
         const now = new Date();
         let hours = now.getHours();
         const minutes = now.getMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-
+        
         const minutesStr = minutes < 10 ? '0' + minutes : minutes;
         const hoursStr = hours < 10 ? '0' + hours : hours;
 
@@ -397,7 +398,7 @@ onAuthStateChanged(auth, (user) => {
                 namereminder = document.getElementById('name_reminder').value
                 var iconreminder = $('.select2').val()
                 var colorreminder = pickr.getColor().toHEXA().toString()
-                const formattedTime = `${hoursStr}:${minutesStr} ${ampm}`;
+                const formattedTime = `${hoursStr}:${minutesStr}`;
 
                 if (namereminder.length != 0) {
                     if (namereminder.length < 36) {
@@ -410,9 +411,8 @@ onAuthStateChanged(auth, (user) => {
 
                                         addDoc(collection(db, "Users", user.uid, "Data_Reminder"), {
                                             Nombre: namereminder,
-                                            Hora_Inicial: 'asd',
-                                            Hora_Final: hourreminder,
                                             Hora_Inicial: formattedTime,
+                                            Hora_Final: hourreminder,
                                             Icon: iconreminder,
                                             Color: colorreminder,
                                             IdUser: user.uid,
@@ -561,25 +561,38 @@ onAuthStateChanged(auth, (user) => {
                                     if (user) {
                                         const uid = user.uid;
 
+                                        // deleteReminder
                                         deletereminder.addEventListener('click', async function () {
                                             try {
-
                                                 const querySnapshot = await getDocs(collection(db, "Users", user.uid, "Data_Reminder"))
                                                 querySnapshot.forEach(async (doc) => {
                                                     if (doc.data().Nombre == p.textContent) {
-                                                        await deleteDoc(doc.ref)
+                                                        modal6.classList.add('active')
+                                                        text6.textContent = "Quires eliminar el recordatorio ( " + doc.data().Nombre + " )?" 
+                                                        tryAgain6.addEventListener('click', async function () {
+                                                            await deleteDoc(doc.ref)
 
-                                                        text5.textContent = 'El recordatorio con nombre ' + '( ' + doc.data().Nombre + ' )' + ' se elimino correctamente'
-                                                        modal5.classList.add('active')
-                                                        tryAgain5.addEventListener('click', () => {
-                                                            modal5.classList.remove('active')
-                                                            setTimeout(function () {
-                                                                location.reload();
-                                                            }, 1)
+                                                            modal6.classList.remove('active')
+                                                            text5.textContent = 'El recordatorio con nombre ' + '( ' + doc.data().Nombre + ' )' + ' se elimino correctamente'
+                                                            modal5.classList.add('active')
+                                                            tryAgain5.addEventListener('click', () => {
+                                                                modal5.classList.remove('active')
+                                                                setTimeout(function () {
+                                                                    location.reload();
+                                                                }, 1)
+                                                            })
+                                                            window.addEventListener('click', event => {
+                                                                if (event.target == modal5) {
+                                                                    modal5.classList.remove('active')
+                                                                }
+                                                            })
+                                                        })
+                                                        cancel6.addEventListener('click', () => {
+                                                            modal6.classList.remove('active')
                                                         })
                                                         window.addEventListener('click', event => {
-                                                            if (event.target == modal5) {
-                                                                modal5.classList.remove('active')
+                                                            if (event.target == modal6) {
+                                                                modal6.classList.remove('active')
                                                             }
                                                         })
                                                     }
