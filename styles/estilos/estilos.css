@@ -469,6 +469,107 @@ header .inicio img {
     transition: all .2s ease;
 }
 
+.concardsimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    gap: 1rem;
+}
+
+.concardsimg .cardsimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7rem 3rem;
+    gap: 2rem;
+    background-color: #fff8f2;
+    position: relative;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.concardsimg .cardsimg:hover {
+    background-color: #FFC80C;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23FFC80C' cx='50' cy='0' r='50'/%3E%3Cg fill='%23ffbf0d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ffb50d' cx='50' cy='100' r='50'/%3E%3Cg fill='%23ffac0e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ffa30e' cx='50' cy='200' r='50'/%3E%3Cg fill='%23ff9a0f' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ff910f' cx='50' cy='300' r='50'/%3E%3Cg fill='%23ff8810' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ff7f10' cx='50' cy='400' r='50'/%3E%3Cg fill='%23ff7611' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe6d11' cx='50' cy='500' r='50'/%3E%3Cg fill='%23fe6412' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe5b12' cx='50' cy='600' r='50'/%3E%3Cg fill='%23fe5213' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe4a13' cx='50' cy='700' r='50'/%3E%3Cg fill='%23fe4114' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe3814' cx='50' cy='800' r='50'/%3E%3Cg fill='%23fe3015' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe2715' cx='50' cy='900' r='50'/%3E%3Cg fill='%23fe1e16' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23FE1616' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: contain;
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 1px 1px 3rem #0000003a;
+}
+
+.concardsimg .cardsimg:hover .starcardsimg {
+    color: white;
+}
+
+.concardsimg .cardsimg:hover .bottomcardsimg i,
+.concardsimg .cardsimg:hover .bottomcardsimg p {
+    color: white;
+    border-color: white;
+}
+
+.concardsimg .cardsimg:hover .bottomcardsimg i:hover {
+    background-color: white;
+    color: #fe4c16;
+}
+
+.concardsimg .cardsimg img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.concardsimg .cardsimg .starcardsimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+    color: #542400;
+}
+
+.concardsimg .cardsimg .starcardsimg p {
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.concardsimg .cardsimg .bottomcardsimg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+}
+
+.concardsimg .cardsimg .bottomcardsimg i {
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    border: solid 1.7px #542400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #542400;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.concardsimg .cardsimg .bottomcardsimg i:hover {
+    background-color: #542400;
+    color: white;
+}
+
+.concardsimg .cardsimg .bottomcardsimg p {
+    font-size: 15px;
+    font-weight: 900;
+    color: #542400;
+}
+
 .redes {
     display: flex;
     align-items: center;
@@ -764,7 +865,6 @@ footer .container .contact .info li a {
 
 
 @media (max-width: 1900px) {
-
     .containercards .contentcards .unocards,
     .containercards .contentcards .doscards,
     .containercards .contentcards .trescards,
@@ -784,6 +884,14 @@ footer .container .contact .info li a {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+}
+
+@media (max-width: 1700px) {
+    .concardsimg {
+        justify-content: start;
+        overflow: hidden;
+        overflow-x: auto;
     }
 }
 
@@ -1104,6 +1212,14 @@ footer .container .contact .info li a {
     }
 
     .conlast .inlast .last img {
+        width: 200px;
+    }
+
+    .concardsimg .cardsimg {
+        padding: 7rem 2rem;
+    }
+
+    .concardsimg .cardsimg img {
         width: 200px;
     }
 }

@@ -568,7 +568,7 @@ onAuthStateChanged(auth, (user) => {
                                                 querySnapshot.forEach(async (doc) => {
                                                     if (doc.data().Nombre == p.textContent) {
                                                         modal6.classList.add('active')
-                                                        text6.textContent = "Quires eliminar el recordatorio ( " + doc.data().Nombre + " )?" 
+                                                        text6.textContent = "Quires eliminar el recordatorio ( " + doc.data().Nombre + " )" 
                                                         tryAgain6.addEventListener('click', async function () {
                                                             await deleteDoc(doc.ref)
 
