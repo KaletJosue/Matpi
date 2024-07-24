@@ -473,8 +473,9 @@ header .inicio img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 2rem;
     gap: 1rem;
+    transform: translateY(-20px);
 }
 
 .concardsimg .cardsimg {
@@ -497,7 +498,6 @@ header .inicio img {
     background-size: contain;
     transform: scale(1.05);
     z-index: 1;
-    box-shadow: 1px 1px 3rem #0000003a;
 }
 
 .concardsimg .cardsimg:hover .starcardsimg {
@@ -892,6 +892,15 @@ footer .container .contact .info li a {
         justify-content: start;
         overflow: hidden;
         overflow-x: auto;
+    }
+
+    .concardsimg::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .concardsimg::-webkit-scrollbar-thumb {
+        background-color: #fe9516;
+        border-radius: 10px;
     }
 }
 
