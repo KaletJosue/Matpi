@@ -55,7 +55,7 @@ header nav ul li a {
 }
 
 header nav ul li:last-child,
-header nav ul li:nth-child(4) {
+header nav ul li:nth-child(3) {
     background-color: white;
     border-radius: 50%;
     width: 50px;
@@ -77,13 +77,13 @@ header nav ul li:last-child a {
     justify-content: center;
 }
 
-header nav ul li:nth-child(4) a {
+header nav ul li:nth-child(3) a {
     color: #fe1616;
     font-size: 20px;
 }
 
 header nav ul li:last-child:hover,
-header nav ul li:nth-child(4):hover {
+header nav ul li:nth-child(3):hover {
     transform: scale(0.9);
 }
 
@@ -799,13 +799,17 @@ footer .container .sci {
 
 footer .container .sci li a {
     display: inline-block;
-    width: 36px;
-    height: 36px;
-    background-color: white;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.26);
     display: grid;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 300;
+    border-radius: 50%;
 }
 
 footer .container .quicklins {
