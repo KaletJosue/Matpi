@@ -21,6 +21,18 @@ body {
     background-color: #f9ebe0;
 }
 
+h1:not(.modal h1) {
+    font-size: 50px;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    color: #542400;
+}
+
+h1:not(:first-child), h1:not(.modal h1) {
+    margin-top: 2rem;
+}
+
 header {
     padding: 1rem 2rem;
     position: relative;
@@ -50,50 +62,46 @@ header nav ul {
     align-items: center;
 }
 
-header nav ul li a {
-    font-size: 13px;
-    color: white;
-    font-weight: 400;
-    z-index: 1;
+header nav ul p {
+    display: none;
 }
 
-header nav ul li:last-child,
-header nav ul li:nth-child(1) {
-    background-color: white;
-    border-radius: 50%;
+header nav ul li:last-child {
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all .2s ease;
+    border-radius: 50%;
+    background-color: #542400;
     cursor: pointer;
-    z-index: 1;
+    transition: all .2s ease;
+    flex: 0 0 auto;
 }
 
 header nav ul li:last-child a {
-    color: #fe1616;
-    font-size: 20px;
+    color: #fff;
+    padding: 0;
+    font-size: 17px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header nav ul li:nth-child(1) a {
-    color: #fe1616;
-    font-size: 15px;
-}
-
-header nav ul li:last-child:hover,
-header nav ul li:nth-child(1):hover {
+header nav ul li:last-child:hover {
     transform: scale(0.9);
 }
 
 .link a {
     position: relative;
     padding-bottom: 0.75rem;
-    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 500;
+    color: #542400;
 }
 
 .link a::after {
@@ -103,7 +111,7 @@ header nav ul li:nth-child(1):hover {
     width: 0;
     left: 0;
     top: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: #542400;
     transition: all 0.3s ease;
 }
 
@@ -112,22 +120,22 @@ header nav ul li:nth-child(1):hover {
 }
 
 .concardsimg {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    row-gap: 2rem;
-    column-gap: 1rem;
-    transform: translateY(-20px);
+    overflow: hidden;
+    padding: 1rem 2rem 3rem 2rem;
 }
 
-.concardsimg .cardsimg {
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardsimg {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 7rem 1rem;
+    padding: 7rem 3rem;
     gap: 2rem;
     background-color: #fff8f2;
     position: relative;
@@ -135,26 +143,8 @@ header nav ul li:nth-child(1):hover {
     transition: all .3s ease;
 }
 
-.concardsimg .cardsimg .bottomcardsimg .plusres {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background-color: transparent;
-    border-radius: 10px;
-    border: solid 1px #542400;
-}
-
-.concardsimg .cardsimg .bottomcardsimg button {
-    padding: .7rem 1rem;
-    background-color: transparent;
-    border: solid 1px #542400;
-    border-radius: 10px;
-    color: #542400;
-    font-weight: 700;
-    font-size: 12px;
-}
-
-.concardsimg .cardsimg:hover {
+.cardsimg:hover,
+.cardsimg.active {
     background-color: #FFC80C;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23FFC80C' cx='50' cy='0' r='50'/%3E%3Cg fill='%23ffbf0d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ffb50d' cx='50' cy='100' r='50'/%3E%3Cg fill='%23ffac0e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ffa30e' cx='50' cy='200' r='50'/%3E%3Cg fill='%23ff9a0f' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ff910f' cx='50' cy='300' r='50'/%3E%3Cg fill='%23ff8810' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ff7f10' cx='50' cy='400' r='50'/%3E%3Cg fill='%23ff7611' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe6d11' cx='50' cy='500' r='50'/%3E%3Cg fill='%23fe6412' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe5b12' cx='50' cy='600' r='50'/%3E%3Cg fill='%23fe5213' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe4a13' cx='50' cy='700' r='50'/%3E%3Cg fill='%23fe4114' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe3814' cx='50' cy='800' r='50'/%3E%3Cg fill='%23fe3015' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fe2715' cx='50' cy='900' r='50'/%3E%3Cg fill='%23fe1e16' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23FE1616' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
@@ -163,56 +153,32 @@ header nav ul li:nth-child(1):hover {
     z-index: 1;
 }
 
-.concardsimg .cardsimg:hover .starcardsimg {
+.cardsimg:hover .starcardsimg,
+.cardsimg.active .starcardsimg {
     color: white;
 }
 
-.concardsimg .cardsimg:hover .bottomcardsimg i,
-.concardsimg .cardsimg:hover .bottomcardsimg p {
+.cardsimg:hover .bottomcardsimg i,
+.cardsimg:hover .bottomcardsimg p,
+.cardsimg.active .bottomcardsimg i,
+.cardsimg.active .bottomcardsimg p {
     color: white;
     border-color: white;
 }
 
-.concardsimg .cardsimg:hover .bottomcardsimg button {
-    border-color: white;
-    color: white;
-    cursor: pointer;
-}
-
-.concardsimg .cardsimg:hover .bottomcardsimg button:hover {
-    background-color: white;
-    color: #fe1616;
-}
-
-.concardsimg .cardsimg:hover .bottomcardsimg i:hover {
+.cardsimg:hover .bottomcardsimg i:hover,
+.cardsimg.active .bottomcardsimg i:hover {
     background-color: white;
     color: #fe4c16;
 }
 
-.concardsimg .cardsimg img {
+.cardsimg img {
     width: 300px;
     height: auto;
     object-fit: cover;
 }
 
-.concardsimg .cardsimg:hover .bottomcardsimg .plusres {
-    border-color: white;
-}
-
-.concardsimg .cardsimg:hover .bottomcardsimg .plusres i {
-    background-color: transparent;
-}
-
-.concardsimg .cardsimg:hover .bottomcardsimg .plusres i:hover {
-    color: #f9ebe0;
-}
-
-.concardsimg .cardsimg .bottomcardsimg .plusres i {
-    border: none;
-    background-color: transparent;
-}
-
-.concardsimg .cardsimg .starcardsimg {
+.cardsimg .starcardsimg {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,12 +187,12 @@ header nav ul li:nth-child(1):hover {
     color: #542400;
 }
 
-.concardsimg .cardsimg .starcardsimg p {
+.cardsimg .starcardsimg p {
     font-weight: 800;
     font-size: 15px;
 }
 
-.concardsimg .cardsimg .bottomcardsimg {
+.cardsimg .bottomcardsimg {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -236,7 +202,7 @@ header nav ul li:nth-child(1):hover {
     padding: 1.5rem 2rem;
 }
 
-.concardsimg .cardsimg .bottomcardsimg i {
+.cardsimg .bottomcardsimg i {
     font-size: 15px;
     width: 40px;
     height: 40px;
@@ -250,52 +216,293 @@ header nav ul li:nth-child(1):hover {
     transition: all .2s ease;
 }
 
-.concardsimg .cardsimg .bottomcardsimg i:hover {
+.cardsimg .bottomcardsimg i:hover {
     background-color: #542400;
     color: white;
 }
 
-.concardsimg .cardsimg .bottomcardsimg p {
+.cardsimg .bottomcardsimg p {
     font-size: 15px;
+    font-weight: 900;
+    color: #542400;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardsimg .bottomcardsimg .plusres {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.cardsimg .bottomcardsimg .plusres i {
+    border: none;
+}
+
+.cardsimg .bottomcardsimg .plusres i {
+    border-radius: 8px;
+    background-color: #542400;
+    color: white;
+}
+
+.cardsimg .bottomcardsimg button {
+    padding: .7rem 1rem;
+    border-radius: 10px;
+    border: solid 1.5px #542400;
+    background: transparent;
+    font-size: 12px;
     font-weight: 900;
     color: #542400;
 }
 
-@media (max-width: 1800px) {
-    .concardsimg {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+.cardsimg:hover .bottomcardsimg .plusres i,
+.cardsimg.active .bottomcardsimg .plusres i {
+    border: solid 1.5px white;
+    background-color: transparent;
+}
+
+.cardsimg:hover .bottomcardsimg .plusres i:hover,
+.cardsimg.active .bottomcardsimg .plusres i:hover {
+    background-color: white;
+}
+
+.cardsimg:hover .bottomcardsimg button,
+.cardsimg.active .bottomcardsimg button {
+    border-color: white;
+    color: white;
+    cursor: pointer;
+}
+
+.cardsimg:hover .bottomcardsimg button:hover,
+.cardsimg.active .bottomcardsimg button:hover {
+    background-color: white;
+    color: #fe1616;
+}
+
+.bars__menu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.bars__menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #542400;
+    margin-top: 4px;
+    transform-origin: 0px 100%;
+    transition: all .3s ease;
+}
+
+.line1__bars-menu.active {
+    transform: rotate(45deg) translate(-2px, 1px);
+    background: white;
+}
+
+.line2__bars-menu.active {
+    opacity: 0;
+    margin-left: 30px;
+    background: white;
+}
+
+.line3__bars-menu.active {
+    transform: rotate(-45deg) translate(-5px, 4px);
+    background: white;
+}
+
+/* Modal */
+
+.modal {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5055628c;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content::before {
+    background-color: #56d3f67a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon:hover {
+    color: #c7cad1;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon {
+    font-size: 50px;
+    color: #56b3f6;
+}
+
+.right-items {
+    margin-left: 30px;
+}
+
+button#okBtn {
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #56b3f6;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    transition: all 0.3s;
+}
+
+button#okBtn:hover {
+    background: #56b3f6;
+}
+
+@media (max-width: 1200px) {
+    .cardsimg img {
+        width: 200px;
+    }
+
+    .bars__menu {
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    header nav ul {
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000ec;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: all .2s ease;
+    }
+
+    .con.active {
+        left: 0;
+    }
+
+    .link a {
+        color: #ffffff;
+    }
+
+    .link a::after {
+        background-color: #ffffff;
+    }
+
+    header nav ul li:last-child {
+        background-color: white;
+        color: #542400;
+    }
+
+    header nav ul li:last-child a {
+        color: #542400;
     }
 }
 
-@media (max-width: 1500px) {
-    .concardsimg {
-        grid-template-columns: 1fr 1fr 1fr;
+@media (max-width: 990px) {
+    .cardsimg img {
+        width: 300px;
     }
 }
 
-@media (max-width: 1100px) {
-    .concardsimg {
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 600px) {
+    h1:not(.modal h1) {
+        font-size: 30px;
     }
-}
 
-@media (max-width: 800px) {
-    .concardsimg {
-        grid-template-columns: 1fr;
+    .modal {
+        padding: 20px;
+    }
+
+    .modal-content {
+        height: 300px;
+    }
+
+    .modal-content .modal-body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .right-items {
+        margin-left: 0;
     }
 }
 
 @media (max-width: 400px) {
-    .concardsimg .cardsimg {
-        padding: 5rem 1rem 7rem 1rem;
-    }
-
-    .concardsimg .cardsimg img {
+    .cardsimg img {
         width: 200px;
-    }
-
-    .concardsimg .cardsimg .bottomcardsimg .plusres {
-        display: none;
     }
 }
 
+@media (max-height: 700px) and (max-width: 1200px) {
+    header nav ul {
+        justify-content: start;
+        overflow-y: auto;
+        padding: 6rem 0 3rem 0;
+    }
+}

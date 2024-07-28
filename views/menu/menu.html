@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/menu/menu.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
-    <title>Menu - Matpi | Colombia</title>
+    <title>Menú</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -18,453 +20,515 @@
             <a href="/index.html">
                 <img src="/assets/logo.png" alt="">
             </a>
-            <ul>
+            <ul class="con">
+                <p>asd</p>
+                <li class="link"><a href="#HAMBURGUESAS">Hamburguesas</a></li>
+                <li class="link"><a href="#MAS HAMBURGUESAS">Mas Hamburguesas</a></li>
+                <li class="link"><a href="#SALCHIPAPAS">Salchipapas</a></li>
+                <li class="link"><a href="#">Perros</a></li>
+                <li class="link"><a href="#">Mazorcada</a></li>
+                <li class="link"><a href="#">Pizza</a></li>
+                <li class="link"><a href="#">Complementos</a></li>
+                <li class="link"><a href="#">Promociones</a></li>
                 <li><a href="/views/login/login.html"><i class="ri-user-line"></i></a></li>
             </ul>
+            <div class="bars__menu">
+                <span class="line1__bars-menu"></span>
+                <span class="line2__bars-menu"></span>
+                <span class="line3__bars-menu"></span>
+            </div>
         </nav>
     </header>
 
-    <div class="concardsimg">
-        <div class="cardsimg">
-            <img src="/assets/ham1.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-half-fill"></i>
-                    <i class="ri-star-line"></i>
+    <h1 id="HAMBURGUESAS">HAMBURGUESAS</h1>
+    <div class="swiper-container mySwiper concardsimg">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham1.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <p>Burger King</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill" id="plus"></i>
+                            <p id="count">0</p>
+                            <i class="ri-subtract-line" id="substract"></i>
+                        </div>
+                    </div>
                 </div>
-                <p>Burger King</p>
-                <p>$ 25.000</p>
             </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <button>Comprar</button>
             </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham4.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <p>Doble</p>
-                <p>$ 25.000</p>
             </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <button>Comprar</button>
             </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham2.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-half-fill"></i>
-                    <i class="ri-star-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <p>Irresistible</p>
-                <p>$ 25.000</p>
             </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <button>Comprar</button>
             </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham3.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
             </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
                 </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill"></i>
-                    <p>0</p>
-                    <i class="ri-subtract-line"></i>
-                </div>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div class="cardsimg">
-            <img src="/assets/ham9.png" alt="">
-            <div class="starcardsimg">
-                <div class="constar">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-line"></i>
-                    <i class="ri-star-line"></i>
-                </div>
-                <p>Hawaiana</p>
-                <p>$ 25.000</p>
-            </div>
-            <div class="bottomcardsimg">
-                <i class="ri-shopping-cart-fill"></i>
-                <div class="plusres">
-                    <i class="ri-add-fill" id="plus"></i>
-                    <p id="count">0</p>
-                    <i class="ri-subtract-line" id="substract"></i>
-                </div>
-                <button>Comprar</button>
             </div>
         </div>
     </div>
 
+    <h1 id="MAS HAMBURGUESAS">MAS HAMBURGUESAS</h1>
+    <div class="swiper-container mySwiper concardsimg">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham1.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <p>Burger King</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill" id="plus"></i>
+                            <p id="count">0</p>
+                            <i class="ri-subtract-line" id="substract"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="SALCHIPAPAS">SALCHIPAPAS</h1>
+    <div class="swiper-container mySwiper concardsimg">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham1.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <p>Burger King</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill" id="plus"></i>
+                            <p id="count">0</p>
+                            <i class="ri-subtract-line" id="substract"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cardsimg">
+                    <img src="/assets/ham4.png" alt="">
+                    <div class="starcardsimg">
+                        <div class="constar">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Doble</p>
+                        <p>$ 25.000</p>
+                    </div>
+                    <div class="bottomcardsimg">
+                        <i class="ri-shopping-cart-fill" id="carshop"></i>
+                        <div class="plusres">
+                            <i class="ri-add-fill"></i>
+                            <p>0</p>
+                            <i class="ri-subtract-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="closeIcon"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>Ooops !</h1>
+                    <p class="modaltxt">No te reconocemos, inicia sesion</p>
+                    <button id="okBtn">Iniciar sesion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/controller/menu/menu.js"></script>
 </body>
 
