@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="/styles/admin/menu/menu.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title>Administrador | Matpi</title>
     <!-- Iconos -->
@@ -24,7 +23,6 @@
     <link href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr"></script>
 </head>
-
 <body>
 
     <div class="sidebar">
@@ -46,8 +44,8 @@
             <div class="menu">
                 <p class="title"></p>
                 <ul>
-                    <li class="active">
-                        <a href="/views/admin/dashboard/">
+                    <li>
+                        <a href="/views/admin/dashboard/dashboard.html">
                             <i class="icon ph-bold ph-house-simple"></i>
                             <span class="text">Incio</span>
                         </a>
@@ -58,7 +56,7 @@
                             <span class="text">Usuarios</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/menu/menu.html">
                             <i class="ph-bold ph-hamburger"></i>
                             <span class="text">Menu</span>
@@ -139,150 +137,7 @@
     </div>
 
     <div class="main">
-        <div class="head">
-            <div class="lefthead">
-                <h1>Analytics</h1>
-            </div>
-            <div class="righthead">
-                <i class="ph-fill ph-bell-simple"></i>
-                <div class="texthead">
-                    <p>Hola, <span class="namehead"></span></p>
-                    <h3 class="rol"></h3>
-                </div>
-                <img src="" alt="" class="imghead">
-            </div>
-        </div>
-        <div class="contentmain">
-            <div class="leftmain">
-                <div class="contentbars">
-                    <div class="bars">
-                        <div class="moneybars">
-                            <p>Total Sales</p>
-                            <h1>$<span>65,024</span></h1>
-                        </div>
-                        <div class="circular-progress">
-                            <span class="progress-value">0%</span>
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="moneybars">
-                            <p>Total Sales</p>
-                            <h1>$<span>65,024</span></h1>
-                        </div>
-                        <div class="circular-progress2">
-                            <span class="progress-value2">0%</span>
-                        </div>
-                    </div>
-                    <div class="bars">
-                        <div class="moneybars">
-                            <p>Total Sales</p>
-                            <h1>$<span>65,024</span></h1>
-                        </div>
-                        <div class="circular-progress3">
-                            <span class="progress-value3">0%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="users">
-                    <h1>New Users</h1>
-                    <div class="contentuser">
-                        <div class="user">
-                            <img src="/assets/profile-0.jpg" alt="">
-                            <div class="textuser">
-                                <h3>Jack</h3>
-                                <p>54 Min Ago</p>
-                            </div>
-                        </div>
-                        <div class="user">
-                            <img src="/assets/profile-1.jpg" alt="">
-                            <div class="textuser">
-                                <h3>Amir</h3>
-                                <p>3 Hours Ago</p>
-                            </div>
-                        </div>
-                        <div class="user">
-                            <img src="/assets/profile-2.jpg" alt="">
-                            <div class="textuser">
-                                <h3>Ember</h3>
-                                <p>6 Hours Ago</p>
-                            </div>
-                        </div>
-                        <div class="user">
-                            <img src="/assets/plus.png" alt="">
-                            <div class="textuser">
-                                <h3>More</h3>
-                                <p>New User</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="orders">
-                    <h1>Recent Orders</h1>
-                    <div class="condefa">
-                        <table class="default">
-                            <tbody>
-                                <tr class="headtable">
-                                    <th>Course Name</th>
-                                    <th>Course Number</th>
-                                    <th>Payment</th>
-                                    <th>Status</th>
-                                    <th></th>
-                                </tr>
-                                <tr>
-                                    <th>Javascript Tutorial</th>
-                                    <th>857682r</th>
-                                    <th>Due</th>
-                                    <th>Pending</th>
-                                    <th>Details</th>
-                                </tr>
-                                <tr>
-                                    <th>Javascript Tutorial</th>
-                                    <th>857682r</th>
-                                    <th>Due</th>
-                                    <th>Pending</th>
-                                    <th>Details</th>
-                                </tr>
-                                <tr>
-                                    <th>Javascript Tutorial</th>
-                                    <th>857682r</th>
-                                    <th>Due</th>
-                                    <th>Pending</th>
-                                    <th>Details</th>
-                                </tr>
-                                <tr>
-                                    <th>Javascript Tutorial</th>
-                                    <th>857682r</th>
-                                    <th>Due</th>
-                                    <th>Pending</th>
-                                    <th>Details</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="rigthmain">
-                <div class="hamburguer">
-                    <img src="/assets/ham2.png" alt="">
-                    <div class="texthamgurger">
-                        <p>Hamburguesa mas pedida, <span>Dulce Pecado</span></p>
-                        <h3>Segun las ultimas 4 semanas</h3>
-                    </div>
-                </div>
-                <div class="reminders">
-                    <div class="headreminders">
-                        <h3>Recordatorios</h3>
-                        <i class="ph-bold ph-bell-simple"></i>
-                    </div>
-                    <div class="contentreminders">
-                       
-                    </div>
-                    <div class="bottomreminder">
-                        <button class="addreminder">Agregar Recordatorio</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <div class="modal">
@@ -314,73 +169,7 @@
         </div>
     </div>
 
-    <div class="modal3">
-        <div class="modal-content3">
-            <span class="closeIcon3"><i class="fas fa-times"></i></span>
-            <div class="modal-body3">
-                <span class="icon3"><i class="ph-fill ph-alarm"></i></span>
-                <div class="right-items3">
-                    <p>Nombre</p>
-                    <p>Hora Fin</p>
-                    <input type="text" class="name_reminder" id="name_reminder" autocomplete="off">
-                    <input type="text" id="timepicker" placeholder="Selecciona una hora" autocomplete="off">
-                    <p>Icono</p>
-                    <p>Color</p>
-                    <select id="opciones" class="select2" style="width: 100%">
-                        <option value="0">Selecciona un icono</option>
-                        <option value="opcion1" data-icon="ph-fill ph-speaker-high">Opcion 1</option>
-                        <option value="opcion2" data-icon="ph-fill ph-pencil-simple">Opcion 2</option>
-                        <option value="opcion3" data-icon="ph-fill ph-watch">Opcion 3</option>
-                        <option value="opcion4" data-icon="ph-fill ph-folder-simple">Opcion 4</option>
-                    </select>
-                    <div id="color-picker"></div>
-                    <button id="okBtn3">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script src="/controller/admin/menu/menu.js" type="module"></script>
 
-    <div class="modal4">
-        <div class="modal-content4">
-            <div class="modal-body4">
-                <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items4">
-                    <h1>¡Oooops!</h1>
-                    <p class="text4"></p>
-                    <button id="okBtn4">Intentar de nuevo</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal5">
-        <div class="modal-content5">
-            <div class="modal-body5">
-                <span class="icon5"><i class="ph-fill ph-check-fat"></i></span>
-                <div class="right-items5">
-                    <h1>¡Hecho!</h1>
-                    <p class="text5"></p>
-                    <button id="okBtn5">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal6">
-        <div class="modal-content6">
-            <div class="modal-body6">
-                <span class="icon6"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items6">
-                    <h1>Seguro?</h1>
-                    <p class="text6"></p>
-                    <button id="okBtn6">Eliminar</button>
-                    <button id="okBtnNone6">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="/controller/admin/dashboard/dashboard.js" type="module"></script>
 </body>
-
 </html>

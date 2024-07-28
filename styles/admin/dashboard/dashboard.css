@@ -1765,7 +1765,7 @@ button#okBtnNone6:hover {
     }
 
     .modal-content .modal-body .right-items {
-        margin-left: -10px;
+        margin-left: 0px;
     }
 
     .modal2 {
@@ -1787,13 +1787,14 @@ button#okBtnNone6:hover {
     }
 
     .modal-content2 .modal-body2 .right-items2 {
-        margin-left: -10px;
+        margin-left: 0px;
     }
 
     .modal-content3 .modal-body3 .right-items3 {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(8, .5fr);
+        margin-left: 0px;
     }
 
     .modal-content3 .modal-body3 .right-items3 p:first-child {
@@ -1827,7 +1828,7 @@ button#okBtnNone6:hover {
     }
 
     .modal-content4 .modal-body4 .right-items4 {
-        margin-left: -10px;
+        margin-left: 0px;
     }
 
     .modal5 {
@@ -1849,7 +1850,7 @@ button#okBtnNone6:hover {
     }
 
     .modal-content5 .modal-body5 .right-items5 {
-        margin-left: -10px;
+        margin-left: 0px;
     }
 
     .modal6 {
@@ -1871,7 +1872,7 @@ button#okBtnNone6:hover {
     }
 
     .modal-content6 .modal-body6 .right-items6 {
-        margin-left: -10px;
+        margin-left: 0px;
     }
 
     .contentmain .leftmain .users .contentuser {
