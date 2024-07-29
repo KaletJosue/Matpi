@@ -122,10 +122,9 @@ getDocs(collection(db, "Section", "idSection", "Data_Documents"))
             var a = document.createElement('a');
 
             li.className = 'link';
-            a.id = doc.data().Nombre
 
             li.addEventListener('click', () => {
-                location.href = `https://matpicolombia.web.app/views/menu/menu.html#${a.id}`
+                location.href = `/views/menu/menu.html#${doc.data().Nombre}`
             })
 
             all.appendChild(li);
@@ -143,5 +142,9 @@ getDocs(collection(db, "Section", "idSection", "Data_Documents"))
         a.appendChild(i);
 
         i.className = 'ri-user-line';
+
+        a.addEventListener('click', () => {
+            location.href = "/views/login/login.html"
+        })
     });
 
