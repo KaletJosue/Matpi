@@ -103,6 +103,7 @@ header nav ul li:last-child:hover {
     font-size: 13px;
     font-weight: 500;
     color: #542400;
+    cursor: pointer;
 }
 
 .link a::after {

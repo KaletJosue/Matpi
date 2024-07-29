@@ -1,3 +1,23 @@
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCHMlDhb4hdGrKWIhLeaBCDCfCNADGbcaQ",
+    authDomain: "matpicolombia.firebaseapp.com",
+    projectId: "matpicolombia",
+    storageBucket: "matpicolombia.appspot.com",
+    messagingSenderId: "298853028950",
+    appId: "1:298853028950:web:01b1d50f4bfcc14b5557f7",
+    measurementId: "G-R654P1MLDK"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+const db = getFirestore(app);
+
 const plus = document.querySelector('#plus')
 const substract = document.querySelector('#substract')
 const count = document.querySelector('#count')
@@ -90,3 +110,38 @@ function animateBars() {
         })
     })
 }
+
+// header sections
+
+var all = document.querySelector('.con');
+
+getDocs(collection(db, "Section", "idSection", "Data_Documents"))
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+
+            li.className = 'link';
+            a.id = doc.data().Nombre
+
+            li.addEventListener('click', () => {
+                location.href = `https://matpicolombia.web.app/views/menu/menu.html#${a.id}`
+            })
+
+            all.appendChild(li);
+            li.appendChild(a);
+
+            a.textContent = doc.data().Nombre;
+        });
+
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        var i = document.createElement('i');
+
+        all.appendChild(li);
+        li.appendChild(a);
+        a.appendChild(i);
+
+        i.className = 'ri-user-line';
+    });
+
