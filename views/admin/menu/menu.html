@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/admin/menu/menu.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
-    <title>Administrador | Matpi</title>
+    <title>Administrador - Menu | Matpi</title>
     <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <!-- Select2 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    <!-- Flatpicker -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- Pickr -->
-    <link href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr"></script>
 </head>
+
 <body>
 
     <div class="sidebar">
@@ -58,7 +50,7 @@
                     </li>
                     <li class="active">
                         <a href="/views/admin/menu/menu.html">
-                            <i class="ph-bold ph-hamburger"></i>
+                            <i class="ph ph-hamburger"></i>
                             <span class="text">Menu</span>
                         </a>
                     </li>
@@ -137,7 +129,71 @@
     </div>
 
     <div class="main">
+        <div class="top">
+            <div class="left active">
+                <i class="ph-fill ph-selection-all"></i>
+                <div class="textleft">
+                    <h1>Secciones</h1>
+                    <p>Secciones existentes, añadir nuevas, facilitando la gestión y personalización de tu el menú de
+                        matpi</p>
+                </div>
+            </div>
+            <div class="right">
+                <i class="ph-fill ph-fork-knife"></i>
+                <div class="textright">
+                    <h1>Alimentos</h1>
+                    <p>En este apartado, puedes visualizar los alimentos actuales y agregar nuevos, facilitando la
+                        gestión y
+                        personalización del menú de Matpi.</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="tablesection" id="tablesection">
+            <table class="default">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Seccion</th>
+                        <th>Fecha creacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="bodysection">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tablesection" id="tablealiments">
+            <table class="default">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Seccion</th>
+                        <th>Nombre Alimento</th>
+                        <th>Fecha creacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>01</th>
+                        <th>Hamburguesas</th>
+                        <th>Whopper</th>
+                        <th>01/12/2024</th>
+                        <th>
+                            <div>
+                                <button>Editar</button>
+                                <button>Eliminar</button>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <i class="ph-bold ph-plus" id="plus"></i>
     </div>
 
     <div class="modal">
@@ -169,7 +225,80 @@
         </div>
     </div>
 
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items3">
+                    <h1>¡Agrega una seccion!</h1>
+                    <input type="text" id="inputsection" placeholder="Agrega un nombre para la seccion" autocomplete="off">
+                    <input type="number" id="inputsectionid" placeholder="Agrega un id para la seccion" autocomplete="off">
+                    <button id="okBtn3">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal4">
+        <div class="modal-content4">
+            <span class="closeIcon4"><i class="fas fa-times"></i></span>
+            <div class="modal-body4">
+                <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items4">
+                    <h1>¡Ooooops!</h1>
+                    <p class="txt4">Debes agregar un nombre para la seccion</p>
+                    <button id="okBtn4">Intentar de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal5">
+        <div class="modal-content5">
+            <span class="closeIcon5"><i class="fas fa-times"></i></span>
+            <div class="modal-body5">
+                <span class="icon5"><i class="ph-fill ph-check-fat"></i></span>
+                <div class="right-items5">
+                    <h1>¡Hecho!</h1>
+                    <p class="txt5"></p>
+                    <button id="okBtn5">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal6">
+        <div class="modal-content6">
+            <span class="closeIcon6"><i class="fas fa-times"></i></span>
+            <div class="modal-body6">
+                <span class="icon6"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items6">
+                    <h1>¡Cuidado!</h1>
+                    <p class="txt6"></p>
+                    <button id="okBtn6">Eliminar</button>
+                    <button id="cancelBtn6">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal7">
+        <div class="modal-content7">
+            <span class="closeIcon7"><i class="fas fa-times"></i></span>
+            <div class="modal-body7">
+                <span class="icon7"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items7">
+                    <h1>¡Edita una seccion!</h1>
+                    <input type="text" id="ineditsection" placeholder="Agrega un nombre para la seccion" autocomplete="off">
+                    <button id="okBtn7">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/controller/admin/menu/menu.js" type="module"></script>
 
 </body>
+
 </html>

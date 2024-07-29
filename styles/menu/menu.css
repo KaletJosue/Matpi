@@ -27,6 +27,7 @@ h1:not(.modal h1) {
     width: 100%;
     text-align: center;
     color: #542400;
+    text-transform: uppercase;
 }
 
 h1:not(:first-child), h1:not(.modal h1) {
