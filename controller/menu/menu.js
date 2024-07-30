@@ -99,16 +99,6 @@ function animateBars() {
     line3__bars.classList.toggle("active")
 
     con.classList.toggle('active')
-
-    acon.forEach(as => {
-        as.addEventListener('click', () => {
-            line1__bars.classList.remove("active")
-            line2__bars.classList.remove("active")
-            line3__bars.classList.remove("active")
-
-            con.classList.remove('active')
-        })
-    })
 }
 
 // header sections
@@ -125,6 +115,12 @@ getDocs(collection(db, "Section", "idSection", "Data_Documents"))
 
             li.addEventListener('click', () => {
                 location.href = `/views/menu/menu.html#${doc.data().Nombre}`
+
+                line1__bars.classList.remove("active")
+                line2__bars.classList.remove("active")
+                line3__bars.classList.remove("active")
+    
+                con.classList.remove('active')
             })
 
             all.appendChild(li);
