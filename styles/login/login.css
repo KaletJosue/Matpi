@@ -434,6 +434,15 @@ a p:hover span {
 
 /* Modal */
 
+.modal h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal p {
+  font-size: 12px;
+}
+
 .modal {
   top: 0;
   display: none;
@@ -513,7 +522,7 @@ span.icon {
 
 button#okBtn {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;
@@ -532,6 +541,15 @@ button#okBtn:hover {
 }
 
 /* Modal2 */
+
+.modal2 h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal2 p {
+  font-size: 12px;
+}
 
 .modal2 {
   top: 0;
@@ -611,7 +629,7 @@ span.icon2 {
 
 button#okBtn2 {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;
@@ -630,6 +648,15 @@ button#okBtn2:hover {
 }
 
 /* Modal3 */
+
+.modal3 h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal3 p {
+  font-size: 12px;
+}
 
 .modal3 {
   top: 0;
@@ -709,7 +736,7 @@ span.icon3 {
 
 button#okBtn3 {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;
@@ -728,6 +755,15 @@ button#okBtn3:hover {
 }
 
 /* Modal4 */
+
+.modal4 h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal4 p {
+  font-size: 12px;
+}
 
 .modal4 {
   top: 0;
@@ -807,7 +843,7 @@ span.icon4 {
 
 button#okBtn4 {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;
@@ -826,6 +862,15 @@ button#okBtn4:hover {
 }
 
 /* Modal5 */
+
+.modal5 h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal5 p {
+  font-size: 12px;
+}
 
 .modal5 {
   top: 0;
@@ -905,7 +950,7 @@ span.icon5 {
 
 button#okBtn5 {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;
@@ -924,6 +969,15 @@ button#okBtn5:hover {
 }
 
 /* Modal6 */
+
+.modal6 h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.modal6 p {
+  font-size: 12px;
+}
 
 .modal6 {
   top: 0;
@@ -1003,7 +1057,7 @@ span.icon6 {
 
 button#okBtn6 {
   padding: 8px 15px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   background: transparent;
   color: #fff;

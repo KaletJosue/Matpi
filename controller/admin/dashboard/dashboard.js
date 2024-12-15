@@ -20,20 +20,6 @@ const db = getFirestore(app);
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-
-        // btnaccount
-        var btnaccount = document.querySelector('.btnacount')
-        var imgaccount = document.querySelector('.imghead')
-
-        btnaccount.addEventListener('click', () => {
-            location.href = '/views/admin/profile/profile.html'
-        })
-
-        imgaccount.addEventListener('click', () => {
-            location.href = '/views/admin/profile/profile.html'
-        })
-
-        // sidebar.active
         const btnmenu = document.querySelector('.menu-btn')
         const sidebar = document.querySelector('.sidebar')
 
@@ -53,6 +39,465 @@ onAuthStateChanged(auth, (user) => {
         btnmenu.addEventListener('click', () => {
             sidebar.classList.toggle('active')
         })
+
+        // name, rol and img
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                var rol = document.querySelector('.rol')
+                var name = document.querySelector('.name_user')
+
+                var img = document.querySelector('.img_profile')
+
+                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+                    then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            var nombres = doc.data().Nombre.split(" ")
+                            var dosPrimerosNombres = nombres.slice(0, 2).join(" ")
+
+                            rol.textContent = doc.data().Rol
+                            name.textContent = dosPrimerosNombres
+
+                            if (doc.data().URL == "") {
+                                img.src = "/assets/profile-5.jpg"
+                            } else {
+                                img.src = doc.data().URL
+                            }
+                        })
+                    })
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
+
+        // quitar gastos
+
+        const today = new Date();
+        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+        if (today.getDate() === lastDayOfMonth.getDate()) {
+            getDocs(collection(db, "Gastos", "GastosUID", "Private_Gastos"))
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((docSnapshot) => {
+                        const docRef = doc(db, "Gastos", "GastosUID", "Private_Gastos", docSnapshot.id);
+
+                        deleteDoc(docRef)
+                            .then(() => {
+                                console.log(`Documento con ID ${docSnapshot.id} eliminado correctamente.`);
+                            })
+                            .catch((error) => {
+                                console.error("Error al eliminar el documento:", error);
+                            });
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error al obtener los documentos:", error);
+                });
+        }
+
+        // circular progress
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                getDocs(collection(db, "Gastos", "GastosUID", "Private_Gastos"))
+                    .then((querySnapshot) => {
+                        var ingresosTotales = 10000000;
+                        var ingresosActuales = 7000000;
+                        var gastos = 0;
+
+                        querySnapshot.forEach((doc) => {
+                            gastos += parseInt(doc.data().Valor);
+                        });
+
+                        var ganancias = ingresosActuales - gastos;
+                        var formato = new Intl.NumberFormat('es-ES');
+
+                        document.querySelector('.valor_ingresos').textContent = formato.format(ingresosActuales);
+                        document.querySelector('.valor_gastos').textContent = formato.format(gastos);
+                        document.querySelector('.valor_ganancias').textContent = formato.format(ganancias);
+
+                        var porcentajeIngresos = parseInt((ingresosActuales / ingresosTotales) * 100);
+                        var porcentajeGastos = parseInt((gastos / ingresosActuales) * 100);
+                        var porcentajeGanancias = parseInt((ganancias / ingresosActuales) * 100);
+
+                        let circularProgress = document.querySelector('.circular_progress');
+                        let progressValue = document.querySelector('.progress_value');
+
+                        let circularProgress2 = document.querySelector('.circular_progress2');
+                        let progressValue2 = document.querySelector('.progress_value2');
+
+                        let circularProgress3 = document.querySelector('.circular_progress3');
+                        let progressValue3 = document.querySelector('.progress_value3');
+
+                        let start = 0;
+                        let start2 = 0;
+                        let start3 = 0;
+
+                        let end = porcentajeIngresos > 0 ? porcentajeIngresos : 1;
+                        let end2 = porcentajeGastos > 0 ? porcentajeGastos : 1;
+                        let end3 = porcentajeGanancias > 0 ? porcentajeGanancias : 1;
+
+                        let speed = 15;
+
+                        let progress = setInterval(() => {
+                            start++;
+
+                            progressValue.textContent = porcentajeIngresos <= 0 ? `0%` : `${start}%`;
+                            circularProgress.style.background = `conic-gradient(#ff8730, ${start * 3.6}deg, var(--color-gray-white) 0deg)`;
+
+                            if (start == end) {
+                                clearInterval(progress);
+                            }
+                        }, speed);
+
+                        let progress2 = setInterval(() => {
+                            start2++;
+
+                            progressValue2.textContent = porcentajeGastos <= 0 ? `0%` : `${start2}%`;
+                            circularProgress2.style.background = `conic-gradient(#b330ff, ${start2 * 3.6}deg, var(--color-gray-white) 0deg)`;
+
+                            if (start2 == end2) {
+                                clearInterval(progress2);
+                            }
+                        }, speed);
+
+                        let progress3 = setInterval(() => {
+                            start3++;
+
+                            progressValue3.textContent = porcentajeGanancias <= 0 ? `0%` : `${start3}%`;
+                            circularProgress3.style.background = `conic-gradient(#00bf59, ${start3 * 3.6}deg, var(--color-gray-white) 0deg)`;
+
+                            if (start3 == end3) {
+                                clearInterval(progress3);
+                            }
+                        }, speed);
+                    });
+
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
+
+        // Add Reminders
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                flatpickr(".start_reminder", {
+                    enableTime: true,
+                    noCalendar: true,
+                    dateFormat: "H:i",
+                    time_24hr: true,
+                });
+
+                flatpickr(".end_reminder", {
+                    enableTime: true,
+                    noCalendar: true,
+                    dateFormat: "H:i",
+                    time_24hr: true,
+                });
+
+                var btnAdd = document.querySelector('.bottom_reminders')
+                var modalReminder = document.querySelector('.modal_reminder')
+                var closeModal = document.querySelector('#closeModal')
+
+                btnAdd.addEventListener('click', () => {
+                    modalReminder.classList.toggle('active')
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modalReminder) {
+                        modalReminder.classList.remove('active')
+                    }
+                })
+                closeModal.addEventListener('click', () => {
+                    modalReminder.classList.remove('active')
+                })
+
+                const closeBtn3 = document.querySelector('.closeIcon3')
+                const tryAgain3 = document.getElementById('okBtn3')
+                const modal3 = document.querySelector('.modal3')
+                const textModal3 = document.querySelector('.text_modal3')
+
+                const closeBtn4 = document.querySelector('.closeIcon4')
+                const tryAgain4 = document.getElementById('okBtn4')
+                const modal4 = document.querySelector('.modal4')
+
+                var add = document.querySelector('.add')
+                var name = document.querySelector('.name_reminder')
+                var start = document.querySelector('.start_reminder')
+                var end = document.querySelector('.end_reminder')
+
+                add.addEventListener('click', () => {
+                    const colores = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FFC300', '#581845'];
+
+                    const indiceAleatorio = Math.floor(Math.random() * colores.length);
+                    const colorAleatorio = colores[indiceAleatorio];
+
+                    onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            const uid = user.uid;
+
+                            if (name.value.length != 0) {
+                                if (start.value.length != 0) {
+                                    if (end.value.length != 0) {
+
+                                        var band = false
+
+                                        getDocs(collection(db, "Reminders", user.uid, "Private_Reminder"))
+                                            .then((querySnapshot) => {
+                                                querySnapshot.forEach((doc) => {
+                                                    if (name.value.toLowerCase() == doc.data().Nombre.toLowerCase()) {
+                                                        band = true
+                                                    }
+                                                })
+                                            }).then(() => {
+
+                                                if (band == false) {
+                                                    addDoc(collection(db, "Reminders", user.uid, "Private_Reminder"), {
+                                                        Nombre: name.value,
+                                                        Inicio: start.value,
+                                                        Final: end.value,
+                                                        Color: colorAleatorio,
+                                                    }).then(() => {
+                                                        modal4.classList.add('active')
+                                                        closeBtn4.addEventListener('click', () => {
+                                                            modal4.classList.remove('active')
+                                                            location.reload()
+                                                        })
+                                                        tryAgain4.addEventListener('click', () => {
+                                                            modal4.classList.remove('active')
+                                                            location.reload()
+                                                        })
+                                                        window.addEventListener('click', event => {
+                                                            if (event.target == modal4) {
+                                                                modal4.classList.remove('active')
+                                                                location.reload()
+                                                            }
+                                                        })
+                                                        modalReminder.classList.remove('active')
+                                                    }).catch(() => {
+                                                        modal3.classList.add('active')
+                                                        textModal3.textContent = "No pudimos agregar el recordatorio"
+                                                        closeBtn3.addEventListener('click', () => {
+                                                            modal3.classList.remove('active')
+                                                        })
+                                                        tryAgain3.addEventListener('click', () => {
+                                                            modal3.classList.remove('active')
+                                                        })
+                                                        window.addEventListener('click', event => {
+                                                            if (event.target == modal3) {
+                                                                modal3.classList.remove('active')
+                                                            }
+                                                        })
+                                                    });
+                                                } else {
+                                                    modal3.classList.add('active')
+                                                    textModal3.textContent = "Este recordatorio ya esta agregado"
+                                                    closeBtn3.addEventListener('click', () => {
+                                                        modal3.classList.remove('active')
+                                                    })
+                                                    tryAgain3.addEventListener('click', () => {
+                                                        modal3.classList.remove('active')
+                                                    })
+                                                    window.addEventListener('click', event => {
+                                                        if (event.target == modal3) {
+                                                            modal3.classList.remove('active')
+                                                        }
+                                                    })
+                                                }
+
+                                            })
+
+                                    } else {
+                                        modal3.classList.add('active')
+                                        textModal3.textContent = "Debes ingresar la hora final"
+                                        closeBtn3.addEventListener('click', () => {
+                                            modal3.classList.remove('active')
+                                        })
+                                        tryAgain3.addEventListener('click', () => {
+                                            modal3.classList.remove('active')
+                                        })
+                                        window.addEventListener('click', event => {
+                                            if (event.target == modal3) {
+                                                modal3.classList.remove('active')
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    modal3.classList.add('active')
+                                    textModal3.textContent = "Debes ingresar la hora de inicio"
+                                    closeBtn3.addEventListener('click', () => {
+                                        modal3.classList.remove('active')
+                                    })
+                                    tryAgain3.addEventListener('click', () => {
+                                        modal3.classList.remove('active')
+                                    })
+                                    window.addEventListener('click', event => {
+                                        if (event.target == modal3) {
+                                            modal3.classList.remove('active')
+                                        }
+                                    })
+                                }
+                            } else {
+                                modal3.classList.add('active')
+                                textModal3.textContent = "Debes ingresar el nombre"
+                                closeBtn3.addEventListener('click', () => {
+                                    modal3.classList.remove('active')
+                                })
+                                tryAgain3.addEventListener('click', () => {
+                                    modal3.classList.remove('active')
+                                })
+                                window.addEventListener('click', event => {
+                                    if (event.target == modal3) {
+                                        modal3.classList.remove('active')
+                                    }
+                                })
+                            }
+
+                        } else {
+                            const tryAgain = document.getElementById('okBtn')
+                            const modal = document.querySelector('.modal')
+
+                            modal.classList.add('active')
+                            tryAgain.addEventListener('click', () => {
+                                location.href = "/views/login/login.html"
+                            })
+                        }
+                    });
+                })
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
+
+        // See Reminders
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                getDocs(collection(db, "Reminders", user.uid, "Private_Reminder")).
+                    then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+
+                            var container = document.querySelector('.center_reminders')
+                            var reminder = document.createElement('div')
+                            var leftReminder = document.createElement('div')
+                            var bell = document.createElement('i')
+                            var textReminder = document.createElement('div')
+                            var name = document.createElement('h3')
+                            var hora = document.createElement('p')
+                            var iconMenu = document.createElement('i')
+                            var deleteReminder = document.querySelector('.deleteReminder')
+                            var spanDelete = document.querySelector('.content_deleteReminder span')
+                            var btnDelete = document.querySelector('.btnDelete')
+
+                            reminder.className = "reminder"
+                            leftReminder.className = "left_reminder"
+
+                            bell.style.background = doc.data().Color
+
+                            bell.className = "fa-solid fa-bell"
+                            name.textContent = doc.data().Nombre
+                            hora.textContent = `${doc.data().Inicio} - ${doc.data().Final}`
+                            iconMenu.className = "fa-solid fa-ellipsis-vertical"
+                            iconMenu.style.cursor = "pointer"
+                            iconMenu.style.color = "var(--color-black)"
+
+                            container.appendChild(reminder)
+                            reminder.appendChild(leftReminder)
+                            reminder.appendChild(iconMenu)
+                            leftReminder.appendChild(bell)
+                            leftReminder.appendChild(textReminder)
+                            textReminder.appendChild(name)
+                            textReminder.appendChild(hora)
+
+                            iconMenu.addEventListener('click', () => {
+                                deleteReminder.classList.add('active')
+                                spanDelete.addEventListener('click', () => {
+                                    deleteReminder.classList.remove('active')
+                                })
+                                window.addEventListener('click', event => {
+                                    if (event.target == deleteReminder) {
+                                        deleteReminder.classList.remove('active')
+                                    }
+                                })
+
+                                var h1Delete = document.querySelector('.content_deleteReminder h1')
+                                var pDelete = document.querySelector('.content_deleteReminder p')
+
+                                h1Delete.textContent = doc.data().Nombre
+                                pDelete.textContent = `${doc.data().Inicio} - ${doc.data().Final}`
+
+                                btnDelete.addEventListener('click', () => {
+                                    const docRef = doc.ref
+
+                                    const closeBtn5 = document.querySelector('.closeIcon5')
+                                    const tryAgain5 = document.getElementById('okBtn5')
+                                    const modal5 = document.querySelector('.modal5')
+
+                                    deleteDoc(docRef).
+                                        then(() => {
+                                            modal5.classList.add('active')
+                                            closeBtn5.addEventListener('click', () => {
+                                                modal5.classList.remove('active')
+                                                location.reload()
+                                            })
+                                            tryAgain5.addEventListener('click', () => {
+                                                modal5.classList.remove('active')
+                                                location.reload()
+                                            })
+                                            window.addEventListener('click', event => {
+                                                if (event.target == modal5) {
+                                                    modal5.classList.remove('active')
+                                                    location.reload()
+                                                }
+                                            })
+                                        }).catch(() => {
+                                            console.log("Error al eliminar")
+                                        })
+                                })
+                            })
+
+                        })
+                    })
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
 
         // Dark Mode
         onAuthStateChanged(auth, (user) => {
@@ -136,116 +581,6 @@ onAuthStateChanged(auth, (user) => {
             }
         });
 
-        // name and rol
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-
-                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
-                    then((querySnapshot) => {
-                        querySnapshot.forEach((doc2) => {
-                            const name = document.querySelector('.namehead')
-                            const rol = document.querySelector('.rol')
-
-                            const imghead = document.querySelector('.imghead')
-
-                            var cadena = doc2.data().Nombre
-                            var palabras = cadena.split(" ")
-
-                            var dosPrimerasPalabras = palabras.slice(0, 2).join(' ')
-
-                            name.textContent = dosPrimerasPalabras
-                            rol.textContent = doc2.data().Rol
-
-                            if (doc2.data().URL == "") {
-                                imghead.src = "/assets/profile-5.jpg"
-                            } else {
-                                imghead.src = doc2.data().URL
-                            }
-                        })
-                    })
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
-                })
-            }
-        });
-
-        // circularProgress
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-
-                let circularProgress = document.querySelector('.circular-progress'),
-                    progressValue = document.querySelector('.progress-value')
-
-                let progressStartValue = 0,
-                    progressEndValue = 90,
-                    speed = 15
-
-                let progress = setInterval(() => {
-                    progressStartValue++;
-
-                    progressValue.textContent = `${progressStartValue}%`
-                    circularProgress.style.background = `conic-gradient(#fe9516 ${progressStartValue * 3.6}deg, var(--color-fondo) 0deg`
-
-                    if (progressStartValue == progressEndValue) {
-                        clearInterval(progress)
-                    }
-                }, speed)
-
-                let circularProgress2 = document.querySelector('.circular-progress2'),
-                    progressValue2 = document.querySelector('.progress-value2')
-
-                let progressStartValue2 = 0,
-                    progressEndValue2 = 60,
-                    speed2 = 15
-
-                let progress2 = setInterval(() => {
-                    progressStartValue2++;
-
-                    progressValue2.textContent = `${progressStartValue2}%`
-                    circularProgress2.style.background = `conic-gradient(#0085ae ${progressStartValue2 * 3.6}deg, var(--color-fondo) 0deg`
-
-                    if (progressStartValue2 == progressEndValue2) {
-                        clearInterval(progress2)
-                    }
-                }, speed2)
-
-                let circularProgress3 = document.querySelector('.circular-progress3'),
-                    progressValue3 = document.querySelector('.progress-value3')
-
-                let progressStartValue3 = 0,
-                    progressEndValue3 = 20,
-                    speed3 = 15
-
-                let progress3 = setInterval(() => {
-                    progressStartValue3++;
-
-                    progressValue3.textContent = `${progressStartValue3}%`
-                    circularProgress3.style.background = `conic-gradient(#fe4c16 ${progressStartValue3 * 3.6}deg, var(--color-fondo) 0deg`
-
-                    if (progressStartValue3 == progressEndValue3) {
-                        clearInterval(progress3)
-                    }
-                }, speed3)
-
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
-                })
-            }
-        });
-
         const palanca = document.querySelector('.theme-switch__checkbox')
         const body = document.body
 
@@ -273,7 +608,6 @@ onAuthStateChanged(auth, (user) => {
                 signOut(auth).then(() => {
                     location.href = "/index.html"
                 }).catch((error) => {
-                    // An error happened.
                 });
             })
             window.addEventListener('click', event => {
@@ -282,354 +616,6 @@ onAuthStateChanged(auth, (user) => {
                 }
             })
         })
-
-        // Add Reminders
-        const closeBtn3 = document.querySelector('.closeIcon3')
-        const tryAgain3 = document.getElementById('okBtn3')
-        const modal3 = document.querySelector('.modal3')
-
-        const tryAgain4 = document.getElementById('okBtn4')
-        const modal4 = document.querySelector('.modal4')
-        const text4 = document.querySelector('.text4')
-
-        const tryAgain5 = document.getElementById('okBtn5')
-        const modal5 = document.querySelector('.modal5')
-        const text5 = document.querySelector('.text5')
-
-        const tryAgain6 = document.getElementById('okBtn6')
-        const cancel6 = document.getElementById('okBtnNone6')
-        const modal6 = document.querySelector('.modal6')
-        const text6 = document.querySelector('.text6')
-
-        var addreminder = document.querySelector('.addreminder')
-        let hourreminder = '';
-
-        flatpickr("#timepicker", {
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: "H:i K",
-            time_24hr: false,
-            onClose: function (selectedDates, dateStr, instance) {
-                hourreminder = dateStr;
-            }
-        });
-
-        const pickr = Pickr.create({
-            el: '#color-picker',
-            theme: 'classic',
-            default: 'null',
-
-            swatches: [
-                'rgba(244, 67, 54, 1)',
-                'rgba(233, 30, 99, 1)',
-                'rgba(156, 39, 176, 1)',
-                'rgba(103, 58, 183, 1)',
-                'rgba(63, 81, 181, 1)',
-                'rgba(33, 150, 243, 1)',
-                'rgba(3, 169, 244, 1)',
-                'rgba(0, 188, 212, 1)',
-                'rgba(0, 150, 136, 1)',
-                'rgba(76, 175, 80, 1)',
-                'rgba(139, 195, 74, 1)',
-                'rgba(205, 220, 57, 1)',
-                'rgba(255, 235, 59, 1)',
-                'rgba(255, 193, 7, 1)'
-            ],
-
-            components: {
-
-                // Main components
-                preview: true,
-                opacity: false,
-                hue: true,
-
-                // Input / output Options
-                interaction: {
-                    hex: true,
-                    rgba: true,
-                    hsla: true,
-                    hsva: true,
-                    cmyk: true,
-                    input: true,
-                    clear: true,
-                    save: true
-                }
-            }
-        });
-
-        function formatState(state) {
-            if (!state.id) {
-                return state.text;
-            }
-            var icon = $(state.element).data('icon');
-            if (icon) {
-                var $state = $(
-                    '<span><i class="' + icon + '"></i> ' + state.text + '</span>'
-                );
-                return $state;
-            }
-            return state.text;
-        }
-
-        $(document).ready(function () {
-            $('#opciones').select2({
-                templateResult: formatState,
-                templateSelection: formatState,
-                minimumResultsForSearch: Infinity
-            });
-        });
-
-        const now = new Date();
-        let hours = now.getHours();
-        const minutes = now.getMinutes();
-        
-        const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-        const hoursStr = hours < 10 ? '0' + hours : hours;
-
-        addreminder.addEventListener('click', () => {
-            modal3.classList.add('active')
-            closeBtn3.addEventListener('click', () => {
-                modal3.classList.remove('active')
-            })
-            tryAgain3.addEventListener('click', () => {
-
-                // variables
-                var namereminder
-                namereminder = document.getElementById('name_reminder').value
-                var iconreminder = $('.select2').val()
-                var colorreminder = pickr.getColor().toHEXA().toString()
-                const formattedTime = `${hoursStr}:${minutesStr}`;
-
-                if (namereminder.length != 0) {
-                    if (namereminder.length < 36) {
-                        if (hourreminder.length != 0) {
-                            if (iconreminder != 0) {
-
-                                onAuthStateChanged(auth, (user) => {
-                                    if (user) {
-                                        const uid = user.uid;
-
-                                        addDoc(collection(db, "Users", user.uid, "Data_Reminder"), {
-                                            Nombre: namereminder,
-                                            Hora_Inicial: formattedTime,
-                                            Hora_Final: hourreminder,
-                                            Icon: iconreminder,
-                                            Color: colorreminder,
-                                            IdUser: user.uid,
-                                        })
-
-                                        modal3.classList.remove('active')
-                                        text5.textContent = 'El recordatorio con nombre ' + '( ' + namereminder + ' )' + ' se agrego correctamente'
-                                        modal5.classList.add('active')
-                                        tryAgain5.addEventListener('click', () => {
-                                            modal5.classList.remove('active')
-                                            setTimeout(function () {
-                                                location.reload();
-                                            }, 1000)
-                                        })
-                                        window.addEventListener('click', event => {
-                                            if (event.target == modal5) {
-                                                modal5.classList.remove('active')
-                                            }
-                                        })
-
-                                    } else {
-                                        const tryAgain = document.getElementById('okBtn')
-                                        const modal = document.querySelector('.modal')
-
-                                        modal.classList.add('active')
-                                        tryAgain.addEventListener('click', () => {
-                                            location.href = "/views/login/login.html"
-                                        })
-                                    }
-                                });
-
-                            } else {
-                                text4.textContent = "Selecciona un icono para este recordatorio"
-                                modal4.classList.add('active')
-                                tryAgain4.addEventListener('click', () => {
-                                    modal4.classList.remove('active')
-                                })
-                                window.addEventListener('click', event => {
-                                    if (event.target == modal4) {
-                                        modal4.classList.remove('active')
-                                    }
-                                })
-                            }
-                        } else {
-                            text4.textContent = "Digita la hora a la que finalizara este recordatorio"
-                            modal4.classList.add('active')
-                            tryAgain4.addEventListener('click', () => {
-                                modal4.classList.remove('active')
-                            })
-                            window.addEventListener('click', event => {
-                                if (event.target == modal4) {
-                                    modal4.classList.remove('active')
-                                }
-                            })
-                        }
-                    } else {
-                        text4.textContent = "El nombre del recordatorio es demasiado largo"
-                        modal4.classList.add('active')
-                        tryAgain4.addEventListener('click', () => {
-                            modal4.classList.remove('active')
-                        })
-                        window.addEventListener('click', event => {
-                            if (event.target == modal4) {
-                                modal4.classList.remove('active')
-                            }
-                        })
-                    }
-                } else {
-                    text4.textContent = "Escribe un nombre para este recordatorio"
-                    modal4.classList.add('active')
-                    tryAgain4.addEventListener('click', () => {
-                        modal4.classList.remove('active')
-                    })
-                    window.addEventListener('click', event => {
-                        if (event.target == modal4) {
-                            modal4.classList.remove('active')
-                        }
-                    })
-                }
-
-            })
-            window.addEventListener('click', event => {
-                if (event.target == modal3) {
-                    modal3.classList.remove('active')
-                }
-            })
-        })
-
-        // See Reminders
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-
-                getDocs(query(collection(db, "Users", user.uid, "Data_Reminder"), where('IdUser', "==", user.uid))).
-                    then((querySnapshot) => {
-                        querySnapshot.forEach((doc2) => {
-                            const contentreminder = document.querySelector('.contentreminders')
-                            var reminder = document.createElement('div')
-                            var leftreminder = document.createElement('div')
-                            var i = document.createElement('i')
-                            var textreminder = document.createElement('div')
-                            var p = document.createElement('p')
-                            var h3 = document.createElement('h3')
-                            var rightreminder = document.createElement('div')
-                            var i2 = document.createElement('i')
-                            var deletereminder = document.createElement('p')
-
-                            reminder.className = 'reminder'
-                            leftreminder.className = 'leftreminder'
-                            textreminder.className = 'textleftreminder'
-                            rightreminder.className = 'rightreminder'
-                            deletereminder.className = 'deletereminder'
-
-                            if (doc2.data().Icon == 'opcion1') {
-                                i.className = 'ph-fill ph-speaker-high'
-                            } else if (doc2.data().Icon == 'opcion2') {
-                                i.className = 'ph-fill ph-pencil-simple'
-                            } if (doc2.data().Icon == 'opcion3') {
-                                i.className = 'ph-fill ph-watch'
-                            } else if (doc2.data().Icon == 'opcion4') {
-                                i.className = 'ph-fill ph-folder-simple'
-                            }
-
-                            i.style.backgroundColor = doc2.data().Color
-
-                            p.textContent = doc2.data().Nombre
-                            h3.textContent = doc2.data().Hora_Inicial + ' - ' + doc2.data().Hora_Final
-                            deletereminder.textContent = 'Eliminar'
-
-                            i2.className = 'ri-more-2-fill'
-
-                            contentreminder.appendChild(reminder)
-                            reminder.appendChild(leftreminder)
-                            reminder.appendChild(deletereminder)
-                            leftreminder.appendChild(i)
-                            leftreminder.appendChild(textreminder)
-                            textreminder.appendChild(p)
-                            textreminder.appendChild(h3)
-                            reminder.appendChild(rightreminder)
-                            rightreminder.appendChild(i2)
-
-                            i2.addEventListener('click', () => {
-                                reminder.classList.toggle('active')
-
-                                onAuthStateChanged(auth, (user) => {
-                                    if (user) {
-                                        const uid = user.uid;
-
-                                        // deleteReminder
-                                        deletereminder.addEventListener('click', async function () {
-                                            try {
-                                                const querySnapshot = await getDocs(collection(db, "Users", user.uid, "Data_Reminder"))
-                                                querySnapshot.forEach(async (doc) => {
-                                                    if (doc.data().Nombre == p.textContent) {
-                                                        modal6.classList.add('active')
-                                                        text6.textContent = "Quires eliminar el recordatorio ( " + doc.data().Nombre + " )" 
-                                                        tryAgain6.addEventListener('click', async function () {
-                                                            await deleteDoc(doc.ref)
-
-                                                            modal6.classList.remove('active')
-                                                            text5.textContent = 'El recordatorio con nombre ' + '( ' + doc.data().Nombre + ' )' + ' se elimino correctamente'
-                                                            modal5.classList.add('active')
-                                                            tryAgain5.addEventListener('click', () => {
-                                                                modal5.classList.remove('active')
-                                                                setTimeout(function () {
-                                                                    location.reload();
-                                                                }, 1)
-                                                            })
-                                                            window.addEventListener('click', event => {
-                                                                if (event.target == modal5) {
-                                                                    modal5.classList.remove('active')
-                                                                }
-                                                            })
-                                                        })
-                                                        cancel6.addEventListener('click', () => {
-                                                            modal6.classList.remove('active')
-                                                        })
-                                                        window.addEventListener('click', event => {
-                                                            if (event.target == modal6) {
-                                                                modal6.classList.remove('active')
-                                                            }
-                                                        })
-                                                    }
-                                                })
-
-                                            } catch (error) {
-
-                                            }
-
-                                        })
-
-                                    } else {
-                                        const tryAgain = document.getElementById('okBtn')
-                                        const modal = document.querySelector('.modal')
-
-                                        modal.classList.add('active')
-                                        tryAgain.addEventListener('click', () => {
-                                            location.href = "/views/login/login.html"
-                                        })
-                                    }
-                                });
-
-                            })
-
-                        })
-                    })
-
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
-                })
-            }
-        });
 
     } else {
         const tryAgain = document.getElementById('okBtn')

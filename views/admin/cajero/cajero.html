@@ -5,18 +5,21 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/menu/menu.css" />
+    <link rel="stylesheet" href="/styles/admin/cajero/cajero.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
-    <title>Administrador - Menu | Matpi</title>
-    <!-- Iconos -->
+    <title>Administrador | Matpi</title>
+    <!-- ICONOS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
-
     <div class="sidebar">
 
         <i class="ri-menu-line" id="btnsidebar"></i>
@@ -42,22 +45,22 @@
                             <span class="text">Incio</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="icon ph-bold ph-users"></i>
-                            <span class="text">Usuarios</span>
+                    <li class="active">
+                        <a href="/views/admin/cajero/cajero.html">
+                            <i class="ph ph-cash-register"></i>
+                            <span class="text">Cajeros</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/menu/menu.html">
-                            <i class="ph ph-hamburger"></i>
+                            <i class="ph-bold ph-hamburger"></i>
                             <span class="text">Menu</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="icon ph-bold ph-calendar-blank"></i>
-                            <span class="text">Schedules</span>
+                        <a href="/views/admin/gastos/gastos.html">
+                            <i class="ph ph-chart-line"></i>
+                            <span class="text">Gastos</span>
                         </a>
                     </li>
                     <li>
@@ -74,7 +77,7 @@
                     <li>
                         <a href="#">
                             <i class="icon ph-bold ph-gear"></i>
-                            <span class="text">Settings</span>
+                            <span class="text">Configuracion</span>
                         </a>
                     </li>
                 </ul>
@@ -85,7 +88,7 @@
             <p class="title">Cuenta</p>
             <ul>
                 <li>
-                    <a href="#">
+                    <a>
                         <i class="ph ph-moon" id="moon"></i>
                         <span class="text">Dark Mode</span>
                         <label class="theme-switch">
@@ -112,16 +115,10 @@
                         </label>
                     </a>
                 </li>
-                <li class="btnacount">
-                    <a href="#">
-                        <i class="icon ph-bold ph-user"></i>
-                        <span class="text">Cuenta</span>
-                    </a>
-                </li>
                 <li id="logout">
-                    <a href="#">
+                    <a>
                         <i class="icon ph-bold ph-sign-out"></i>
-                        <span class="text">Logout</span>
+                        <span class="text">Salir</span>
                     </a>
                 </li>
             </ul>
@@ -129,76 +126,17 @@
     </div>
 
     <div class="main">
-        <div class="top">
-            <div class="left active">
-                <i class="ph-fill ph-selection-all"></i>
-                <div class="textleft">
-                    <h1>Secciones</h1>
-                    <p>Secciones existentes, añadir nuevas, facilitando la gestión y personalización de tu el menú de
-                        matpi</p>
-                </div>
+        <div class="admin_main">
+            <div class="text_admin-main">
+                <h1 class="rol"></h1>
+                <p>Hola, <span class="name_user"></span></p>
             </div>
-            <div class="right">
-                <i class="ph-fill ph-fork-knife"></i>
-                <div class="textright">
-                    <h1>Alimentos</h1>
-                    <p>En este apartado, puedes visualizar los alimentos actuales y agregar nuevos, facilitando la
-                        gestión y
-                        personalización del menú de Matpi.</p>
-                </div>
-            </div>
+            <img src="" alt="" class="img_profile">
         </div>
-
-        <div class="tablesection" id="tablesection">
-            <table class="default">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre Seccion</th>
-                        <th>Fecha creacion</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody class="bodysection">
-
-                </tbody>
-            </table>
-        </div>
-
-        <div class="tablesection" id="tablealiments">
-            <table class="default">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre Seccion</th>
-                        <th>Nombre Alimento</th>
-                        <th>Fecha creacion</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>01</th>
-                        <th>Hamburguesas</th>
-                        <th>Whopper</th>
-                        <th>01/12/2024</th>
-                        <th>
-                            <div>
-                                <button>Editar</button>
-                                <button>Eliminar</button>
-                            </div>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <i class="ph-bold ph-plus" id="plus"></i>
     </div>
 
     <div class="modal">
         <div class="modal-content">
-            <span class="closeIcon"><i class="fas fa-times"></i></span>
             <div class="modal-body">
                 <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items">
@@ -225,80 +163,7 @@
         </div>
     </div>
 
-    <div class="modal3">
-        <div class="modal-content3">
-            <span class="closeIcon3"><i class="fas fa-times"></i></span>
-            <div class="modal-body3">
-                <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items3">
-                    <h1>¡Agrega una seccion!</h1>
-                    <input type="text" id="inputsection" placeholder="Agrega un nombre para la seccion" autocomplete="off">
-                    <input type="number" id="inputsectionid" placeholder="Agrega un id para la seccion" autocomplete="off">
-                    <button id="okBtn3">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal4">
-        <div class="modal-content4">
-            <span class="closeIcon4"><i class="fas fa-times"></i></span>
-            <div class="modal-body4">
-                <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items4">
-                    <h1>¡Ooooops!</h1>
-                    <p class="txt4">Debes agregar un nombre para la seccion</p>
-                    <button id="okBtn4">Intentar de nuevo</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal5">
-        <div class="modal-content5">
-            <span class="closeIcon5"><i class="fas fa-times"></i></span>
-            <div class="modal-body5">
-                <span class="icon5"><i class="ph-fill ph-check-fat"></i></span>
-                <div class="right-items5">
-                    <h1>¡Hecho!</h1>
-                    <p class="txt5"></p>
-                    <button id="okBtn5">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal6">
-        <div class="modal-content6">
-            <span class="closeIcon6"><i class="fas fa-times"></i></span>
-            <div class="modal-body6">
-                <span class="icon6"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items6">
-                    <h1>¡Cuidado!</h1>
-                    <p class="txt6"></p>
-                    <button id="okBtn6">Eliminar</button>
-                    <button id="cancelBtn6">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal7">
-        <div class="modal-content7">
-            <span class="closeIcon7"><i class="fas fa-times"></i></span>
-            <div class="modal-body7">
-                <span class="icon7"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items7">
-                    <h1>¡Edita una seccion!</h1>
-                    <input type="text" id="ineditsection" placeholder="Agrega un nombre para la seccion" autocomplete="off">
-                    <button id="okBtn7">Editar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="/controller/admin/menu/menu.js" type="module"></script>
-
+    <script src="/controller/admin/cajero/cajero.js" type="module"></script>
 </body>
 
 </html>
