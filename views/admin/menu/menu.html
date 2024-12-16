@@ -5,7 +5,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="/styles/admin/menu/menu.css" />
     <link rel="stylesheet" href="/styles/darkmode.css">
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title>Administrador | Matpi</title>
@@ -39,10 +39,10 @@
             <div class="menu">
                 <p class="title"></p>
                 <ul>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/dashboard/dashboard.html">
                             <i class="icon ph-bold ph-house-simple"></i>
-                            <span class="text">Inicio</span>
+                            <span class="text">Incio</span>
                         </a>
                     </li>
                     <li>
@@ -51,7 +51,7 @@
                             <span class="text">Cajeros</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/menu/menu.html">
                             <i class="ph-bold ph-hamburger"></i>
                             <span class="text">Menu</span>
@@ -133,132 +133,6 @@
             </div>
             <img src="" alt="" class="img_profile">
         </div>
-
-        <div class="stadistics">
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <h1>Ingresos</h1>
-                    <p>$<span class="valor_ingresos"></span></p>
-                </div>
-                <div class="circular_progress">
-                    <span class="progress_value">0%</span>
-                </div>
-            </div>
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-chart-gantt"></i>
-                    <h1>Gastos</h1>
-                    <p>$<span class="valor_gastos"></span></p>
-                </div>
-                <div class="circular_progress2">
-                    <span class="progress_value2">0%</span>
-                </div>
-            </div>
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-money-bill-trend-up"></i>
-                    <h1>Ganancias</h1>
-                    <p>$<span class="valor_ganancias"></span></p>
-                </div>
-                <div class="circular_progress3">
-                    <span class="progress_value3">0%</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="products">
-            <h1>Mas Vendidos</h1>
-            <div class="content_products">
-                <div class="product">
-                    <div class="top_product">
-                        <h1>01</h1>
-                    </div>
-                    <div class="center_product">
-                        <h3>Whopper</h3>
-                        <h4>Hamburguesas</h4>
-                        <div class="img_product">
-                            <img src="/assets/ham1.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="top_product">
-                        <h1>02</h1>
-                    </div>
-                    <div class="center_product">
-                        <h3>Hawaiana</h3>
-                        <h4>Hamburguesas</h4>
-                        <div class="img_product">
-                            <img src="/assets/ham9.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="top_product">
-                        <h1>03</h1>
-                    </div>
-                    <div class="center_product">
-                        <h3>Dulce Pecado</h3>
-                        <h4>Hamburguesas</h4>
-                        <div class="img_product">
-                            <img src="/assets/whop.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="usersreminders">
-            <div class="users">
-                <h1 class="name_users">Usuarios</h1>
-                <div class="content_users">
-                    <div class="user">
-                        <i class="fa-solid fa-cash-register"></i>
-                        <div class="text_user">
-                            <h1>250</h1>
-                            <p>Cajero/a</p>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="text_user">
-                            <h1>150</h1>
-                            <p>Clientes</p>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <div class="text_user">
-                            <h1>250</h1>
-                            <p>Pedidos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="reminders">
-                <div class="top_reminders">
-                    <h1>Recordatorios</h1>
-                    <i class="fa-solid fa-bell"></i>
-                </div>
-                <div class="center_reminders">
-
-                </div>
-                <div class="bottom_reminders">
-                    <i class="fa-solid fa-plus"></i>
-                    <p>Agregar Recordatorio</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="deleteReminder">
-        <div class="content_deleteReminder">
-            <span></span>
-            <h1></h1>
-            <p></p>
-            <a class="btnDelete">Eliminar Recordatorio</a>
-        </div>
     </div>
 
     <div class="modal">
@@ -289,73 +163,7 @@
         </div>
     </div>
 
-    <div class="modal3">
-        <div class="modal-content3">
-            <span class="closeIcon3"><i class="fas fa-times"></i></span>
-            <div class="modal-body3">
-                <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items3">
-                    <h1>Ooops!</h1>
-                    <p class="text_modal3"></p>
-                    <button id="okBtn3">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal4">
-        <div class="modal-content4">
-            <span class="closeIcon4"><i class="fas fa-times"></i></span>
-            <div class="modal-body4">
-                <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items4">
-                    <h1>Hecho!</h1>
-                    <p>Recordatorio agregado</p>
-                    <button id="okBtn4">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal5">
-        <div class="modal-content5">
-            <span class="closeIcon5"><i class="fas fa-times"></i></span>
-            <div class="modal-body5">
-                <span class="icon5"><i class="fas fa-exclamation-triangle"></i></span>
-                <div class="right-items5">
-                    <h1>Hecho!</h1>
-                    <p>Recordatorio eliminado</p>
-                    <button id="okBtn5">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal_reminder">
-        <div class="modalcontent_reminder">
-            <div class="top_reminder">
-                <h1>Ingresa los datos: </h1>
-                <i class="fa-solid fa-x" id="closeModal"></i>
-            </div>
-            <div class="con_reminder">
-                <div class="input_reminder">
-                    <p>Nombre del recordatorio</p>
-                    <input type="text" placeholder="Nombre" class="name_reminder">
-                </div>
-                <div class="input_reminder">
-                    <p>Hora de inicio</p>
-                    <input type="time" placeholder="Hora Inicio" class="start_reminder">
-                </div>
-                <div class="input_reminder">
-                    <p>Hora final</p>
-                    <input type="time" placeholder="Hora Fin" class="end_reminder">
-                </div>
-                <a class="add">Agregar</a>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="/controller/admin/dashboard/dashboard.js"></script>
+    <script src="/controller/admin/menu/menu.js" type="module"></script>
 </body>
 
 </html>

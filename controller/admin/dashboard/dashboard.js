@@ -79,31 +79,6 @@ onAuthStateChanged(auth, (user) => {
             }
         });
 
-        // quitar gastos
-
-        const today = new Date();
-        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-        if (today.getDate() === lastDayOfMonth.getDate()) {
-            getDocs(collection(db, "Gastos", "GastosUID", "Private_Gastos"))
-                .then((querySnapshot) => {
-                    querySnapshot.forEach((docSnapshot) => {
-                        const docRef = doc(db, "Gastos", "GastosUID", "Private_Gastos", docSnapshot.id);
-
-                        deleteDoc(docRef)
-                            .then(() => {
-                                console.log(`Documento con ID ${docSnapshot.id} eliminado correctamente.`);
-                            })
-                            .catch((error) => {
-                                console.error("Error al eliminar el documento:", error);
-                            });
-                    });
-                })
-                .catch((error) => {
-                    console.error("Error al obtener los documentos:", error);
-                });
-        }
-
         // circular progress
 
         onAuthStateChanged(auth, (user) => {
