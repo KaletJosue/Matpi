@@ -79,24 +79,24 @@ onAuthStateChanged(auth, (user) => {
             }
         });
 
-        // Update Section
+        // Delete Product
+
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
 
-                var editSection = document.querySelector('.editSection')
+                var btnDelete = document.querySelector('.delete')
+                var modalDelete = document.querySelector('.modalDelete')
+                var closeDelete = document.querySelector('.modalDelete span')
 
-                var modalSectionUpdate = document.querySelector('.modalSectionUpdate')
-                var closeModalSectionUpdate = document.querySelector('.modalSectionUpdate span')
-
-                editSection.addEventListener('click', () => {
-                    modalSectionUpdate.classList.add('active')
-                    closeModalSectionUpdate.addEventListener('click', () => {
-                        modalSectionUpdate.classList.remove('active')
+                btnDelete.addEventListener('click', () => {
+                    modalDelete.classList.add('active')
+                    closeDelete.addEventListener('click', () => {
+                        modalDelete.classList.remove('active')
                     })
                     window.addEventListener('click', event => {
-                        if (event.target == modalSectionUpdate) {
-                            modalSectionUpdate.classList.remove('active')
+                        if (event.target == modalDelete) {
+                            modalDelete.classList.remove('active')
                         }
                     })
                 })
@@ -113,40 +113,55 @@ onAuthStateChanged(auth, (user) => {
         });
 
         // Update Product
+
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
 
-                var modalSelectSection = document.querySelector('.modalSelectSection')
-                var closeSelectSection = document.querySelector('.modalSelectSection span')
+                var btnAddUpdate = document.querySelector('.edit')
+                var modalAddProductUpdate = document.querySelector('.addProductUpdate')
+                var closeAddProductUpdate = document.querySelector('.text_addProductUpdate i')
 
-                var inputSectionUpdate = document.querySelector('.sectionUpdate')
+                var categoryUpdate = document.querySelector('.categoryUpdate')
+                var selectCategory = document.querySelector('.selectCategory')
+                var closeCategory = document.querySelector('.selectCategory span')
 
-                var modalUpdateProduct = document.querySelector('.modalUpdateProduct')
-                var closeUpdateProduct = document.querySelector('#closeUpdateProduct')
+                var unidadesUpdate = document.querySelector('.unidadesUpdate')
+                var selectUni = document.querySelector('.selectUni')
+                var closeUni = document.querySelector('.selectUni span')
 
-                var btnEdit = document.querySelector('.edit')
-
-                inputSectionUpdate.addEventListener('click', () => {
-                    modalSelectSection.classList.add('active')
-                    closeSelectSection.addEventListener('click', () => {
-                        modalSelectSection.classList.remove('active')
+                btnAddUpdate.addEventListener('click', () => {
+                    modalAddProductUpdate.classList.add('active')
+                    closeAddProductUpdate.addEventListener('click', () => {
+                        modalAddProductUpdate.classList.remove('active')
                     })
                     window.addEventListener('click', event => {
-                        if (event.target == modalSelectSection) {
-                            modalSelectSection.classList.remove('active')
+                        if (event.target == modalAddProductUpdate) {
+                            modalAddProductUpdate.classList.remove('active')
                         }
                     })
                 })
 
-                btnEdit.addEventListener('click', () => {
-                    modalUpdateProduct.classList.add('active')
-                    closeUpdateProduct.addEventListener('click', () => {
-                        modalUpdateProduct.classList.remove('active')
+                categoryUpdate.addEventListener('click', () => {
+                    selectCategory.classList.add('active')
+                    closeCategory.addEventListener('click', () => {
+                        selectCategory.classList.remove('active')
                     })
                     window.addEventListener('click', event => {
-                        if (event.target == modalUpdateProduct) {
-                            modalUpdateProduct.classList.remove('active')
+                        if (event.target == selectCategory) {
+                            selectCategory.classList.remove('active')
+                        }
+                    })
+                })
+
+                unidadesUpdate.addEventListener('click', () => {
+                    selectUni.classList.add('active')
+                    closeUni.addEventListener('click', () => {
+                        selectUni.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                        if (event.target == selectUni) {
+                            selectUni.classList.remove('active')
                         }
                     })
                 })
@@ -162,14 +177,62 @@ onAuthStateChanged(auth, (user) => {
             }
         });
 
-        // product and section
-
+        // Add Product
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
 
+                var btnAdd = document.querySelector('#add')
+                var modalAddProduct = document.querySelector('.addProduct')
+                var closeAddProduct = document.querySelector('.text_addProduct i')
+
                 var photo = document.querySelector('#photo')
-                var namePhoto = document.querySelector('.namePhoto')
+
+                var nameImage = document.querySelector('.nameImage')
+
+                var category = document.querySelector('.category')
+                var selectCategory = document.querySelector('.selectCategory')
+                var closeCategory = document.querySelector('.selectCategory span')
+
+                var unidades = document.querySelector('.unidades')
+                var selectUni = document.querySelector('.selectUni')
+                var closeUni = document.querySelector('.selectUni span')
+
+                category.addEventListener('click', () => {
+                    selectCategory.classList.add('active')
+                    closeCategory.addEventListener('click', () => {
+                        selectCategory.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                        if (event.target == selectCategory) {
+                            selectCategory.classList.remove('active')
+                        }
+                    })
+                })
+
+                unidades.addEventListener('click', () => {
+                    selectUni.classList.add('active')
+                    closeUni.addEventListener('click', () => {
+                        selectUni.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                        if (event.target == selectUni) {
+                            selectUni.classList.remove('active')
+                        }
+                    })
+                })
+
+                btnAdd.addEventListener('click', () => {
+                    modalAddProduct.classList.add('active')
+                })
+                closeAddProduct.addEventListener('click', () => {
+                    modalAddProduct.classList.remove('active')
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modalAddProduct) {
+                        modalAddProduct.classList.remove('active')
+                    }
+                })
 
                 photo.addEventListener('change', () => {
                     const file = photo.files[0];
@@ -179,154 +242,6 @@ onAuthStateChanged(auth, (user) => {
                         nameImage.textContent = '';
                     }
                 });
-
-                var btnProduct = document.querySelector('#btnProduct')
-                var btnSection = document.querySelector('#btnSection')
-
-                var tableProduct = document.querySelector('#tableProduct')
-                var tableSection = document.querySelector('#tableSection')
-
-                var modalProduct = document.querySelector('.modalProduct')
-                var closeProduct = document.querySelector('#closeProduct')
-
-                var modalSection = document.querySelector('.modalSection')
-                var closeModalSection = document.querySelector('.modalSection span')
-
-                var modalSelectSection = document.querySelector('.modalSelectSection')
-                var closeSelectSection = document.querySelector('.modalSelectSection span')
-                var inputSection = document.querySelector('.section')
-
-                var posicion = "producto"
-
-                var btnPlus = document.querySelector('#plus')
-
-                tableSection.style.display = "none"
-
-                btnProduct.addEventListener('click', () => {
-                    btnProduct.classList.add('active')
-                    btnSection.classList.remove('active')
-
-                    tableProduct.style.display = ""
-                    tableSection.style.display = "none"
-
-                    posicion = "producto"
-                })
-
-                btnSection.addEventListener('click', () => {
-                    btnProduct.classList.remove('active')
-                    btnSection.classList.add('active')
-
-                    tableProduct.style.display = "none"
-                    tableSection.style.display = ""
-
-                    posicion = "seccion"
-                })
-
-                btnPlus.addEventListener('click', () => {
-                    if (posicion == "producto") {
-
-                        // Select Section
-                        inputSection.addEventListener('click', () => {
-                            inputSection.value = ""
-                            modalSelectSection.classList.add('active')
-                            closeSelectSection.addEventListener('click', () => {
-                                modalSelectSection.classList.remove('active')
-                            })
-                            window.addEventListener('click', event => {
-                                if (event.target == modalSelectSection) {
-                                    modalSelectSection.classList.remove('active')
-                                }
-                            })
-                        })
-
-                        modalProduct.classList.add('active')
-                        closeProduct.addEventListener('click', () => {
-                            modalProduct.classList.remove('active')
-                        })
-                        window.addEventListener('click', event => {
-                            if (event.target == modalProduct) {
-                                modalProduct.classList.remove('active')
-                            }
-                        })
-
-                    } else if (posicion == "seccion") {
-
-                        modalSection.classList.add('active')
-                        closeModalSection.addEventListener('click', () => {
-                            modalSection.classList.remove('active')
-                        })
-                        window.addEventListener('click', event => {
-                            if (event.target == modalSection) {
-                                modalSection.classList.remove('active')
-                            }
-                        })
-
-                    }
-                })
-
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
-                })
-            }
-        });
-
-        // Delete product
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-
-                var btnDelete = document.querySelector('.delete')
-                var modalDeleteProduct = document.querySelector('.modalDeleteProduct')
-                var closeDeleteProduct = document.querySelector('.modalDeleteProduct span')
-
-                btnDelete.addEventListener('click', () => {
-                    modalDeleteProduct.classList.add('active')
-                    closeDeleteProduct.addEventListener('click', () => {
-                        modalDeleteProduct.classList.remove('active')
-                    })
-                    window.addEventListener('click', event => {
-                        if (event.target == modalDeleteProduct) {
-                            modalDeleteProduct.classList.remove('active')
-                        }
-                    })
-                })
-
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
-                })
-            }
-        });
-
-        // Delete section
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-
-                var btnDelete = document.querySelector('.deleteSection')
-                var modalDeleteSection = document.querySelector('.modalDeleteSection')
-                var closeDeleteSection = document.querySelector('.modalDeleteSection span')
-
-                btnDelete.addEventListener('click', () => {
-                    modalDeleteSection.classList.add('active')
-                    closeDeleteSection.addEventListener('click', () => {
-                        modalDeleteSection.classList.remove('active')
-                    })
-                    window.addEventListener('click', event => {
-                        if (event.target == modalDeleteSection) {
-                            modalDeleteSection.classList.remove('active')
-                        }
-                    })
-                })
 
             } else {
                 const tryAgain = document.getElementById('okBtn')

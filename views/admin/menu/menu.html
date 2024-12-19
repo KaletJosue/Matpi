@@ -42,13 +42,13 @@
                     <li>
                         <a href="/views/admin/dashboard/dashboard.html">
                             <i class="icon ph-bold ph-house-simple"></i>
-                            <span class="text">Incio</span>
+                            <span class="text">Inicio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/views/admin/cajero/cajero.html">
-                            <i class="ph ph-cash-register"></i>
-                            <span class="text">Cajeros</span>
+                        <a href="#">
+                            <i class="ph ph-truck"></i>
+                            <span class="text">Entregas</span>
                         </a>
                     </li>
                     <li class="active">
@@ -58,15 +58,27 @@
                         </a>
                     </li>
                     <li>
+                        <a href="#">
+                            <i class="ph ph-shopping-cart"></i>
+                            <span class="text">Ventas</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/views/admin/gastos/gastos.html">
                             <i class="ph ph-chart-line"></i>
                             <span class="text">Gastos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="icon ph-bold ph-chart-bar"></i>
-                            <span class="text">Income</span>
+                        <a href="/views/admin/cajero/cajero.html">
+                            <i class="ph ph-cash-register"></i>
+                            <span class="text">Finanzas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/views/admin/inventory/inventory.html">
+                            <i class="ph ph-bank"></i>
+                            <span class="text">Inventario</span>
                         </a>
                     </li>
                 </ul>
@@ -133,6 +145,277 @@
             </div>
             <img src="" alt="" class="img_profile">
         </div>
+        <div class="select_table">
+            <i class="ph-fill ph-hamburger active" id="btnProduct"></i>
+            <i class="ph-fill ph-books" id="btnSection"></i>
+        </div>
+        <div class="condefault" id="tableProduct">
+            <table>
+                <thead>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Valor</th>
+                    <th>Calificación</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><img src="/assets/ham1.png" alt=""></th>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>$25.000</th>
+                        <th>★★★★☆</th>
+                        <th>
+                            <div class="actions">
+                                <a class="edit">
+                                    Editar
+                                </a>
+                                <a class="delete">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/ham2.png" alt=""></th>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>$25.000</th>
+                        <th>★★★★★</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/ham3.png" alt=""></th>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>$25.000</th>
+                        <th>★★★☆☆</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/ham8.png" alt=""></th>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>$25.000</th>
+                        <th>★☆☆☆☆</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/ham9.png" alt=""></th>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>$25.000</th>
+                        <th>★★★★☆</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="condefault" id="tableSection">
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="editSection">
+                                    Editar
+                                </a>
+                                <a class="deleteSection">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Irresistible</th>
+                        <th>16/02/2024</th>
+                        <th>15:04</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="modal">
@@ -160,6 +443,91 @@
                     <button id="cancelBtn2">Volver</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <i class="ph-bold ph-plus" id="plus"></i>
+
+    <div class="modalProduct">
+        <div class="con_modalProduct">
+            <div class="text_modalProduct">
+                <p>Ingresa los Datos:</p>
+                <i class="ph-bold ph-x" id="closeProduct"></i>
+            </div>
+            <label for="photo">Foto</label>
+            <input type="file" name="photo" id="photo" hidden accept="image/*">
+            <input type="text" placeholder="Nombre">
+            <input type="number" placeholder="Valor">
+            <p class="section">Seccion</p>
+            <textarea placeholder="Descripcion" style="resize: none; height: 100px;"></textarea>
+            <h3>Imagen: <span class="namePhoto"></span></h3>
+            <button>Agregar producto</button>
+        </div>
+    </div>
+
+    <div class="modalSelectSection">
+        <div class="con_modalSelectSection">
+            <span></span>
+            <p>Hamburguesas</p>
+            <p>Mas Hamburguesas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+            <p>Salchipapas</p>
+        </div>
+    </div>
+
+    <div class="modalDeleteProduct">
+        <div class="con_modalDeleteProduct">
+            <span></span>
+            <img src="/assets/ham1.png" alt="">
+            <p>Irresistible</p>
+            <h3>$25.000</h3>
+            <h4>★★★★☆</h4>
+            <a>Eliminar</a>
+        </div>
+    </div>
+
+    <div class="modalUpdateProduct">
+        <div class="con_modalUpdateProduct">
+            <div class="text_modalUpdateProduct">
+                <p>Actualiza los Datos:</p>
+                <i class="ph-bold ph-x" id="closeUpdateProduct"></i>
+            </div>
+            <input type="text" placeholder="Nombre">
+            <input type="number" placeholder="Valor">
+            <p class="sectionUpdate">Seccion</p>
+            <textarea placeholder="Descripcion" style="resize: none; height: 100px;"></textarea>
+            <button>Actualizar producto</button>
+        </div>
+    </div>
+
+    <div class="modalSection">
+        <div class="con_modalSection">
+            <span></span>
+            <input type="text" placeholder="Nombre">
+            <a>Agregar Seccion</a>
+        </div>
+    </div>
+
+    <div class="modalSectionUpdate">
+        <div class="con_modalSectionUpdate">
+            <span></span>
+            <input type="text" placeholder="Nombre">
+            <a>Actualizar Seccion</a>
+        </div>
+    </div>
+
+    <div class="modalDeleteSection">
+        <div class="con_modalDeleteSection">
+            <span></span>
+            <p>Hamburguesas</p>
+            <h3>16/02/2024</h3>
+            <a>Eliminar</a>
         </div>
     </div>
 

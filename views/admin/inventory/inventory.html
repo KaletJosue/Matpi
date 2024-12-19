@@ -5,7 +5,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/cajero/cajero.css" />
+    <link rel="stylesheet" href="/styles/admin/inventory/inventory.css" />
     <link rel="stylesheet" href="/styles/darkmode.css">
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title>Administrador | Matpi</title>
@@ -69,13 +69,13 @@
                             <span class="text">Gastos</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/cajero/cajero.html">
                             <i class="ph ph-cash-register"></i>
                             <span class="text">Finanzas</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/inventory/inventory.html">
                             <i class="ph ph-bank"></i>
                             <span class="text">Inventario</span>
@@ -145,6 +145,58 @@
             </div>
             <img src="" alt="" class="img_profile">
         </div>
+
+        <div class="condefault">
+            <table>
+                <thead>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Categoria</th>
+                    <th>Cant. Stock</th>
+                    <th>Precio Unitario</th>
+                    <th>Ultima Actualizacion</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><img src="/assets/carne.png" alt=""></th>
+                        <th>Carne de Hamburguesa</th>
+                        <th>Carnicos</th>
+                        <th>100Kg</th>
+                        <th>$5.000</th>
+                        <th>15/08/2025</th>
+                        <th>
+                            <div class="actions">
+                                <a class="edit">
+                                    Editar
+                                </a>
+                                <a class="delete">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/pan.png" alt=""></th>
+                        <th>Pan de Hamburguesa</th>
+                        <th>Panaderia</th>
+                        <th>50 Unidades</th>
+                        <th>$1.500</th>
+                        <th>15/08/2025</th>
+                        <th>
+                            <div class="actions">
+                                <a class="">
+                                    Editar
+                                </a>
+                                <a class="">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="modal">
@@ -175,7 +227,77 @@
         </div>
     </div>
 
-    <script src="/controller/admin/cajero/cajero.js" type="module"></script>
+    <i class="ph-bold ph-plus" id="add"></i>
+
+    <div class="addProduct">
+        <div class="con_addProduct">
+            <div class="text_addProduct">
+                <p>Ingresa los Datos:</p>
+                <i class="ph-bold ph-x"></i>
+            </div>
+            <label for="photo">Foto</label>
+            <input type="file" id="photo" name="photo" hidden accept="image/*">
+            <input type="text" placeholder="Nombre">
+            <p class="category">Categoria</p>
+            <input type="number" placeholder="Cantidad de Stock">
+            <p class="unidades">Unidad de Medida</p>
+            <input type="number" placeholder="Precio Unitario">
+            <h3>Imagen: <span class="nameImage"></span></h3>
+            <button>Agregar</button>
+        </div>
+    </div>
+
+    <div class="selectCategory">
+        <div class="con_selectCategory">
+            <span></span>
+            <p>Cárnicos</p>
+            <p>Vegetales</p>
+            <p>Panadería</p>
+            <p>Lácteos</p>
+            <p>Bebidas</p>
+            <p>Limpieza</p>
+            <p>Otro</p>
+        </div>
+    </div>
+
+    <div class="selectUni">
+        <div class="con_selectUni">
+            <span></span>
+            <p>Kilogramos</p>
+            <p>Unidades</p>
+            <p>Litros</p>
+            <p>Paquetes</p>
+            <p>Otro</p>
+        </div>
+    </div>
+
+    <div class="addProductUpdate">
+        <div class="con_addProductUpdate">
+            <div class="text_addProductUpdate">
+                <p>Ingresa los Datos:</p>
+                <i class="ph-bold ph-x"></i>
+            </div>
+            <input type="text" placeholder="Nombre">
+            <p class="categoryUpdate">Categoria</p>
+            <input type="number" placeholder="Cantidad de Stock">
+            <p class="unidadesUpdate">Unidad de Medida</p>
+            <input type="number" placeholder="Precio Unitario">
+            <button>Actualizar</button>
+        </div>
+    </div>
+
+    <div class="modalDelete">
+        <div class="con_modalDelete">
+            <span></span>
+            <img src="/assets/pan.png" alt="">
+            <h3>Carne de hamburguesa</h3>
+            <h2>$5.000</h2>
+            <h4>Carnicos</h4>
+            <button>Eliminar</button>
+        </div>
+    </div>
+
+    <script src="/controller/admin/inventory/inventory.js" type="module"></script>
 </body>
 
 </html>

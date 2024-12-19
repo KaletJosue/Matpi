@@ -46,7 +46,6 @@ body {
 
 input {
     width: 100%;
-    background-color: transparent;
 }
 
 #btnsidebar,
@@ -235,53 +234,8 @@ input {
     border-radius: 50%;
 }
 
-.main .select_table {
-    display: flex;
-    gap: .5rem;
-    align-items: center;
-    justify-content: start;
-    margin-top: 1rem;
-    margin-top: -3rem;
-}
-
-.main .select_table i {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all .2s ease;
-    color: var(--color-black);
-}
-
-.main .select_table i.active,
-.main .select_table i:hover {
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-}
-
-#plus {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-fondo);
-    color: var(--color-black);
-    border-radius: 20px;
-    cursor: pointer;
-}
-
 .main .condefault {
     margin-top: 2rem;
-    overflow: hidden;
-    overflow-x: auto;
 }
 
 .main .condefault table {
@@ -289,314 +243,334 @@ input {
     border-collapse: collapse;
 }
 
-.main .condefault th {
+.main .condefault table th {
     padding: 1rem;
-    color: var(--color-black);
     border: solid 2px var(--color-fondo);
+    color: var(--color-black);
 }
 
-.main .condefault thead th {
+.main .condefault table thead th {
     font-size: 15px;
     font-weight: 900;
     border-top: none;
 }
 
-.main .condefault tbody th {
+.main .condefault table thead th:first-child,
+.main .condefault table tbody tr th:first-child {
+    border-left: none;
+}
+
+.main .condefault table thead th:last-child,
+.main .condefault table tbody tr th:last-child {
+    border-right: none;
+}
+
+.main .condefault table tbody tr:last-child th {
+    border-bottom: none;
+}
+
+.main .condefault table tbody tr th:nth-child(2) {
+    width: 200px;
+}
+
+.main .condefault table tbody tr th:nth-child(4) {
+    width: 120px;
+}
+
+.main .condefault table tbody tr th:nth-child(5),
+.main .condefault table tbody tr th:nth-child(6) {
+    width: 100px;
+}
+
+.main .condefault table tbody tr th:last-child {
+    width: 250px;
+}
+
+.main .condefault table tbody tr th img {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center center;
+    width: 70px;
+}
+
+.main .condefault table tbody tr th {
     font-size: 12px;
     font-weight: 400;
 }
 
-.main .condefault tbody tr th img {
-    width: 100px;
-    aspect-ratio: 16/9;
-    object-fit: contain;
-    object-position: center center;
-    filter: drop-shadow(var(--box-shadow));
-}
-
-.main .condefault th:first-child {
-    border-left: none;
-}
-
-.main .condefault th:last-child {
-    border-right: none;
-}
-
-.main .condefault tbody tr:last-child th {
-    border-bottom: none;
-}
-
-.main .condefault tbody tr:last-child th:last-child {
-    width: 250px;
-}
-
-.main .condefault tbody tr th:first-child {
-    width: 200px;
-}
-
-.main .condefault tbody tr th:nth-child(6) {
-    font-size: 15px;
-    color: var(--color-gray);
-}
-
-.main .condefault tbody tr th:last-child div {
+.main .condefault table tbody tr th div {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5rem;
 }
 
-.main .condefault tbody tr th:last-child div a {
+.main .condefault table tbody tr th div a {
     padding: .7rem 1rem;
+    flex: 0 0 auto;
+    font-weight: 900;
     border-radius: 10px;
     font-size: 12px;
-    font-weight: 900;
     cursor: pointer;
     transition: all .2s ease;
 }
 
-.main .condefault tbody tr th:last-child div a:hover {
-    transform: translateY(-5px);
-}
-
-.main .condefault tbody tr th:last-child div a:first-child {
+.main .condefault table tbody tr th div a:first-child {
     background-color: var(--color-fondo);
     color: var(--color-gray);
     border: solid 2px var(--color-fondo);
 }
 
-.main .condefault tbody tr th:last-child div a:first-child:hover {
+.main .condefault table tbody tr th div a:first-child:hover {
+    transform: translateY(-5px);
     background-color: transparent;
     color: var(--color-black);
 }
 
-.main .condefault tbody tr th:last-child div a:last-child {
+.main .condefault table tbody tr th div a:last-child {
     background-color: #f65656;
     color: white;
     border: solid 2px #f65656;
 }
 
-.main .condefault tbody tr th:last-child div a:last-child:hover {
+.main .condefault table tbody tr th div a:last-child:hover {
+    transform: translateY(-5px);
     background-color: transparent;
     color: #f65656;
 }
 
-.modalProduct,
-.modalUpdateProduct {
+#add {
     position: fixed;
-    top: 0;
-    right: -500vw;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fondo);
+    color: var(--color-gray);
+    font-size: 17px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.addProduct,
+.addProductUpdate {
+    position: fixed;
     width: 100vw;
     height: 100vh;
+    top: 0;
+    right: -500vw;
     backdrop-filter: blur(5px);
-    z-index: 1001;
     display: flex;
     align-items: center;
     justify-content: end;
-    transition: all .2s ease;
+    z-index: 1001;
+    transition: all .5s ease;
 }
 
-.modalProduct.active,
-.modalUpdateProduct.active {
+.addProduct.active,
+.addProductUpdate.active {
     right: 0;
 }
 
-.modalProduct .con_modalProduct,
-.modalUpdateProduct .con_modalUpdateProduct {
+.addProduct .con_addProduct,
+.addProductUpdate .con_addProductUpdate {
     background-color: var(--color-white);
-    height: 100vh;
     box-shadow: var(--box-shadow-fuerte);
+    height: 100vh;
     width: 350px;
     padding: 2rem;
 }
 
-.modalProduct .con_modalProduct .text_modalProduct,
-.modalUpdateProduct .con_modalUpdateProduct .text_modalUpdateProduct {
+.addProduct .con_addProduct .text_addProduct,
+.addProductUpdate .con_addProductUpdate .text_addProductUpdate {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--color-black);
+}
+
+.addProductUpdate .con_addProductUpdate .text_addProductUpdate {
     margin-bottom: 2rem;
 }
 
-.modalProduct .con_modalProduct .text_modalProduct p,
-.modalUpdateProduct .con_modalUpdateProduct .text_modalUpdateProduct p {
-    font-size: 14px;
+.addProduct .con_addProduct .text_addProduct p,
+.addProductUpdate .con_addProductUpdate .text_addProductUpdate p {
+    font-size: 15px;
     font-weight: 900;
-    padding: 0;
     border: none;
+    cursor: auto;
+    color: var(--color-gray);
+    padding: 0;
+    margin-bottom: 0;
 }
 
-.modalProduct .con_modalProduct .text_modalProduct i,
-.modalUpdateProduct .con_modalUpdateProduct .text_modalUpdateProduct i {
-    font-size: 13px;
+.addProduct .con_addProduct .text_addProduct i,
+.addProductUpdate .con_addProductUpdate .text_addProductUpdate i {
     cursor: pointer;
-}
-
-.modalProduct .con_modalProduct label {
-    display: inline-block;
-    margin-top: 1rem;
-    width: 100%;
-    padding: .7rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    border-radius: 10px;
-    cursor: pointer;
+    color: var(--color-gray);
+}
+
+.addProduct .con_addProduct label {
+    display: inline-block;
+    margin-top: 1rem;
+    width: 100%;
+    padding: .7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
     border: dashed 2px #f65656;
     color: #f65656;
+    border-radius: 10px;
+    margin-bottom: .5rem;
+    cursor: pointer;
     transition: all .2s ease;
 }
 
-.modalProduct .con_modalProduct label:hover {
+.addProduct .con_addProduct label:hover {
     background-color: #f65656;
     color: white;
 }
 
-.modalProduct .con_modalProduct input,
-.modalProduct .con_modalProduct textarea,
-.modalProduct .con_modalProduct p,
-.modalUpdateProduct .con_modalUpdateProduct input,
-.modalUpdateProduct .con_modalUpdateProduct textarea,
-.modalUpdateProduct .con_modalUpdateProduct p {
+.addProduct .con_addProduct input,
+.addProductUpdate .con_addProductUpdate input {
     padding: .7rem 1rem;
-    margin-top: .5rem;
-    border: solid 1px var(--color-gray);
-    border-radius: 10px;
     font-size: 12px;
-    outline: none;
+    border: solid 1px var(--color-gray);
     color: var(--color-gray);
-    width: 100%;
+    border-radius: 10px;
+    margin-bottom: .5rem;
+    outline: none;
     background-color: transparent;
 }
 
-.modalProduct .con_modalProduct p,
-.modalUpdateProduct .con_modalUpdateProduct p {
-    cursor: pointer;
-}
-
-.modalProduct .con_modalProduct textarea::-webkit-scrollbar,
-.modalUpdateProduct .con_modalUpdateProduct textarea::-webkit-scrollbar {
-    width: 0;
-}
-
-.modalProduct .con_modalProduct input.section,
-.modalUpdateProduct .con_modalUpdateProduct input.sectionUpdate {
-    cursor: pointer;
-}
-
-.modalProduct .con_modalProduct h3 {
+.addProduct .con_addProduct p,
+.addProductUpdate .con_addProductUpdate p {
     font-size: 12px;
-    font-weight: 700;
-    margin-top: .5rem;
+    padding: .7rem 1rem;
+    border: solid 1px var(--color-gray);
+    border-radius: 10px;
+    color: var(--color-gray);
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
+
+.addProduct .con_addProduct h3 {
+    margin-bottom: .5rem;
+    font-size: 14px;
+    font-weight: 900;
     color: var(--color-black);
 }
 
-.modalProduct .con_modalProduct h3 span {
+.addProduct .con_addProduct h3 span {
     font-size: 12px;
     font-weight: 400;
 }
 
-.modalProduct .con_modalProduct button,
-.modalUpdateProduct .con_modalUpdateProduct button {
+.addProduct .con_addProduct button,
+.addProductUpdate .con_addProductUpdate button {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: .5rem;
-    padding: .7rem;
+    padding: .7rem 1rem;
     font-size: 12px;
-    font-weight: 900;
+    font-weight: 800;
     border-radius: 10px;
-    background-color: #56b3f6;
     border: none;
+    background-color: #56b3f6;
     color: white;
     cursor: pointer;
 }
 
-.modalSelectSection {
+.selectCategory,
+.selectUni {
     position: fixed;
-    bottom: -500vh;
-    left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1002;
+    bottom:  -500vh;
+    left: 0;
     display: flex;
     align-items: end;
     justify-content: center;
-    transition: all .2s ease;
+    backdrop-filter: blur(5px);
+    z-index: 1002;
+    transition: all .5s ease;
 }
 
-.modalSelectSection.active {
+.selectCategory.active,
+.selectUni.active {
     bottom: 0;
 }
 
-.modalSelectSection .con_modalSelectSection {
+.selectCategory .con_selectCategory {
     background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow-fuerte);
     border-radius: 20px 20px 0 0;
-    width: 400px;
-    padding: 5rem 2rem 1rem 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5rem 2rem 2rem 2rem;
     position: relative;
-    align-items: center;
-    justify-content: center;
     gap: .5rem;
 }
 
-.modalSelectSection .con_modalSelectSection span {
+.selectUni .con_selectUni {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-fuerte);
+    border-radius: 20px 20px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5rem 2rem 2rem 2rem;
+    position: relative;
+    gap: .5rem;
+}
+
+.selectCategory .con_selectCategory span,
+.selectUni .con_selectUni span {
     position: absolute;
     width: 50px;
     height: 5px;
     background-color: var(--color-gray);
     top: 30px;
+    border-radius: 50px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50px;
 }
 
-.modalSelectSection .con_modalSelectSection p {
+.selectCategory .con_selectCategory p,
+.selectUni .con_selectUni p {
     font-size: 12px;
+    padding: .7rem 1rem;
     background-color: var(--color-fondo);
     color: var(--color-gray);
     font-weight: 900;
-    padding: .7rem 1rem;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
 }
 
-.modalDeleteProduct,
-.modalSection,
-.modalSectionUpdate,
-.modalDeleteSection {
+.modalDelete {
     position: fixed;
-    bottom: -500vw;
-    left: 0;
     width: 100vw;
     height: 100vh;
+    bottom: -500vh;
+    left: 0;
     display: flex;
     align-items: end;
     justify-content: center;
     backdrop-filter: blur(5px);
     z-index: 1001;
-    transition: all .2s ease;
+    transition: all .5s ease;
 }
 
-.modalDeleteProduct.active,
-.modalSection.active,
-.modalSectionUpdate.active,
-.modalDeleteSection.active {
+.modalDelete.active {
     bottom: 0;
 }
 
-.modalDeleteProduct .con_modalDeleteProduct,
-.modalSection .con_modalSection,
-.modalSectionUpdate .con_modalSectionUpdate,
-.modalDeleteSection .con_modalDeleteSection {
+.modalDelete .con_modalDelete {
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: 20px 20px 0 0;
@@ -609,84 +583,52 @@ input {
     position: relative;
 }
 
-.modalDeleteProduct .con_modalDeleteProduct img {
-    aspect-ratio: 16/9;
-    object-fit: contain;
-    object-position: center center;
-    width: 200px;
-    margin-bottom: 1rem;
-}
-
-.modalDeleteProduct .con_modalDeleteProduct span,
-.modalSection .con_modalSection span,
-.modalSectionUpdate .con_modalSectionUpdate span,
-.modalDeleteSection .con_modalDeleteSection span {
+.modalDelete .con_modalDelete span {
+    position: absolute;
     width: 50px;
     height: 5px;
     background-color: var(--color-gray);
-    border-radius: 50px;
-    position: absolute;
     top: 30px;
-}
-
-.modalDeleteProduct .con_modalDeleteProduct p,
-.modalDeleteSection .con_modalDeleteSection p {
-    font-size: 15px;
-    font-weight: 900;
-    color: var(--color-black);
-}
-
-.modalDeleteProduct .con_modalDeleteProduct h3,
-.modalDeleteSection .con_modalDeleteSection h3 {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-black);
-}
-
-.modalDeleteProduct .con_modalDeleteProduct h4 {
-    color: var(--color-black);
-}
-
-.modalSection .con_modalSection input,
-.modalSectionUpdate .con_modalSectionUpdate input {
-    width: 100%;
-    padding: .7rem 1rem;
-    border: solid 1px var(--color-gray);
-    color: var(--color-gray);
-    font-size: 12px;
-    outline: none;
-    border-radius: 10px;
-}
-
-.modalDeleteProduct .con_modalDeleteProduct a,
-.modalDeleteSection .con_modalDeleteSection a {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .7rem;
-    font-size: 12px;
-    font-weight: 900;
-    background-color: #f65656;
-    margin-top: 1rem;
-    color: white;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
 }
 
-.modalSection .con_modalSection a,
-.modalSectionUpdate .con_modalSectionUpdate a {
+.modalDelete .con_modalDelete img {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center center;
+    width: 250px;
+}
+
+.modalDelete .con_modalDelete h3 {
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: .5rem;
+    color: var(--color-black);
+}
+
+.modalDelete .con_modalDelete h2 {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--color-black);
+}
+
+.modalDelete .con_modalDelete h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.modalDelete .con_modalDelete button {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .7rem;
+    margin-top: 1rem;
+    padding: .7rem 1rem;
     font-size: 12px;
     font-weight: 900;
-    background-color: #56b3f6;
-    margin-top: 1rem;
-    color: white;
     border-radius: 10px;
+    border: none;
+    background-color: #f65656;
+    color: white;
     cursor: pointer;
 }
 
@@ -921,10 +863,14 @@ button#cancelBtn2:hover {
     background: #56b3f6;
 }
 
-@media (width < 900px) {
+@media (width < 1100px) {
+    .main .condefault {
+        overflow: hidden;
+        overflow-x: auto;
+    }
+
     .main .condefault::-webkit-scrollbar {
         width: 0;
-        height: 0;
     }
 }
 
@@ -972,17 +918,6 @@ button#cancelBtn2:hover {
         justify-content: center;
     }
 
-    .main .select_table {
-        margin-top: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .main .condefault {
-        margin-top: 1rem;
-    }
-
     .modal {
         padding: 20px;
     }
@@ -1028,8 +963,11 @@ button#cancelBtn2:hover {
     }
 }
 
-@media (width < 500px) {
-    .modalSelectSection .con_modalSelectSection {
+@media (width < 400px) {
+    .selectCategory .con_selectCategory,
+    .selectUni .con_selectUni {
+        grid-template-columns: 1fr 1fr;
+        padding: 5rem 2rem 1rem;
         width: 100%;
     }
 }
@@ -1039,15 +977,7 @@ button#cancelBtn2:hover {
         display: none;
     }
 
-    .modalSelectSection .con_modalSelectSection {
-        grid-template-columns: 1fr;
-        height: 300px;
-        overflow: hidden;
-        overflow-y: auto;
-    }
-
-    .modalDeleteProduct .con_modalDeleteProduct {
-        width: 100%;
-        width: 30px 30px 0 0;
+    .selectCategory .con_selectCategory {
+        padding: 5rem 1rem 1rem;
     }
 }
