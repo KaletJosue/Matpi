@@ -5,7 +5,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/cajero/cajero.css" />
+    <link rel="stylesheet" href="/styles/admin/ventas/ventas.css" />
     <link rel="stylesheet" href="/styles/darkmode.css">
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
     <title>Administrador | Matpi</title>
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
@@ -55,7 +57,7 @@
                             <span class="text">Menu</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/ventas/ventas.html">
                             <i class="ph ph-shopping-cart"></i>
                             <span class="text">Ventas</span>
@@ -67,7 +69,7 @@
                             <span class="text">Gastos</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/cajero/cajero.html">
                             <i class="ph ph-chart-line"></i>
                             <span class="text">Finanzas</span>
@@ -144,55 +146,56 @@
             <img src="" alt="" class="img_profile">
         </div>
 
-        <div class="select_date">
-            <input type="text" placeholder="Buscar por dia" class="day">
-            <input type="text" placeholder="Buscar por mes" class="month">
-            <input type="text" placeholder="Buscar por año" class="year">
+        <div class="search">
+            <i class="ph-bold ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar por Comprador, Fecha, Producto...">
         </div>
 
-        <div class="stadistics">
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <h1>Ingresos</h1>
-                    <p>$<span class="valor_ingresos"></span></p>
-                </div>
-                <div class="circular_progress">
-                    <span class="progress_value">0%</span>
-                </div>
-            </div>
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-chart-gantt"></i>
-                    <h1>Gastos</h1>
-                    <p>$<span class="valor_gastos"></span></p>
-                </div>
-                <div class="circular_progress2">
-                    <span class="progress_value2">0%</span>
-                </div>
-            </div>
-            <div class="stadistic">
-                <div class="text_stadistic">
-                    <i class="fa-solid fa-money-bill-trend-up"></i>
-                    <h1>Ganancias</h1>
-                    <p>$<span class="valor_ganancias"></span></p>
-                </div>
-                <div class="circular_progress3">
-                    <span class="progress_value3">0%</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="conChartLine">
-            <div class="chartLine">
-                <canvas id="myChart"></canvas>
-            </div>
-        </div>
-
-        <div class="conChartDonut">
-            <div class="chartDonut">
-                <canvas id="myDonut"></canvas>
-            </div>
+        <div class="condefault">
+            <table class="default">
+                <thead>
+                    <th>Imagen</th>
+                    <th>Comprador</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Productos</th>
+                    <th>Total Venta</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><img src="/assets/profile-1.jpg" alt=""></th>
+                        <th>Kalet Josue Victor Robayo</th>
+                        <th>16/05/2024</th>
+                        <th>16:09</th>
+                        <th>Hawaiana</th>
+                        <th>$78.000</th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/profile-2.jpg" alt=""></th>
+                        <th>Kalet Josue Victor Robayo</th>
+                        <th>16/05/2024</th>
+                        <th>16:09</th>
+                        <th>Dulce Pecado, Salchipapa XL, Criolla Doble</th>
+                        <th>$78.000</th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/profile-3.jpg" alt=""></th>
+                        <th>Kalet Josue Victor Robayo</th>
+                        <th>16/05/2024</th>
+                        <th>16:09</th>
+                        <th>Dulce Pecado, Salchipapa XL, Criolla Doble</th>
+                        <th>$78.000</th>
+                    </tr>
+                    <tr>
+                        <th><img src="/assets/profile-4.jpg" alt=""></th>
+                        <th>Kalet Josue Victor Robayo</th>
+                        <th>16/05/2024</th>
+                        <th>16:09</th>
+                        <th>Dulce Pecado, Salchipapa XL</th>
+                        <th>$78.000</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -224,89 +227,7 @@
         </div>
     </div>
 
-    <div class="con_calendar">
-        <div class="calendar">
-            <div class="calendar-header">
-                <span class="month-picker" id="month-picker">
-                    February
-                </span>
-                <div class="year-picker">
-                    <span class="year-change" id="prev-year">
-                        <pre><i class="ph ph-caret-left"></i></pre>
-                    </span>
-                    <span id="year">2024</span>
-                    <span class="year-change" id="next-year">
-                        <pre><i class="ph ph-caret-right"></i></pre>
-                    </span>
-                </div>
-            </div>
-
-            <div class="calendar-body">
-                <div class="calendar-week-day">
-                    <div>Dom</div>
-                    <div>Lun</div>
-                    <div>Mar</div>
-                    <div>Mie</div>
-                    <div>Jue</div>
-                    <div>Vie</div>
-                    <div>Sab</div>
-                </div>
-                <div class="calendar-days">
-                    <div>
-                        1
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                </div>
-            </div>
-
-            <div class="month-list"></div>
-        </div>
-    </div>
-
-    <div class="conMonth">
-        <div class="content_month">
-            <div class="conYearMonth">
-                <i class="ph ph-caret-left" id="prevYearMonth"></i>
-                <span id="yearMonth">2024</span>
-                <i class="ph ph-caret-right" id="nextYearMonth"></i>
-            </div>
-            <div class="meses">
-                <p>Enero</p>
-                <p>Febrero</p>
-                <p>Marzo</p>
-                <p>Abril</p>
-                <p>Mayo</p>
-                <p>Junio</p>
-                <p>Julio</p>
-                <p>Agosto</p>
-                <p>Septiembre</p>
-                <p>Octubre</p>
-                <p>Noviembre</p>
-                <p>Diciembre</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="conYear"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/controller/admin/cajero/cajero.js" type="module"></script>
+    <script src="/controller/admin/ventas/ventas.js" type="module"></script>
 </body>
 
 </html>

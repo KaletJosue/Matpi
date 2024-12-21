@@ -234,468 +234,80 @@ input {
     border-radius: 50%;
 }
 
-.main .stadistics {
+.main .search {
+    width: 400px;
+    margin-left: 2rem;
     display: flex;
-    gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding-left: 1rem;
+    background-color: var(--color-fondo);
+    border-radius: 10px;
+}
+
+.main .search i {
+    color: var(--color-gray);
+}
+
+.main .search input {
+    padding: 1rem .5rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--color-gray);
+}
+
+.main .condefault {
     padding: 2rem;
 }
 
-.main .stadistics .stadistic {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+.main .condefault table {
     width: 100%;
-    background-color: var(--color-white);
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    box-shadow: var(--box-shadow-suave);
+    border-collapse: collapse;
 }
 
-.main .stadistics .stadistic .text_stadistic {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+.main .condefault table th {
+    padding: .7rem 1rem;
+    border: solid 2px var(--color-fondo);
 }
 
-.main .stadistics .stadistic .text_stadistic i {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: .5rem;
+.main .condefault table th:first-child {
+    border-left: none;
+}
+
+.main .condefault table th:last-child {
+    border-right: none;
+}
+
+.main .condefault table thead th {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--color-black);
+    border-top: none;
+}
+
+.main .condefault table tbody th {
     font-size: 12px;
-    border-radius: 50%;
-}
-
-.main .stadistics .stadistic:first-child .text_stadistic i {
-    background-color: #ff8730;
-    color: #f0f0f0;
-}
-
-.main .stadistics .stadistic:nth-child(2) .text_stadistic i {
-    background-color: #b330ff;
-    color: #f0f0f0;
-}
-
-.main .stadistics .stadistic:last-child .text_stadistic i {
-    background-color: #00bf58;
-    color: #f0f0f0;
-}
-
-.main .stadistics .stadistic .text_stadistic h1 {
-    font-size: 13px;
     font-weight: 400;
     color: var(--color-black);
 }
 
-.main .stadistics .stadistic .text_stadistic p {
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--color-black);
+.main .condefault table tbody tr:last-child th {
+    border-bottom: none;
 }
 
-.circular_progress,
-.circular_progress2,
-.circular_progress3 {
-    position: relative;
-    height: 110px;
-    width: 110px;
+.main .condefault table tbody tr th:nth-child(5) {
+    width: 300px;
+}
+
+.main .condefault table tbody th img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
+    width: 50px;
     border-radius: 50%;
-    background: conic-gradient(#7d2ae8 3.6deg, var(--color-gray-white) 0deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-}
-
-.circular_progress::before,
-.circular_progress2::before,
-.circular_progress3::before {
-    content: '';
-    position: absolute;
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    background-color: var(--color-white);
-    flex: 0 0 auto;
-}
-
-.progress_value,
-.progress_value2,
-.progress_value3 {
-    position: relative;
-    font-weight: 900;
-    color: var(--color-black);
-}
-
-.select_date {
-    display: flex;
-    margin-top: 1rem;
-    padding: 0 2rem;
-    gap: 1rem;
-}
-
-.select_date input {
-    padding: .7rem 1rem;
-    text-align: center;
-    border: solid 1px var(--color-gray);
-    background-color: transparent;
-    color: var(--color-gray);
-    font-weight: 900;
-    font-size: 12px;
-    border-radius: 10px;
-    outline: none;
-}
-
-.day,
-.month {
-    cursor: pointer;
-}
-
-.conYear {
-    display: block;
-    position: fixed;
-    top: -500vw;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: transparent;
-}
-
-.conYear.active {
-    top: 0;
-}
-
-.con_calendar {
-    position: fixed;
-    bottom: -500vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(5px);
-    z-index: 1001;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    transition: all .5s ease;
-}
-
-.con_calendar.active {
-    bottom: 0;
-}
-
-.calendar {
-    height: max-content;
-    width: max-content;
-    background-color: var(--color-white);
-    border-radius: 20px 20px 0 0;
-    box-shadow: var(--box-shadow);
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 25px;
-    font-weight: 600;
-    color: var(--color-black);
-    padding: 10px;
-}
-
-.calendar-body {
-    padding: 10px;
-}
-
-.calendar-week-day {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: 600;
-}
-
-.calendar-week-day div {
-    display: grid;
-    place-items: center;
-    color: var(--color-gray);
-    font-size: 11px;
-}
-
-.calendar-days {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    color: var(--color-black);
-}
-
-.calendar-days div {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    position: relative;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.month-picker {
-    font-size: 15px;
-    font-weight: 900;
-    padding: .7rem 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-
-.month-picker:hover {
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-}
-
-.year-picker {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.year-picker span:nth-child(2) {
-    font-size: 15px;
-    font-weight: 900;
-}
-
-.year-change {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-
-.year-change:hover {
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-}
-
-.calendar-days div span {
-    position: absolute;
-}
-
-.calendar-days div:hover span {
-    transition: width .2s ease, height .2s ease;
-}
-
-.calendar-days div span:nth-child(1),
-.calendar-days div span:nth-child(3) {
-    width: .5px;
-    height: 0;
-    background-color: var(--color-black);
-}
-
-.calendar-days div:hover span:nth-child(1),
-.calendar-days div:hover span:nth-child(3) {
-    height: 100%;
-}
-
-.calendar-days div span:nth-child(1) {
-    bottom: 0;
-    left: 0;
-}
-
-.calendar-days div span:nth-child(3) {
-    top: 0;
-    right: 0;
-}
-
-.calendar-days div span:nth-child(2),
-.calendar-days div span:nth-child(4) {
-    width: 0;
-    height: .5px;
-    background-color: var(--color-black);
-}
-
-.calendar-days div:hover span:nth-child(2) {
-    top: 0;
-    left: 0;
-}
-
-.calendar-days div:hover span:nth-child(4) {
-    bottom: 0;
-    right: 0;
-}
-
-.calendar-days div:hover span:nth-child(2),
-.calendar-days div:hover span:nth-child(4) {
-    width: 100%;
-}
-
-.calendar-days div.curr-date {
-    background-color: #f65656;
-    color: var(--color-white);
-    border-radius: 50%;
-}
-
-.calendar-days div.curr-date span {
-    display: none;
-}
-
-.month-list {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 20px;
-    background-color: var(--color-white);
-    gap: 5px;
-    transform: scale(1.5);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all .2s ease;
-}
-
-.month-list > div > div {
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    font-size: 12px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-    font-size: 12px;
-    font-weight: 900;
-    transition: all .2s ease;
-}
-
-.month-list > div > div:hover {
-    background-color: var(--color-gray);
-    color: var(--color-white);
-}
-
-.month-list.show {
-    transform: scale(1);
-    visibility: visible;
-    pointer-events: visible;
-    opacity: 1;
-}
-
-.conMonth {
-    position: fixed;
-    bottom: -500vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(5px);
-    z-index: 1001;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    transition: all .5s ease;
-}
-
-.conMonth.active {
-    bottom: 0;
-}
-
-.conMonth .content_month {
-    background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
-    border-radius: 20px 20px 0 0;
-    padding: 20px;
-}
-
-.conMonth .content_month .conYearMonth {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 1rem;
-}
-
-.conMonth .content_month .conYearMonth span {
-    font-size: 15px;
-    font-weight: 900;
-    color: var(--color-black);
-}
-
-.conMonth .content_month .conYearMonth i {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: var(--color-black);
-    cursor: pointer;
-    transition: all .2s ease;
-}
-
-.conMonth .content_month .conYearMonth i:hover {
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-}
-
-.conMonth .content_month .meses {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 1rem;
-    gap: 5px;
-}
-
-.conMonth .content_month .meses p {
-    padding: 2rem 1rem;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 900;
-    background-color: var(--color-fondo);
-    color: var(--color-gray);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-
-.conMonth .content_month .meses p:hover {
-    background-color: var(--color-gray);
-    color: var(--color-fondo);
-}
-
-.main .conChartLine,
-.main .conChartDonut,
-.main .conChartBarra {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.main .chartLine {
-    width: 900px;
-}
-
-.main .chartDonut {
-    width: 500px;
 }
 
 /* Modal */
@@ -929,47 +541,18 @@ button#cancelBtn2:hover {
     background: #56b3f6;
 }
 
-@media (width < 1200px) {
-    .main .stadistics {
-        padding: 2rem 0;
-    }
-}
-
-@media (width < 1100px) {
-    .main .stadistics {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+@media (width < 850px) {
+    .main .search {
+        margin-top: 2rem;
     }
 
-    .main .stadistics .stadistic:first-child {
-        grid-row: 1;
-    }
-
-    .main .stadistics .stadistic:last-child {
-        grid-row: 2;
-        grid-column: 1/3;
-    }
-
-    .main .conChartLine {
+    .main .condefault {
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: start;
         overflow-x: auto;
-        padding: 2rem 1rem;
     }
 
-    .main .conChartLine::-webkit-scrollbar {
+    .main .condefault::-webkit-scrollbar {
         width: 0;
-        height: 0;
-    }
-}
-
-@media (width < 800px) {
-    .main .stadistics {
-        display: flex;
-        flex-direction: column;
     }
 }
 
@@ -1016,10 +599,13 @@ button#cancelBtn2:hover {
         justify-content: center;
     }
 
-    .select_date {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
+    .main .search {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main .condefault {
+        padding: 1rem 0;
     }
 
     .modal {
@@ -1064,41 +650,6 @@ button#cancelBtn2:hover {
 
     .modal-content2 .modal-body2 .right-items2 {
         margin-left: 0px;
-    }
-
-    .main .conChartLine {
-        padding: 2rem 0;
-    }
-}
-
-@media (width < 400px) {
-    .main .stadistics .stadistic {
-        padding: 2rem 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .main .stadistics .stadistic .text_stadistic {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-@media (width < 350px) {
-    .calendar {
-        padding: 10px;
-    }
-
-    .calendar-days div {
-        width: 30px;
-        height: 30px;
-    }
-
-    .year-picker {
-        gap: .2rem;
     }
 }
 
