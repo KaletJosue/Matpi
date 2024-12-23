@@ -77,7 +77,7 @@ iniciar.addEventListener('click', (e) => {
                                             if (docSnap.exists()) {
                                                 var rol = docSnap.data().Rol
                                             }
-                                            if (rol == "Administrador") {
+                                            if (rol == "Administrador" || rol == "SuperAdmin") {
                                                 location.href = '/views/admin/dashboard/dashboard.html'
                                             }
                                             if (rol == "Gerente" || rol == "Secretario") {

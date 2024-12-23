@@ -67,6 +67,11 @@ onAuthStateChanged(auth, (user) => {
                                 '#b330ff',
                                 '#00bf58'
                             ],
+                            borderColor: [
+                                '#ff8730',
+                                '#b330ff',
+                                '#00bf58'
+                            ],
                             hoverOffset: 4
                         }]
                     }
@@ -172,18 +177,21 @@ onAuthStateChanged(auth, (user) => {
                         datasets: [{
                             label: 'Ingresos',
                             data: ingresos,
+                            backgroundColor: '#ff8730',
                             borderColor: '#ff8730',
                             tension: 0.2
                         },
                         {
                             label: 'Gastos',
                             data: gastos,
+                            backgroundColor: '#b330ff',
                             borderColor: '#b330ff',
                             tension: 0.2
                         },
                         {
                             label: 'Ganancias',
                             data: ganancias,
+                            backgroundColor: '#00bf58',
                             borderColor: '#00bf58',
                             tension: 0.2
                         }]

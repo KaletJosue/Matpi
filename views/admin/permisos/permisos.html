@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/admin/permisos/permisos.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Administrador | Matpi</title>
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="condefault">
+            <table class="default">
+                <thead>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Correo Electronico</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                    <th>Privilegio</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><img src="/assets/profile-1.jpg" alt=""></th>
+                        <th>Kalet Josue Victor Robayo</th>
+                        <th>kalet.jo28@gmail.com</th>
+                        <th>3125704048</th>
+                        <th>Cra 22 # 2 - 13</th>
+                        <th>
+                            <p class="permiso">
+                                SuperAdmin
+                            </p>
+                        </th>
+                        <th>
+                            <div class="actions">
+                                <a class="delete">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalDelete">
+        <div class="conModalDelete">
+            <img src="/assets/profile-1.jpg" alt="">
+            <p>Kalet Josue Victor Robayo</p>
+            <p>kalet.jo28@gmail.com</p>
+            <p>3125704048</p>
+            <a>Eliminar</a>
+        </div>
+    </div>
+
+    <div class="modalPermiso">
+        <div class="conModalPermiso">
+            <p>SuperAdmin</p>
+            <p>Administrador</p>
+            <p>Cajero</p>
+            <p>Usuario</p>
+        </div>
+    </div>
+
+    <script src="/controller/admin/permisos/permisos.js" type="module"></script>
+</body>
+
+</html>

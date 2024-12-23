@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/admin/config/config.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Administrador | Matpi</title>
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="topConfig">
+            <img src="/assets/profile-2.jpg" alt="">
+            <div class="textTopConfig">
+                <h3>kalet.jo28@gmail.com</h3>
+                <p>Kalet Josue Victor Robayo</p>
+            </div>
+        </div>
+
+        <div class="conConfig">
+            <div class="infoPersonal">
+                <div class="leftInfoPersonal">
+                    <i class="fa-solid fa-id-card"></i>
+                    <div class="textLeftInfoPersonal">
+                        <h3>Informacion Personal</h3>
+                        <p>En este apartado podras actualizar tus datos personales</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="security">
+                <div class="leftSecurity">
+                    <i class="fa-solid fa-lock"></i>
+                    <div class="textLeftSecurity">
+                        <h3>Seguridad</h3>
+                        <p>En este apartado podras actualizar actualizar tu contraseña</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="users">
+                <div class="leftUsers">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="textLeftUsers">
+                        <h3>Usuarios</h3>
+                        <p>En este apartado podras gestionar y actualizar tus usuarios</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalInfo">
+        <div class="conModalInfo">
+            <label for="photo">
+                <img src="/assets/profile-2.jpg" alt="">
+            </label>
+            <input type="file" id="photo" hidden>
+            <input type="text" placeholder="Nombre Completo">
+            <input type="text" placeholder="Correo Electronico">
+            <a>Actualizar</a>
+        </div>
+    </div>
+
+    <div class="modalSecurity">
+        <div class="conModalSecurity">
+            <i class="fa-solid fa-lock fa-shake"></i>
+            <input type="text" placeholder="Nueva Contraseña">
+            <input type="text" placeholder="Confirma tu Contraseña">
+            <a>Actualizar</a>
+        </div>
+    </div>
+
+    <script src="/controller/admin/config/config.js" type="module"></script>
+</body>
+
+</html>

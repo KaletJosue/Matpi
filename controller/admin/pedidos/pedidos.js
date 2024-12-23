@@ -46,6 +46,16 @@ onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
 
+                // Details
+
+                var details = document.querySelectorAll('.details')
+
+                details.forEach(detail => {
+                    detail.addEventListener('click', () => {
+                        window.open('/views/admin/details/details.html', '_blank');
+                    })
+                })
+
                 var btnEstado = document.querySelectorAll('#estado')
                 var modalEstado = document.querySelector('.modalEstado')
 
