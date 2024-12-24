@@ -146,6 +146,7 @@ body {
     justify-content: center;
     backdrop-filter: blur(5px);
     transition: all .5s ease;
+    z-index: 2;
 }
 
 .modalDelete.active,
@@ -229,6 +230,104 @@ body {
 .modalDelete .conModalDelete a:hover {
     background-color: transparent;
     color: #f65656;
+}
+
+.modalAdd {
+    position: fixed;
+    top: 0;
+    right: -500vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    transition: all .5s ease;
+}
+
+.modalAdd.active {
+    right: 0;
+}
+
+.modalAdd .conModalAdd {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.modalAdd .conModalAdd .topModalAdd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.modalAdd .conModalAdd .topModalAdd h3 {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--color-black);
+}
+
+.modalAdd .conModalAdd .topModalAdd i {
+    font-size: 15px;
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+.modalAdd .conModalAdd input {
+    width: 100%;
+    padding: .7rem 1rem;
+    font-size: 12px;
+    border-radius: 10px;
+    border: solid 1px var(--color-gray);
+    margin-bottom: .5rem;
+    color: var(--color-gray);
+    outline: none;
+}
+
+.modalAdd .conModalAdd p {
+    width: 100%;
+    padding: .7rem 1rem;
+    font-size: 12px;
+    border-radius: 10px;
+    border: solid 1px var(--color-gray);
+    margin-bottom: .5rem;
+    color: var(--color-gray);
+    cursor: pointer;
+}
+
+.modalAdd .conModalAdd a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem;
+    font-size: 12px;
+    font-weight: 900;
+    background-color: #13a6ce;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#addUser {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fondo);
+    color: var(--color-gray);
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 /* Modal */

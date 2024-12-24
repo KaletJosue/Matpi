@@ -21,6 +21,51 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
 
+        // Add User
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+
+                var btnAddUser = document.querySelector('#addUser')
+                var modalAdd = document.querySelector('.modalAdd')
+                var closeModalAdd = document.querySelector('.modalAdd i')
+
+                var btnPrivilegio = document.querySelector('.btnPrivilegio')
+                var modalPermiso = document.querySelector('.modalPermiso')
+
+                btnAddUser.addEventListener('click', () => {
+                    modalAdd.classList.add('active')
+                    closeModalAdd.addEventListener('click', () => {
+                        modalAdd.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                        if (event.target == modalAdd) {
+                            modalAdd.classList.remove('active')
+                        }
+                    })
+                })
+
+                btnPrivilegio.addEventListener('click', () => {
+                    modalPermiso.classList.add('active')
+                    window.addEventListener('click', event => {
+                        if (event.target == modalPermiso) {
+                            modalPermiso.classList.remove('active')
+                        }
+                    })
+                })
+
+            } else {
+                const tryAgain = document.getElementById('okBtn')
+                const modal = document.querySelector('.modal')
+
+                modal.classList.add('active')
+                tryAgain.addEventListener('click', () => {
+                    location.href = "/views/login/login.html"
+                })
+            }
+        });
+
         // Btn Delete and Update
         onAuthStateChanged(auth, (user) => {
             if (user) {

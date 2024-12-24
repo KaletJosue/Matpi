@@ -24,19 +24,32 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 const db = getFirestore(app);
 
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
-const title = document.querySelector(".title23")
+const container = document.querySelector('.container');
+const container2 = document.querySelector('.container2');
+const registerBtn = document.getElementById('registerBtn');
+const loginBtn = document.getElementById('loginBtn');
 
-sign_up_btn.addEventListener("click", () => {
-    container.classList.add("sign-up-mode");
-    title.textContent = "Registrate | Matpi"
+var count = document.querySelector('.count')
+var noCount = document.querySelector('.noCount')
+
+noCount.addEventListener('click', () => {
+    container.classList.add("active");
+    container2.classList.add("active");
+})
+
+count.addEventListener('click', () => {
+    container.classList.remove("active");
+    container2.classList.remove("active");
+})
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+    container2.classList.add("active");
 });
 
-sign_in_btn.addEventListener("click", () => {
-    container.classList.remove("sign-up-mode");
-    title.textContent = "Inicia sesion | Matpi"
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+    container2.classList.remove("active");
 });
 
 iniciar.addEventListener('click', (e) => {
@@ -80,8 +93,8 @@ iniciar.addEventListener('click', (e) => {
                                             if (rol == "Administrador" || rol == "SuperAdmin") {
                                                 location.href = '/views/admin/dashboard/dashboard.html'
                                             }
-                                            if (rol == "Gerente" || rol == "Secretario") {
-                                                alert('eres gerente')
+                                            if (rol == "Cajero") {
+                                                location.href = '/views/cajero/home/home.html'
                                             }
                                             if (rol == "Usuario") {
                                                 alert('eres usuario')
@@ -119,7 +132,8 @@ iniciar.addEventListener('click', (e) => {
                 })
                 tryAgain2.addEventListener('click', () => {
                     modal2.classList.remove('active')
-                    container.classList.add("sign-up-mode");
+                    container.classList.add('active')
+                    container2.classList.add('active')
                     title.textContent = "Registrate"
                 })
                 window.addEventListener('click', event => {
@@ -159,11 +173,14 @@ regis.addEventListener('click', (e) => {
     var email_regis
     email_regis = document.getElementById('ema_regis').value
 
-    var confir_regis
-    confir_regis = document.getElementById('confir_regis').value
-
     var name
     name = document.getElementById('name').value
+
+    var phone
+    phone = document.getElementById('phone').value
+
+    var direction
+    direction = document.getElementById('direction').value
 
     const closeBtn = document.querySelector('.closeIcon')
     const tryAgain = document.getElementById('okBtn')
@@ -181,83 +198,68 @@ regis.addEventListener('click', (e) => {
     const tryAgain6 = document.getElementById('okBtn6')
     const modal6 = document.querySelector('.modal6')
 
-    if ((password_regis.length != 0) && (email_regis.length != 0) && (confir_regis.length != 0) && (name.length != 0)) {
+    if ((password_regis.length != 0) && (email_regis.length != 0) && (name.length != 0) && (phone.length != 0) && (direction.length != 0)) {
 
-        if (password_regis == confir_regis) {
-            createUserWithEmailAndPassword(auth, email_regis, password_regis)
-                .then((userCredential) => {
-                    // Signed in
-                    const user = userCredential.user;
-                    sendEmailVerification(auth.currentUser).
-                        then(() => {
-                            addDoc(collection(db, "Users", user.uid, "Private_Data"), {
-                                Correo: email_regis,
-                                Id: user.uid,
-                                Nombre: name,
-                                Rol: "Usuario",
-                                DarkMode: "desactive",
-                                URL: "",
-                            })
+        createUserWithEmailAndPassword(auth, email_regis, password_regis)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                sendEmailVerification(auth.currentUser).
+                    then(() => {
+                        addDoc(collection(db, "Users", user.uid, "Private_Data"), {
+                            Correo: email_regis,
+                            Id: user.uid,
+                            Nombre: name,
+                            Telefono: phone,
+                            Direccion: direction,
+                            Rol: "Usuario",
+                            DarkMode: "desactive",
+                            URL: "",
                         })
-
-                    // ...
-                    modal4.classList.add('active')
-                    closeBtn4.addEventListener('click', () => {
-                        modal4.classList.remove('active')
-                    })
-                    tryAgain4.addEventListener('click', () => {
-                        container.classList.remove("sign-up-mode");
-                        title.textContent = "Inicia sesion"
-                        modal4.classList.remove('active')
-                        password_regis.value = ''
-                        email_regis.value = ''
-                        confir_regis.value = ''
-                        name.value = ''
-                    })
-                    window.addEventListener('click', event => {
-                        if (event.target == modal4) {
-                            modal4.classList.remove('active')
-                        }
                     })
 
+                // ...
+                modal4.classList.add('active')
+                closeBtn4.addEventListener('click', () => {
+                    modal4.classList.remove('active')
+                })
+                tryAgain4.addEventListener('click', () => {
+                    container.classList.remove('active')
+                    container2.classList.remove('active')
+                    title.textContent = "Inicia sesion"
+                    modal4.classList.remove('active')
+                    password_regis.value = ''
+                    email_regis.value = ''
+                    confir_regis.value = ''
+                    name.value = ''
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modal4) {
+                        modal4.classList.remove('active')
+                    }
                 })
 
-
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                    modal5.classList.add('active')
-                    closeBtn5.addEventListener('click', () => {
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                modal5.classList.add('active')
+                closeBtn5.addEventListener('click', () => {
+                    modal5.classList.remove('active')
+                })
+                tryAgain5.addEventListener('click', () => {
+                    container.classList.remove('active')
+                    container2.classList.remove('active')
+                    title.textContent = "Inicia sesion"
+                    modal5.classList.remove('active')
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modal5) {
                         modal5.classList.remove('active')
-                    })
-                    tryAgain5.addEventListener('click', () => {
-                        container.classList.remove("sign-up-mode");
-                        title.textContent = "Inicia sesion"
-                        modal5.classList.remove('active')
-                    })
-                    window.addEventListener('click', event => {
-                        if (event.target == modal5) {
-                            modal5.classList.remove('active')
-                        }
-                    })
-                });
-        }
-
-        else {
-            modal6.classList.add('active')
-            closeBtn6.addEventListener('click', () => {
-                modal6.classList.remove('active')
-            })
-            tryAgain6.addEventListener('click', () => {
-                modal6.classList.remove('active')
-            })
-            window.addEventListener('click', event => {
-                if (event.target == modal6) {
-                    modal6.classList.remove('active')
-                }
-            })
-        }
+                    }
+                })
+            });
 
     }
 

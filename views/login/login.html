@@ -15,75 +15,66 @@
 <body>
 
     <div class="container">
-        <div class="forms-container">
-            <div class="signin-signup">
-                <form action="#" class="sign-in-form">
-                    <h2 class="title">Iniciar sesión</h2>
-                    <div class="input-field">
-                        <i class="fa-solid fa-user fa-bounce"></i>
-                        <input type="text" placeholder="Correo del usuario" id="email" autocomplete="off" />
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock fa-shake"></i>
-                        <input type="password" placeholder="Contraseña" id="contra" autocomplete="off" />
-                    </div>
-                    <a href="">
-                        <p>Olvidaste tu <span>contraseña?</span></p>
-                    </a>
-                    <input type="submit" value="Iniciar Sesion" class="btn solid" id="iniciar" />
-                </form>
-                <form action="#" class="sign-up-form">
-                    <h2 class="title">Registrate</h2>
-                    <div class="input-field">
-                        <i class="fa-solid fa-user fa-bounce"></i>
-                        <input type="text" placeholder="Nombre" id="name" autocomplete="off" />
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Correo electronico" id="ema_regis" autocomplete="off" />
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock fa-shake"></i>
-                        <input type="password" placeholder="Contraseña" id="pass_regis" autocomplete="off" />
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock fa-shake"></i>
-                        <input type="password" placeholder="Confirmar Contraseña" id="confir_regis"
-                            autocomplete="off" />
-                    </div>
-                    <input type="submit" class="btn" value="Registrate" id="regis" />
-                </form>
+        <div class="info">
+            <h3>Iniciar Sesion</h3>
+            <p>Ingresa con tus credenciales: </p>
+            <div class="inputField">
+                <i class="fa-solid fa-user fa-bounce"></i>
+                <input type="email" placeholder="Correo Electronico" autocomplete="off" id="email">
             </div>
+            <div class="inputField">
+                <i class="fa-solid fa-lock fa-shake"></i>
+                <input type="password" placeholder="Contraseña" autocomplete="off" id="contra">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+            <h4>¿Olvidaste tu Contraseña?</h4>
+            <a id="iniciar">Iniciar Sesion</a>
+            <h2 class="noCount">¿No Tienes Cuenta?</h2>
         </div>
+        <div class="description">
+            <img src="/assets/ham1.png" alt="">
+            <h3>¿Ya conoces la American King?</h3>
+            <p>Nuestra nueva AMERICAN KING, cuenta con 1 carne de 198gr de res a la parrilla, tocineta
+                crujiente, queso americano, tomates, lechuga recién cortada, cebollas caramelizada y nuestra
+                famosa salsa BBQ, sobre un pan tostado perfectamente con mayonesa.</p>
+            <a id="registerBtn">Registrate</a>
+        </div>
+    </div>
 
-        <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
-                    <h3>Ya conoces la American King ?</h3>
-                    <p>
-                        Nuestra nueva AMERICAN KING, cuenta con 1 carne de 198gr de res a la parrilla, tocineta
-                        crujiente, queso americano, tomates, lechuga recién cortada, cebollas caramelizada y nuestra
-                        famosa salsa BBQ, sobre un pan tostado perfectamente con mayonesa.
-                    </p>
-                    <button class="btn transparent" id="sign-up-btn">
-                        Registrate
-                    </button>
-                </div>
-                <img src="/assets/ham4.png" class="image" alt="" />
+    <div class="container2">
+        <div class="description2">
+            <img src="/assets/ham2.png" alt="">
+            <h3>¿Ya conoces la Bacon King?</h3>
+            <p> Cuenta con dos carnes de res a la parrilla, cubiertas de crujiente tocineta, queso americano,
+                ketchup y cremosa mayonesa, sobre un pan suave con ajonjolí.</p>
+            <a id="loginBtn">Inicia Sesion</a>
+        </div>
+        <div class="info2">
+            <h3>Registrate</h3>
+            <p>Ingresa tus datos: </p>
+            <div class="inputField">
+                <i class="fa-solid fa-signature"></i>
+                <input type="text" placeholder="Nombre Completo" autocomplete="off" id="name">
             </div>
-            <div class="panel right-panel">
-                <div class="content">
-                    <h3>Ya conoces la Bacon King ?</h3>
-                    <p>
-                        Cuenta con dos carnes de res a la parrilla, cubiertas de crujiente tocineta, queso americano,
-                        ketchup y cremosa mayonesa, sobre un pan suave con ajonjolí.
-                    </p>
-                    <button class="btn transparent" id="sign-in-btn">
-                        Iniciar sesión
-                    </button>
-                </div>
-                <img src="/assets/ham5.png" class="image" alt="" />
+            <div class="inputField">
+                <i class="fa-solid fa-user fa-bounce"></i>
+                <input type="email" placeholder="Correo Electronico" autocomplete="off" id="ema_regis">
             </div>
+            <div class="inputField">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" placeholder="Telefono" autocomplete="off" id="phone">
+            </div>
+            <div class="inputField">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Direccion" autocomplete="off" id="direction">
+            </div>
+            <div class="inputField">
+                <i class="fa-solid fa-lock fa-shake"></i>
+                <input type="password" placeholder="Contraseña" autocomplete="off" id="pass_regis">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+            <a id="regis">Registrate</a>
+            <h2 class="count">¿Ya Tienes Cuenta?</h2>
         </div>
     </div>
 
@@ -136,7 +127,7 @@
                 <span class="icon4"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items4">
                     <h1>Felicidades!</h1>
-                    <p>Revisa tu email, hemos mandado un correo de verificacion</p>
+                    <p>Revisa tu email, hemos mandado un correo de verificacion (no olvides revisar en spam)</p>
                     <button id="okBtn4">Iniciar sesion</button>
                 </div>
             </div>
