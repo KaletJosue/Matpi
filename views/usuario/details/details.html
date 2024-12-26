@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/usuario/details/details.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Matpi</title>
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+
+    <div class="details">
+        <img src="/assets/bbq.png" alt="">
+        <div class="textDetails">
+            <h1>Burguer King</h1>
+            <p>La hamburguesa hawaiana de Matpi es una explosión de sabores tropicales. Combina la jugosa carne a la
+                parrilla con el dulzor de la piña asada, el queso derretido y el crujiente bacon. Todo esto, acompañado
+                de una capa fresca de lechuga y una salsa especial, envuelto en un suave pan artesanal. Una delicia que
+                mezcla lo mejor de lo dulce y lo salado.</p>
+            <h3>Calificacion: ★★★★☆</h3>
+            <h4>$25.000</h4>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p class="textModal"></p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/usuario/details/details.js" type="module"></script>
+</body>
+
+</html>

@@ -29,6 +29,15 @@ onAuthStateChanged(auth, (user) => {
 
                     if (doc.data().Rol == "Usuario") {
 
+                        // Open Details
+                        var products = document.querySelectorAll('.product')
+                        
+                        products.forEach(product => {
+                            product.addEventListener('click', () => {
+                                window.open('/views/usuario/details/details.html', '_blank');
+                            })
+                        })
+
                         // logout
                         const closeBtn2 = document.querySelector('.closeIcon2')
                         const tryAgain2 = document.getElementById('okBtn2')
