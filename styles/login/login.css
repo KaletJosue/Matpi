@@ -217,6 +217,31 @@ body {
   transition: all .5s ease;
 }
 
+#eye,
+#eye2 {
+  position: relative;
+  cursor: pointer;
+}
+
+#eye::after,
+#eye2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  top: 4.2px;
+  left: -.5px;
+  transform: rotate(45deg);
+  transition: all .5s ease;
+}
+
+#eye.active::after,
+#eye2.active::after {
+  width: 0;
+}
+
 /* Modal */
 
 .modal h1 {

@@ -52,6 +52,32 @@ loginBtn.addEventListener('click', () => {
     container2.classList.remove("active");
 });
 
+// Eyes
+
+var eye = document.querySelector('#eye')
+var eye2 = document.querySelector('#eye2')
+
+var contra = document.querySelector('#contra')
+var contraRegis = document.querySelector('#pass_regis')
+
+eye.addEventListener('click', () => {
+    if (contra.type === 'password') {
+        contra.type = 'text'
+    } else {
+        contra.type = 'password'
+    }
+    eye.classList.toggle('active')
+})
+
+eye2.addEventListener('click', () => {
+    if (contraRegis.type === 'password') {
+        contraRegis.type = 'text'
+    } else {
+        contraRegis.type = 'password'
+    }
+    eye2.classList.toggle('active')
+})
+
 iniciar.addEventListener('click', (e) => {
     e.preventDefault()
 
@@ -97,7 +123,7 @@ iniciar.addEventListener('click', (e) => {
                                                 location.href = '/views/cajero/home/home.html'
                                             }
                                             if (rol == "Usuario") {
-                                                alert('eres usuario')
+                                                location.href = '/views/usuario/home/home.html'
                                             }
                                         })
                                 })
