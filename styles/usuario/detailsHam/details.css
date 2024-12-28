@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat';
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    background-color: #f9ebe0;
+}
+
+.details {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15rem;
+    gap: 2rem;
+}
+
+.details img {
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    object-position: center center;
+    width: 700px;
+}
+
+.details .textDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.details .textDetails h1 {
+    font-size: 90px;
+    font-weight: 900;
+    color: #c0a592;
+}
+
+.details .textDetails p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #c0a592;
+    margin-top: .5rem;
+}
+
+.details .textDetails h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #c0a592;
+}
+
+.details .textDetails h4 {
+    font-size: 15px;
+    font-weight: 900;
+    padding: .7rem 1rem;
+    background-color: #c0a592;
+    color: #f9ebe0;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+/* Modal */
+
+.modal h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.modal p {
+    font-size: 12px;
+}
+
+.modal {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #505562;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000000000;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon:hover {
+    color: #c7cad1;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items {
+    margin-left: 30px;
+}
+
+button#okBtn {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn:hover {
+    background: #f65656;
+}
+
+@media (height < 600px) {
+    .details {
+        height: 100vh;
+        justify-content: start;
+        margin-top: 5rem;
+    }
+}
+
+@media (width < 2000px) {
+    .details .textDetails h1 {
+        font-size: 50px;
+    }
+}
+
+@media (width < 1600px) {
+    .details {
+        padding: 0 5rem;
+    }
+}
+
+@media (width < 1400px) {
+    .details img {
+        width: 500px;
+    }
+}
+
+@media (width < 1100px) {
+    .details {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .details .textDetails {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (width < 600px) {
+    .details {
+        padding: 0 1rem;
+    }
+
+    .details img {
+        width: 100%;
+    }
+
+    .details .textDetails h1 {
+        font-size: 30px;
+    }
+
+    .details .textDetails h3 {
+        font-size: 18px;
+        margin-top: 1rem;
+    }
+}
+
+@media (width < 650px) {
+    .modal {
+        padding: 20px;
+    }
+
+    .modal-content {
+        height: 300px;
+    }
+
+    .modal-content .modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content .modal-body .right-items {
+        margin-left: 0px;
+    }
+}

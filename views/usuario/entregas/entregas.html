@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/usuario/entregas/entregas.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Entregas | Matpi</title>
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="infoUser">
+            <div class="textInfoUser">
+                <h3 class="rol"></h3>
+                <p>Hola, <span class="name"></span></p>
+            </div>
+            <img src="" alt="" class="img_profile">
+        </div>
+    </div>
+
+    <div class="orders">
+        <div class="order">
+            <img src="/assets/profile-1.jpg" alt="">
+            <p>Kalet Josue</p>
+            <p>Cra 22 # 2 - 13</p>
+            <p>12:54</p>
+            <p>$29.000</p>
+            <p class="cancelado" id="estado">Cancelado</p>
+            <p class="details">Detalles</p>
+        </div>
+        <div class="order">
+            <img src="/assets/profile-2.jpg" alt="">
+            <p>Kalet Josue</p>
+            <p>Cra 22 # 2 - 13</p>
+            <p>12:54</p>
+            <p>$29.000</p>
+            <p class="preparacion" id="estado">Preparacion</p>
+            <p class="details">Detalles</p>
+        </div>
+        <div class="order">
+            <img src="/assets/profile-3.jpg" alt="">
+            <p>Kalet Josue</p>
+            <p>Cra 22 # 2 - 13</p>
+            <p>12:54</p>
+            <p>$29.000</p>
+            <p class="entregado" id="estado">Entregado</p>
+            <p class="details">Detalles</p>
+        </div>
+        <div class="order">
+            <img src="/assets/profile-4.jpg" alt="">
+            <p>Kalet Josue</p>
+            <p>Cra 22 # 2 - 13</p>
+            <p>12:54</p>
+            <p>$29.000</p>
+            <p class="enviado" id="estado">Enviado</p>
+            <p class="details">Detalles</p>
+        </div>
+        <div class="order">
+            <img src="/assets/profile-0.jpg" alt="">
+            <p>Kalet Josue</p>
+            <p>Cra 22 # 2 - 13</p>
+            <p>12:54</p>
+            <p>$29.000</p>
+            <p class="cancelado" id="estado">Cancelado</p>
+            <p class="details">Detalles</p>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p class="textModal"></p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/usuario/entregas/entregas.js" type="module"></script>
+</body>
+
+</html>

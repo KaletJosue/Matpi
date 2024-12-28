@@ -27,7 +27,7 @@
                 <input type="password" placeholder="Contraseña" autocomplete="off" id="contra">
                 <i class="fa-solid fa-eye" id="eye"></i>
             </div>
-            <h4>¿Olvidaste tu Contraseña?</h4>
+            <h4 id="rememberPaswword">¿Olvidaste tu Contraseña?</h4>
             <a id="iniciar">Iniciar Sesion</a>
             <h2 class="noCount">¿No Tienes Cuenta?</h2>
         </div>
@@ -78,13 +78,24 @@
         </div>
     </div>
 
+    <div class="modalRemember">
+        <div class="conModalRemember">
+            <p>Te enviaremos un mensaje de verificacion ingresa tu correo: </p>
+            <div class="inputRemember">
+                <i class="fa-solid fa-user fa-bounce"></i>
+                <input type="text" placeholder="Correo Electronico" class="valueRemember">
+            </div>
+            <button class="sendRemember">Enviar Mensaje</button>
+        </div>
+    </div>
+
     <div class="modal">
         <div class="modal-content">
             <span class="closeIcon"><i class="fas fa-times"></i></span>
             <div class="modal-body">
                 <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items">
-                    <h1>Ooops !</h1>
+                    <h1>Ooops!</h1>
                     <p>Debes completar todos los campos</p>
                     <button id="okBtn">Intentar de nuevo</button>
                 </div>
@@ -98,7 +109,7 @@
             <div class="modal-body2">
                 <span class="icon2"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items2">
-                    <h1>Ooops !</h1>
+                    <h1>Ooops!</h1>
                     <p>Correo o contraseña incorrectos</p>
                     <button id="okBtn2">Registrate</button>
                 </div>
@@ -112,7 +123,7 @@
             <div class="modal-body3">
                 <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items3">
-                    <h1>Ooops !</h1>
+                    <h1>Ooops!</h1>
                     <p>Verifica tu email, hemos mandado un correo</p>
                     <button id="okBtn3">Intentar de nuevo</button>
                 </div>
@@ -140,7 +151,7 @@
             <div class="modal-body5">
                 <span class="icon5"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items5">
-                    <h1>Ooops !</h1>
+                    <h1>Ooops!</h1>
                     <p>No hemos podido registrar tu correo, prueba iniciando sesion</p>
                     <button id="okBtn5">Iniciar sesion</button>
                 </div>
@@ -154,9 +165,37 @@
             <div class="modal-body6">
                 <span class="icon6"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items6">
-                    <h1>Ooops !</h1>
+                    <h1>Ooops!</h1>
                     <p>Las contraseñas no son iguales</p>
                     <button id="okBtn6">Intenta de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal7">
+        <div class="modal-content7">
+            <span class="closeIcon7"><i class="fas fa-times"></i></span>
+            <div class="modal-body7">
+                <span class="icon7"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items7">
+                    <h1>Ooops!</h1>
+                    <p class="textModal7"></p>
+                    <button id="okBtn7">Intenta de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal8">
+        <div class="modal-content8">
+            <span class="closeIcon8"><i class="fas fa-times"></i></span>
+            <div class="modal-body8">
+                <span class="icon8"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items8">
+                    <h1>Hecho!</h1>
+                    <p>Verifica tu email, hemos mandado un correo (no olvides revisar en spam)</p>
+                    <button id="okBtn8">Cerrar</button>
                 </div>
             </div>
         </div>

@@ -144,7 +144,6 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 5rem 2rem 9rem;
     background-color: #f2e3d8;
     border-radius: 20px;
     cursor: pointer;
@@ -159,6 +158,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 5rem 2rem 9rem;
 }
 
 .products .product .conProduct img {
@@ -209,6 +211,11 @@ body {
     background-color: transparent;
     color: #c0a592;
     transform: translateY(-5px);
+}
+
+.products .product .bottomProduct i.active {
+    background-color: transparent;
+    color: #c0a592;
 }
 
 .products .product .bottomProduct h4 {
@@ -266,6 +273,67 @@ body {
 }
 
 .menuUser .conMenuUser p:hover {
+    background-color: #f9ebe0;
+    color: #c0a592;
+}
+
+.selectNumbers {
+    position: fixed;
+    bottom: -500vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all .5s ease;
+}
+
+.selectNumbers.active {
+    bottom: 0;
+}
+
+.selectNumbers .conSelectNumbers {
+    background-color: #c0a592;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 7rem 4rem 2rem;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 1px 1px 1rem #c0a592;
+    gap: .5rem;
+    position: relative;
+}
+
+.selectNumbers .conSelectNumbers h3 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 900;
+    color: #f9ebe0;
+}
+
+.selectNumbers .conSelectNumbers p {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f9ebe0;
+    border: solid 1px #f9ebe0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.selectNumbers .conSelectNumbers p:hover {
     background-color: #f9ebe0;
     color: #c0a592;
 }
@@ -501,6 +569,112 @@ button#cancelBtn2:hover {
     background: #56b3f6;
 }
 
+/* Modal3 */
+
+.modal3 h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.modal3 p {
+    font-size: 12px;
+}
+
+.modal3 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5055628c;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.modal3.active {
+    display: flex;
+}
+
+.modal-content3 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content3::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon3 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon3:hover {
+    color: #c7cad1;
+}
+
+.modal-body3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon3 {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items3 {
+    margin-left: 30px;
+}
+
+button#okBtn3 {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    transition: all 0.3s;
+}
+
+button#okBtn3:hover {
+    background: #f65656;
+}
+
 @media (width < 1800px) {
     .products {
         grid-template-columns: 1fr 1fr 1fr;
@@ -584,6 +758,28 @@ button#cancelBtn2:hover {
     }
 
     .modal-content2 .modal-body2 .right-items2 {
+        margin-left: 0px;
+    }
+
+    .modal3 {
+        padding: 20px;
+    }
+
+    .modal-content3 {
+        height: 400px;
+    }
+
+    .modal-content3 .modal-body3 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content3 .modal-body3 .right-items3 {
         margin-left: 0px;
     }
 }

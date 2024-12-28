@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray-white: #f6f6f6;
+    --color-gray: #757575;
+
+    --color-fondo: #e8e8e8;
+
+    --box-shadow: 1px 1px 2rem #00000039;
+    --box-shadow-suave: 1px 1px 2rem #00000012;
+    --box-shadow-fuerte: 1px 1px 1rem #000000;
+}
+
+.dark-mode {
+    --color-white: #000000;
+    --color-black: #ffffff;
+    --color-gray-white: #232222;
+    --color-gray: #a7a7a7;
+
+    --color-fondo: #373737;
+
+    --box-shadow: 1px 1px 2rem #ffffff21;
+    --box-shadow-suave: 1px 1px 2rem #ffffff12;
+    --box-shadow-fuerte: 1px 1px 1rem #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat';
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    background-color: var(--color-gray-white);
+}
+
+.main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.main .topConfig {
+    background-color: var(--color-white);
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-suave);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main .topConfig img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.main .topConfig .textTopConfig h3 {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--color-black);
+}
+
+.main .topConfig .textTopConfig p {
+    font-size: 12px;
+    margin-top: .1rem;
+    color: var(--color-black);
+}
+
+.main .conConfig {
+    background-color: var(--color-white);
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-suave);
+}
+
+.main .conConfig .infoPersonal,
+.main .conConfig .security {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    transition: all .2s ease;
+}
+
+.main .conConfig .infoPersonal {
+    border-radius: 20px 20px 0 0;
+}
+
+.main .conConfig .security {
+    border-radius: 0 0 20px 20px;
+}
+
+.main .conConfig .infoPersonal,
+.main .conConfig .security {
+    cursor: pointer;
+}
+
+.main .conConfig .infoPersonal:hover,
+.main .conConfig .security:hover {
+    background-color: var(--color-gray);
+}
+
+.main .conConfig .infoPersonal .leftInfoPersonal,
+.main .conConfig .security .leftSecurity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main .conConfig .infoPersonal .leftInfoPersonal i,
+.main .conConfig .security .leftSecurity i {
+    font-size: 12px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--color-gray);
+    border-radius: 50%;
+    color: var(--color-gray);
+    aspect-ratio: 1/1;
+    transition: all .2s ease;
+}
+
+.main .conConfig .infoPersonal:hover .leftInfoPersonal i,
+.main .conConfig .security:hover .leftSecurity i {
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.main .conConfig .infoPersonal .leftInfoPersonal h3,
+.main .conConfig .security .leftSecurity h3 {
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: .2rem;
+    color: var(--color-gray);
+    transition: all .2s ease;
+}
+
+.main .conConfig .infoPersonal:hover .leftInfoPersonal h3,
+.main .conConfig .security:hover .leftSecurity h3 {
+    color: var(--color-fondo);
+}
+
+.main .conConfig .infoPersonal .leftInfoPersonal p,
+.main .conConfig .security .leftSecurity p {
+    font-size: 12px;
+    color: var(--color-black);
+    transition: all .2s ease;
+}
+
+.main .conConfig .infoPersonal:hover .leftInfoPersonal p,
+.main .conConfig .security:hover .leftSecurity p {
+    color: var(--color-white);
+}
+
+.main .conConfig .infoPersonal i,
+.main .conConfig .security i {
+    font-size: 12px;
+    aspect-ratio: 1/1;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    color: var(--color-black);
+}
+
+.main .conConfig .infoPersonal:hover i:last-child,
+.main .conConfig .security:hover i:last-child {
+    transform: rotate(90deg);
+    color: var(--color-white);
+}
+
+.modalInfo,
+.modalSecurity {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    bottom: -500vh;
+    left: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all .5s ease;
+}
+
+.modalInfo.active,
+.modalSecurity.active {
+    bottom: 0;
+}
+
+.modalInfo .conModalInfo,
+.modalSecurity .conModalSecurity {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 3rem 2rem 1rem;
+}
+
+.modalInfo .conModalInfo img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
+    width: 120px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modalSecurity .conModalSecurity i {
+    font-size: 30px;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+}
+
+.modalInfo .conModalInfo input,
+.modalSecurity .conModalSecurity input {
+    width: 100%;
+    padding: 1rem .7rem;
+    font-size: 12px;
+    margin-bottom: .5rem;
+    border-radius: 10px;
+    border: solid 2px var(--color-fondo);
+    color: var(--color-black);
+    outline: none;
+    background-color: transparent;
+}
+
+.modalInfo .conModalInfo a,
+.modalSecurity .conModalSecurity a {
+    font-size: 12px;
+    font-weight: 900;
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fondo);
+    color: var(--color-gray);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Modal */
+
+.modal h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.modal p {
+    font-size: 12px;
+}
+
+.modal {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #505562;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000000000;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon:hover {
+    color: #c7cad1;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items {
+    margin-left: 30px;
+}
+
+button#okBtn {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn:hover {
+    background: #f65656;
+}
+
+@media (height > 700px) {
+    .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (width < 1300px) {
+    .main .topConfig,
+    .main .conConfig {
+        width: 70%;
+    }
+}
+
+@media (width < 800px) {
+    .main .topConfig,
+    .main .conConfig {
+        width: 90%;
+    }
+}
+
+@media (width < 800px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .main .topConfig,
+    .main .conConfig {
+        width: 100%;
+    }
+
+    .main .topConfig {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main .conConfig .infoPersonal i:last-child,
+    .main .conConfig .security i:last-child {
+        display: none;
+    }
+
+    .main .conConfig .infoPersonal .leftInfoPersonal,
+    .main .conConfig .security .leftSecurity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (width < 650px) {
+    .modal {
+        padding: 20px;
+    }
+
+    .modal-content {
+        height: 300px;
+    }
+
+    .modal-content .modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content .modal-body .right-items {
+        margin-left: 0px;
+    }
+
+    .modalInfo .conModalInfo,
+    .modalSecurity .conModalSecurity {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .modalInfo .conModalInfo input,
+    .modalInfo .conModalInfo a,
+    .modalSecurity .conModalSecurity input,
+    .modalSecurity .conModalSecurity a {
+        width: 100%;
+    }
+}

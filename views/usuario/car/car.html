@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/usuario/car/car.css" />
+    <link rel="stylesheet" href="/styles/darkmode.css">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Carrito | Matpi</title>
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="infoUser">
+            <div class="textInfoUser">
+                <h3 class="rol"></h3>
+                <p>Hola, <span class="name"></span></p>
+            </div>
+            <img src="" alt="" class="img_profile">
+        </div>
+    </div>
+
+    <div class="view">
+        <div class="products">
+            <div class="product">
+                <img src="/assets/ham1.png" alt="">
+                <div class="textProduct">
+                    <h1>Burguer King</h1>
+                    <p>★★★★☆</p>
+                </div>
+                <div class="cantidad">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>0</p>
+                    <i class="fa-solid fa-minus"></i>
+                </div>
+                <h3>$25.000</h3>
+            </div>
+            <div class="product">
+                <img src="/assets/ham1.png" alt="">
+                <div class="textProduct">
+                    <h1>Burguer King</h1>
+                    <p>★★★★☆</p>
+                </div>
+                <div class="cantidad">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>0</p>
+                    <i class="fa-solid fa-minus"></i>
+                </div>
+                <h3>$25.000</h3>
+            </div>
+            <div class="product">
+                <img src="/assets/ham1.png" alt="">
+                <div class="textProduct">
+                    <h1>Burguer King</h1>
+                    <p>★★★★☆</p>
+                </div>
+                <div class="cantidad">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>0</p>
+                    <i class="fa-solid fa-minus"></i>
+                </div>
+                <h3>$25.000</h3>
+            </div>
+        </div>
+        <div class="resumen">
+            <h1>Resumen de compra</h1>
+            <div class="resumenProducts">
+                <p>Productos(1)</p>
+                <h4>1'000.000</h4>
+            </div>
+            <div class="resumenTotal">
+                <p>Total</p>
+                <h4>1'000.000</h4>
+            </div>
+            <button>Continuar Compra</button>
+        </div>
+    </div>
+    
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p class="textModal"></p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/usuario/car/car.js" type="module"></script>
+</body>
+
+</html>

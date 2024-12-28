@@ -21,13 +21,53 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
 
+        // Verificar el rol
+
         getDocs(query(collection(db, "Users", user.uid, "Private_Data"))).
             then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
 
                     if (doc.data().Rol == "Usuario") {
 
+                        // name, rol and img
+                        onAuthStateChanged(auth, (user) => {
+                            if (user) {
+                                const uid = user.uid;
 
+                                var rol = document.querySelector('.rol')
+                                var name = document.querySelector('.name')
+
+                                var img = document.querySelector('.img_profile')
+
+                                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+                                    then((querySnapshot) => {
+                                        querySnapshot.forEach((doc) => {
+                                            var nombres = doc.data().Nombre.split(" ")
+                                            var dosPrimerosNombres = nombres.slice(0, 2).join(" ")
+
+                                            rol.textContent = doc.data().Rol
+                                            name.textContent = dosPrimerosNombres
+
+                                            if (doc.data().URL == "") {
+                                                img.src = "/assets/profile-5.jpg"
+                                            } else {
+                                                img.src = doc.data().URL
+                                            }
+                                        })
+                                    })
+
+                            } else {
+                                const tryAgain = document.getElementById('okBtn')
+                                const modal = document.querySelector('.modal')
+                                const textModal = document.querySelector('.textModal')
+
+                                modal.classList.add('active')
+                                textModal.textContent = "No has iniciado sesión de manera correcta"
+                                tryAgain.addEventListener('click', () => {
+                                    location.href = "/views/login/login.html"
+                                })
+                            }
+                        });
 
                     } else {
                         const tryAgain = document.getElementById('okBtn')

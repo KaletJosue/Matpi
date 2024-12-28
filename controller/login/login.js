@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -304,7 +304,86 @@ regis.addEventListener('click', (e) => {
         })
     }
 
+})
 
+var modalRemember = document.querySelector('.modalRemember')
+
+rememberPaswword.addEventListener('click', () => {
+    modalRemember.classList.add('active')
+    window.addEventListener('click', event => {
+        if (event.target == modalRemember) {
+            modalRemember.classList.remove('active')
+        }
+    })
+})
+
+var sendRemember = document.querySelector('.sendRemember')
+var valueRemember = document.querySelector('.valueRemember')
+
+sendRemember.addEventListener('click', () => {
+    const closeBtn7 = document.querySelector('.closeIcon7')
+    const tryAgain7 = document.getElementById('okBtn7')
+    const modal7 = document.querySelector('.modal7')
+    const text7 = document.querySelector('.textModal7')
+
+    const closeBtn8 = document.querySelector('.closeIcon8')
+    const tryAgain8 = document.getElementById('okBtn8')
+    const modal8 = document.querySelector('.modal8')
+
+    if (valueRemember.value.length != 0) {
+
+        sendPasswordResetEmail(auth, valueRemember.value)
+            .then(() => {
+                modal8.classList.add('active')
+                closeBtn8.addEventListener('click', () => {
+                    modal8.classList.remove('active')
+                    modalRemember.classList.remove('active')
+                    valueRemember.value = ""
+                })
+                tryAgain8.addEventListener('click', () => {
+                    modal8.classList.remove('active')
+                    modalRemember.classList.remove('active')
+                    valueRemember.value = ""
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modal8) {
+                        modal8.classList.remove('active')
+                        modalRemember.classList.remove('active')
+                        valueRemember.value = ""
+                    }
+                })
+            })
+            .catch((error) => {
+                modal7.classList.add('active')
+                text7.textContent = "Tenemos problemas, intena mas tarde"
+                closeBtn7.addEventListener('click', () => {
+                    modal7.classList.remove('active')
+                })
+                tryAgain7.addEventListener('click', () => {
+                    modal7.classList.remove('active')
+                })
+                window.addEventListener('click', event => {
+                    if (event.target == modal7) {
+                        modal7.classList.remove('active')
+                    }
+                })
+            });
+
+    } else {
+        modal7.classList.add('active')
+        text7.textContent = "Debes ingresar tu correo"
+        closeBtn7.addEventListener('click', () => {
+            modal7.classList.remove('active')
+        })
+        tryAgain7.addEventListener('click', () => {
+            modal7.classList.remove('active')
+        })
+        window.addEventListener('click', event => {
+            if (event.target == modal7) {
+                modal7.classList.remove('active')
+            }
+        })
+    }
 })
 
 

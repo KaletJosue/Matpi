@@ -52,7 +52,7 @@ onAuthStateChanged(auth, (user) => {
 
                 details.forEach(detail => {
                     detail.addEventListener('click', () => {
-                        window.open('/views/admin/details/details.html', '_blank');
+                        window.open('/views/cajero/details/details.html', '_blank');
                     })
                 })
 

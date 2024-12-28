@@ -29,13 +29,66 @@ onAuthStateChanged(auth, (user) => {
 
                     if (doc.data().Rol == "Usuario") {
 
+                        // Open Car
+
+                        const closeBtn3 = document.querySelector('.closeIcon3')
+                        const tryAgain3 = document.getElementById('okBtn3')
+                        const modal3 = document.querySelector('.modal3')
+                        const textModal3 = document.querySelector('.text_modal3')
+
+                        var cars = document.querySelectorAll('#car')
+                        var selectNumbers = document.querySelector('.selectNumbers')
+
+                        cars.forEach(car => {
+                            car.addEventListener('click', () => {
+                                if (car.className == "fa-solid fa-cart-shopping active") {
+                                    modal3.classList.add('active')
+                                    textModal3.textContent = "Ya esta en el carrito, revisalo"
+                                    closeBtn3.addEventListener('click', () => {
+                                        modal3.classList.remove('active')
+                                    })
+                                    tryAgain3.addEventListener('click', () => {
+                                        location.href = "/views/usuario/car/car.html"
+                                    })
+                                    window.addEventListener('click', event => {
+                                        if (event.target == modal3) {
+                                            modal3.classList.remove('active')
+                                        }
+                                    })
+                                } else {
+                                    selectNumbers.classList.add('active')
+                                    window.addEventListener('click', event => {
+                                        if (event.target == selectNumbers) {
+                                            selectNumbers.classList.remove('active')
+                                        }
+                                    })
+                                }
+                            })
+                        })
+
                         // Open Details
-                        var products = document.querySelectorAll('.product')
-                        
+                        var products = document.querySelectorAll('.conProduct')
+
                         products.forEach(product => {
                             product.addEventListener('click', () => {
-                                window.open('/views/usuario/details/details.html', '_blank');
+                                window.open('/views/usuario/detailsHam/details.html', '_blank');
                             })
+                        })
+
+                        // Open Config
+
+                        var configuration = document.querySelector('#configuration')
+
+                        configuration.addEventListener('click', () => {
+                            location.href = "/views/usuario/config/config.html"
+                        })
+
+                        // Open Entregas
+
+                        var btnEntregas = document.querySelector('#entregas')
+
+                        btnEntregas.addEventListener('click', () => {
+                            location.href = "/views/usuario/entregas/entregas.html"
                         })
 
                         // logout

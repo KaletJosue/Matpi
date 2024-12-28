@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat';
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.main .infoUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.main .infoUser img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.main .infoUser .textInfoUser {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.main .infoUser .textInfoUser h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #c0a592;
+}
+
+.main .infoUser .textInfoUser p {
+    font-size: 13px;
+    font-weight: 500;
+    color: #c0a592;
+}
+
+.orders {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.orders .order {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #f5f1ed;
+    box-shadow: 1px 1px 1rem #c0a59216;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.orders .order img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.orders .order p {
+    font-size: 12px;
+    font-weight: 500;
+    color: #c0a592;
+}
+
+.orders .order p.entregado {
+    background-color: #EDF8DA;
+    color: #9ABA62;
+    padding: 1rem 2rem;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orders .order p.preparacion {
+    background-color: #E7F4F5;
+    color: #069C9C;
+    padding: 1rem 0;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orders .order p.cancelado {
+    background-color: #FFE9E9;
+    color: #FF4A43;
+    padding: 1rem 0;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orders .order p.enviado {
+    background-color: #FFF2E9;
+    color: #FF8B43;
+    padding: 1rem 0;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orders .order .actions a {
+    font-size: 12px;
+    font-weight: 900;
+    padding: .7rem 1rem;
+    border-radius: 10px;
+}
+
+.orders .order .actions a:first-child {
+    background-color: var(--color-fondo);
+    color: var(--color-gray);
+    border: solid 2px var(--color-fondo);
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.orders .order .actions a:first-child:hover {
+    transform: translateY(-5px);
+    background-color: transparent;
+    color: var(--color-gray);
+}
+
+.orders .order .actions a:last-child {
+    background-color: #f65656;
+    border: solid 2px #f65656;
+    color: var(--color-white);
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.orders .order .actions a:last-child:hover {
+    transform: translateY(-5px);
+    background-color: transparent;
+    color: #f65656;
+}
+
+.orders .order p:last-child {
+    font-weight: 900;
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+/* Modal */
+
+.modal h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.modal p {
+    font-size: 12px;
+}
+
+.modal {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #505562;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000000000;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon:hover {
+    color: #c7cad1;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items {
+    margin-left: 30px;
+}
+
+button#okBtn {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn:hover {
+    background: #f65656;
+}
+
+@media (width < 1000px) {
+    .orders .order {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
+}
+
+@media (width < 650px) {
+    .modal {
+        padding: 20px;
+    }
+
+    .modal-content {
+        height: 300px;
+    }
+
+    .modal-content .modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content .modal-body .right-items {
+        margin-left: 0px;
+    }
+}

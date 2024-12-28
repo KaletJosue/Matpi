@@ -21,13 +21,15 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
 
+        // Verificar el rol
+
         getDocs(query(collection(db, "Users", user.uid, "Private_Data"))).
             then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
 
                     if (doc.data().Rol == "Usuario") {
 
-
+                        
 
                     } else {
                         const tryAgain = document.getElementById('okBtn')
