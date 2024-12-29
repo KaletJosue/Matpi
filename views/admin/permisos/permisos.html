@@ -33,26 +33,8 @@
                     <th>Privilegio</th>
                     <th>Acciones</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th><img src="/assets/profile-1.jpg" alt=""></th>
-                        <th>Kalet Josue Victor Robayo</th>
-                        <th>kalet.jo28@gmail.com</th>
-                        <th>3125704048</th>
-                        <th>Cra 22 # 2 - 13</th>
-                        <th>
-                            <p class="permiso">
-                                SuperAdmin
-                            </p>
-                        </th>
-                        <th>
-                            <div class="actions">
-                                <a class="delete">
-                                    Eliminar
-                                </a>
-                            </div>
-                        </th>
-                    </tr>
+                <tbody class="tbody">
+
                 </tbody>
             </table>
         </div>
@@ -64,8 +46,36 @@
                 <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <div class="right-items">
                     <h1>¡Lo sentimos!</h1>
-                    <p>No has iniciado sesión de manera correcta</p>
+                    <p class="textModal"></p>
                     <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal2">
+        <div class="modal-content2">
+            <span class="closeIcon2"><i class="fas fa-times"></i></span>
+            <div class="modal-body2">
+                <span class="icon2"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items2">
+                    <h1>Ooops!</h1>
+                    <p class="textModal2"></p>
+                    <button id="okBtn2">Intenta de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items3">
+                    <h1>Hecho!</h1>
+                    <p>Ahora deberas iniciar sesion de nuevo para mayor seguridad</p>
+                    <button id="okBtn3">Iniciar Sesion</button>
                 </div>
             </div>
         </div>
@@ -73,16 +83,25 @@
 
     <div class="modalDelete">
         <div class="conModalDelete">
-            <img src="/assets/profile-1.jpg" alt="">
-            <p>Kalet Josue Victor Robayo</p>
-            <p>kalet.jo28@gmail.com</p>
-            <p>3125704048</p>
-            <a>Eliminar</a>
+            <img src="/assets/profile-1.jpg" alt="" class="imgModalDelete">
+            <p class="nameModalDelete">Kalet Josue Victor Robayo</p>
+            <p class="emailModalDelete">kalet.jo28@gmail.com</p>
+            <p class="phoneModalDelete">3125704048</p>
+            <a class="deleteModalDelete">Eliminar</a>
         </div>
     </div>
 
     <div class="modalPermiso">
         <div class="conModalPermiso">
+            <p>SuperAdmin</p>
+            <p>Administrador</p>
+            <p>Cajero</p>
+            <p>Usuario</p>
+        </div>
+    </div>
+
+    <div class="modalPermiso2">
+        <div class="conModalPermiso2">
             <p>SuperAdmin</p>
             <p>Administrador</p>
             <p>Cajero</p>
@@ -96,16 +115,17 @@
                 <h3>Completa los campos:</h3>
                 <i class="ph-bold ph-x"></i>
             </div>
-            <input type="text" placeholder="Nombre Completo">
-            <input type="text" placeholder="Correo Electronico">
-            <input type="text" placeholder="Telefono">
-            <input type="text" placeholder="Direccion">
-            <p class="btnPrivilegio">Privilegio</p>
-            <a>Agregar</a>
+            <input type="text" placeholder="Nombre Completo" class="addName">
+            <input type="text" placeholder="Correo Electronico" class="addEmail">
+            <input type="text" placeholder="Telefono" class="addPhone">
+            <input type="text" placeholder="Direccion" class="addDirection">
+            <p class="addPrivilegio">Privilegio</p>
+            <input type="text" placeholder="Contraseña" class="addContra">
+            <a class="addBtn">Agregar</a>
         </div>
     </div>
 
-    <i class="ph-bold ph-plus" id="addUser"></i>
+    <i class="fa-solid fa-person-circle-plus" id="addUser"></i>
 
     <script src="/controller/admin/permisos/permisos.js" type="module"></script>
 </body>

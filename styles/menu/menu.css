@@ -417,6 +417,10 @@ button#okBtn:hover {
 }
 
 @media (max-width: 1200px) {
+    .cardsimg {
+        padding: 3rem 2rem 7rem;
+    }
+
     .cardsimg img {
         width: 200px;
     }
@@ -466,6 +470,10 @@ button#okBtn:hover {
 }
 
 @media (max-width: 990px) {
+    .cardsimg {
+        padding: 7rem 3rem;
+    }
+
     .cardsimg img {
         width: 300px;
     }

@@ -20,48 +20,69 @@ const db = getFirestore(app);
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // Dark Mode
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
 
-                const body = document.body
-                const checkbox = document.querySelector('.theme-switch__checkbox');
-                const palanca = document.querySelector('.theme-switch__checkbox')
+        getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
+            then((querySnapshot) => {
+                querySnapshot.forEach(doc => {
 
-                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
-                    then((querySnapshot) => {
-                        querySnapshot.forEach((doc2) => {
-                            getDoc(doc(db, "Users", user.uid, "Private_Data", doc2.data().DarkMode)).
-                                then((docSnap) => {
-                                    if (doc2.data().DarkMode == "desactive") {
-                                        body.classList.remove('dark-mode')
-                                    }
-                                    else if (doc2.data().DarkMode == "active") {
-                                        body.classList.add('dark-mode')
-                                    }
-                                    else {
-                                        body.classList.add('dark-mode')
-                                    }
+                    if (doc.data().Rol == "Cajero") {
+
+                        // Dark Mode
+                        onAuthStateChanged(auth, (user) => {
+                            if (user) {
+                                const uid = user.uid;
+
+                                const body = document.body
+
+                                getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
+                                    then((querySnapshot) => {
+                                        querySnapshot.forEach((doc2) => {
+                                            if (doc2.data().DarkMode == "desactive") {
+                                                body.classList.remove('dark-mode')
+                                            }
+                                            else if (doc2.data().DarkMode == "active") {
+                                                body.classList.add('dark-mode')
+                                            }
+                                            else {
+                                                body.classList.add('dark-mode')
+                                            }
+                                        })
+                                    })
+
+                            } else {
+                                const tryAgain = document.getElementById('okBtn')
+                                const modal = document.querySelector('.modal')
+                                const textModal = document.querySelector('.textModal')
+
+                                textModal.textContent = "No has iniciado sesión de manera correcta"
+                                modal.classList.add('active')
+                                tryAgain.addEventListener('click', () => {
+                                    location.href = "/views/login/login.html"
                                 })
+                            }
+                        });
+
+                    } else {
+                        const tryAgain = document.getElementById('okBtn')
+                        const modal = document.querySelector('.modal')
+                        const textModal = document.querySelector('.textModal')
+
+                        textModal.textContent = "Acceso no autorizado a esta página"
+                        modal.classList.add('active')
+                        tryAgain.addEventListener('click', () => {
+                            location.href = "/views/login/login.html"
                         })
-                    })
+                    }
 
-            } else {
-                const tryAgain = document.getElementById('okBtn')
-                const modal = document.querySelector('.modal')
-
-                modal.classList.add('active')
-                tryAgain.addEventListener('click', () => {
-                    location.href = "/views/login/login.html"
                 })
-            }
-        });
+            })
 
     } else {
         const tryAgain = document.getElementById('okBtn')
         const modal = document.querySelector('.modal')
+        const textModal = document.querySelector('.textModal')
 
+        textModal.textContent = "No has iniciado sesión de manera correcta"
         modal.classList.add('active')
         tryAgain.addEventListener('click', () => {
             location.href = "/views/login/login.html"

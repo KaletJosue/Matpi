@@ -23,7 +23,7 @@ onAuthStateChanged(auth, (user) => {
 
         // Verificar el rol
 
-        getDocs(query(collection(db, "Users", user.uid, "Private_Data"))).
+        getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
             then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
 
@@ -146,7 +146,7 @@ onAuthStateChanged(auth, (user) => {
 
                                 var img = document.querySelector('.img_profile')
 
-                                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+                                getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
                                     then((querySnapshot) => {
                                         querySnapshot.forEach((doc) => {
                                             var nombres = doc.data().Nombre.split(" ")

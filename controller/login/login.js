@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -108,23 +108,46 @@ iniciar.addEventListener('click', (e) => {
                 if (getAuth().currentUser.emailVerified) {
                     if (correo.length != 0 && con.length != 0) {
 
-                        getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+                        getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
                             then((querySnapshot) => {
                                 querySnapshot.forEach((doc2) => {
-                                    getDoc(doc(db, "Users", user.uid, "Private_Data", doc2.id)).
+                                    getDoc(doc(db, "Users", "IdUser", "Private_Data", doc2.id)).
                                         then((docSnap) => {
+
+                                            const closeBtn7 = document.querySelector('.closeIcon7')
+                                            const tryAgain7 = document.getElementById('okBtn7')
+                                            const modal7 = document.querySelector('.modal7')
+                                            const text7 = document.querySelector('.textModal7')
+
                                             if (docSnap.exists()) {
                                                 var rol = docSnap.data().Rol
                                             }
                                             if (rol == "Administrador" || rol == "SuperAdmin") {
                                                 location.href = '/views/admin/dashboard/dashboard.html'
-                                            }
-                                            if (rol == "Cajero") {
+                                            } else if (rol == "Cajero") {
                                                 location.href = '/views/cajero/home/home.html'
-                                            }
-                                            if (rol == "Usuario") {
+                                            } else if (rol == "Usuario") {
                                                 location.href = '/views/usuario/home/home.html'
+                                            } else if (rol == "") {
+                                                signOut(auth).then(() => {
+                                                    modal7.classList.add('active')
+                                                    text7.textContent = "Parece que no tienes acceso, comunicate con el administrador de Matpi"
+                                                    closeBtn7.addEventListener('click', () => {
+                                                        modal7.classList.remove('active')
+                                                    })
+                                                    tryAgain7.addEventListener('click', () => {
+                                                        modal7.classList.remove('active')
+                                                    })
+                                                    window.addEventListener('click', event => {
+                                                        if (event.target == modal7) {
+                                                            modal7.classList.remove('active')
+                                                        }
+                                                    })
+                                                }).catch((error) => {
+
+                                                })
                                             }
+
                                         })
                                 })
                             })
@@ -160,7 +183,6 @@ iniciar.addEventListener('click', (e) => {
                     modal2.classList.remove('active')
                     container.classList.add('active')
                     container2.classList.add('active')
-                    title.textContent = "Registrate"
                 })
                 window.addEventListener('click', event => {
                     if (event.target == modal2) {
@@ -228,11 +250,14 @@ regis.addEventListener('click', (e) => {
 
         createUserWithEmailAndPassword(auth, email_regis, password_regis)
             .then((userCredential) => {
-                // Signed in
+                // El registro fue exitoso
                 const user = userCredential.user;
-                sendEmailVerification(auth.currentUser).
-                    then(() => {
-                        addDoc(collection(db, "Users", user.uid, "Private_Data"), {
+
+                // Enviar correo de verificación
+                sendEmailVerification(user)
+                    .then(() => {
+                        // Intentar agregar datos a Firestore
+                        addDoc(collection(db, "Users", "IdUser", "Private_Data"), {
                             Correo: email_regis,
                             Id: user.uid,
                             Nombre: name,
@@ -242,50 +267,100 @@ regis.addEventListener('click', (e) => {
                             DarkMode: "desactive",
                             URL: "",
                         })
+                            .then(() => {
+                                signOut(auth).then(() => {
+                                    modal4.classList.add('active')
+                                    closeBtn4.addEventListener('click', () => {
+                                        container.classList.remove('active')
+                                        container2.classList.remove('active')
+                                        modal4.classList.remove('active')
+                                        password_regis = ''
+                                        email_regis = ''
+                                        name = ''
+                                    })
+                                    tryAgain4.addEventListener('click', () => {
+                                        container.classList.remove('active')
+                                        container2.classList.remove('active')
+                                        modal4.classList.remove('active')
+                                        password_regis = ''
+                                        email_regis = ''
+                                        name = ''
+                                    })
+                                    window.addEventListener('click', event => {
+                                        if (event.target == modal4) {
+                                            container.classList.remove('active')
+                                            container2.classList.remove('active')
+                                            modal4.classList.remove('active')
+                                            password_regis = ''
+                                            email_regis = ''
+                                            name = ''
+                                        }
+                                    })
+                                }).catch((error) => {
+                                    // An error happened.
+                                });
+                            })
+                            .catch((error) => {
+                                console.error("Error al agregar datos a Firestore:", error.message);
+                                // Muestra el error en la interfaz de usuario si lo necesitas
+                                modal5.classList.add('active');
+                                closeBtn5.addEventListener('click', () => {
+                                    modal5.classList.remove('active');
+                                });
+                                tryAgain5.addEventListener('click', () => {
+                                    container.classList.remove('active');
+                                    container2.classList.remove('active');
+                                    modal5.classList.remove('active');
+                                });
+                                window.addEventListener('click', event => {
+                                    if (event.target == modal5) {
+                                        modal5.classList.remove('active');
+                                    }
+                                });
+                            });
                     })
-
-                // ...
-                modal4.classList.add('active')
-                closeBtn4.addEventListener('click', () => {
-                    modal4.classList.remove('active')
-                })
-                tryAgain4.addEventListener('click', () => {
-                    container.classList.remove('active')
-                    container2.classList.remove('active')
-                    title.textContent = "Inicia sesion"
-                    modal4.classList.remove('active')
-                    password_regis.value = ''
-                    email_regis.value = ''
-                    confir_regis.value = ''
-                    name.value = ''
-                })
-                window.addEventListener('click', event => {
-                    if (event.target == modal4) {
-                        modal4.classList.remove('active')
-                    }
-                })
-
+                    .catch((error) => {
+                        console.error("Error al enviar correo de verificación:", error.message);
+                        // Muestra el error en la interfaz de usuario si lo necesitas
+                        modal5.classList.add('active');
+                        closeBtn5.addEventListener('click', () => {
+                            modal5.classList.remove('active');
+                        });
+                        tryAgain5.addEventListener('click', () => {
+                            container.classList.remove('active');
+                            container2.classList.remove('active');
+                            modal5.classList.remove('active');
+                        });
+                        window.addEventListener('click', event => {
+                            if (event.target == modal5) {
+                                modal5.classList.remove('active');
+                            }
+                        });
+                    });
             })
             .catch((error) => {
+                // Manejo de error si no se pudo crear el usuario
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // ..
-                modal5.classList.add('active')
+                console.error(`Error de registro: ${errorCode} - ${errorMessage}`);
+
+                // Muestra el error en la interfaz de usuario si lo necesitas
+                modal5.classList.add('active');
                 closeBtn5.addEventListener('click', () => {
-                    modal5.classList.remove('active')
-                })
+                    modal5.classList.remove('active');
+                });
                 tryAgain5.addEventListener('click', () => {
-                    container.classList.remove('active')
-                    container2.classList.remove('active')
-                    title.textContent = "Inicia sesion"
-                    modal5.classList.remove('active')
-                })
+                    container.classList.remove('active');
+                    container2.classList.remove('active');
+                    modal5.classList.remove('active');
+                });
                 window.addEventListener('click', event => {
                     if (event.target == modal5) {
-                        modal5.classList.remove('active')
+                        modal5.classList.remove('active');
                     }
-                })
+                });
             });
+
 
     }
 

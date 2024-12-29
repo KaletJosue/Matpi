@@ -21,7 +21,7 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
 
-        getDocs(query(collection(db, "Users", user.uid, "Private_Data"))).
+        getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
             then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
 
@@ -32,10 +32,10 @@ onAuthStateChanged(auth, (user) => {
                             if (user) {
                                 const uid = user.uid;
 
-                                getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+                                getDocs(query(collection(db, "Users", "IdUser", "Private_Data"), where("Id", "==", user.uid))).
                                     then((querySnapshot) => {
                                         querySnapshot.forEach((doc2) => {
-                                            getDoc(doc(db, "Users", user.uid, "Private_Data", doc2.data().DarkMode)).
+                                            getDoc(doc(db, "Users", "IdUser", "Private_Data", doc2.data().DarkMode)).
                                                 then((docSnap) => {
                                                     var body = document.querySelector('body')
 
