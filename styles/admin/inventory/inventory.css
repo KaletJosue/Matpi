@@ -491,7 +491,7 @@ input {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    bottom:  -500vh;
+    bottom: -500vh;
     left: 0;
     display: flex;
     align-items: end;
@@ -549,86 +549,6 @@ input {
     font-weight: 900;
     border-radius: 5px;
     text-align: center;
-    cursor: pointer;
-}
-
-.modalDelete {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    bottom: -500vh;
-    left: 0;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    backdrop-filter: blur(5px);
-    z-index: 1001;
-    transition: all .5s ease;
-}
-
-.modalDelete.active {
-    bottom: 0;
-}
-
-.modalDelete .con_modalDelete {
-    background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
-    border-radius: 20px 20px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 2rem 2rem 2rem;
-    width: 400px;
-    position: relative;
-}
-
-.modalDelete .con_modalDelete span {
-    position: absolute;
-    width: 50px;
-    height: 5px;
-    background-color: var(--color-gray);
-    top: 30px;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.modalDelete .con_modalDelete img {
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    object-position: center center;
-    width: 250px;
-}
-
-.modalDelete .con_modalDelete h3 {
-    font-size: 13px;
-    font-weight: 900;
-    margin-top: .5rem;
-    color: var(--color-black);
-}
-
-.modalDelete .con_modalDelete h2 {
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--color-black);
-}
-
-.modalDelete .con_modalDelete h4 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-black);
-}
-
-.modalDelete .con_modalDelete button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: .7rem 1rem;
-    font-size: 12px;
-    font-weight: 900;
-    border-radius: 10px;
-    border: none;
-    background-color: #f65656;
-    color: white;
     cursor: pointer;
 }
 
@@ -863,6 +783,254 @@ button#cancelBtn2:hover {
     background: #56b3f6;
 }
 
+/* Modal3 */
+
+.modal3 h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.modal3 p {
+    font-size: 12px;
+}
+
+.modal3 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5055628c;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+}
+
+.modal3.active {
+    display: flex;
+}
+
+.modal-content3 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75em 1em #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 7;
+}
+
+.modal-content3::before {
+    background-color: #f656567a;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    top: -8px;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.closeIcon3 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.closeIcon3:hover {
+    color: #c7cad1;
+}
+
+.modal-body3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+span.icon3 {
+    font-size: 50px;
+    color: #f65656;
+}
+
+.right-items3 {
+    margin-left: 30px;
+}
+
+button#okBtn3 {
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #f65656;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: all 0.3s;
+}
+
+button#okBtn3:hover {
+    background: #f65656;
+}
+
+.loader {
+    position: fixed;
+    top: 500vw;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000e4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all .4s ease;
+    z-index: 1010;
+}
+
+.loader.active {
+    top: 0;
+}
+
+.loader p {
+    font-size: 13px;
+    font-weight: 900;
+    color: white;
+}
+
+.pl {
+    display: block;
+    width: 9.375em;
+    height: 9.375em;
+}
+
+.pl__arrows,
+.pl__ring-rotate,
+.pl__ring-stroke,
+.pl__tick {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.pl__arrows {
+    animation-name: arrows42;
+    transform: rotate(45deg);
+    transform-origin: 16px 52px;
+}
+
+.pl__ring-rotate,
+.pl__ring-stroke {
+    transform-origin: 80px 80px;
+}
+
+.pl__ring-rotate {
+    animation-name: ringRotate42;
+}
+
+.pl__ring-stroke {
+    animation-name: ringStroke42;
+    transform: rotate(-45deg);
+}
+
+.pl__tick {
+    animation-name: tick42;
+}
+
+.pl__tick:nth-child(2) {
+    animation-delay: -1.75s;
+}
+
+.pl__tick:nth-child(3) {
+    animation-delay: -1.5s;
+}
+
+.pl__tick:nth-child(4) {
+    animation-delay: -1.25s;
+}
+
+.pl__tick:nth-child(5) {
+    animation-delay: -1s;
+}
+
+.pl__tick:nth-child(6) {
+    animation-delay: -0.75s;
+}
+
+.pl__tick:nth-child(7) {
+    animation-delay: -0.5s;
+}
+
+.pl__tick:nth-child(8) {
+    animation-delay: -0.25s;
+}
+
+/* Animations */
+@keyframes arrows42 {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(405deg);
+    }
+}
+
+@keyframes ringRotate42 {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes ringStroke42 {
+
+    from,
+    to {
+        stroke-dashoffset: 452;
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        stroke-dashoffset: 169.5;
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes tick42 {
+
+    from,
+    3%,
+    47%,
+    to {
+        stroke-dashoffset: -12;
+    }
+
+    14%,
+    36% {
+        stroke-dashoffset: 0;
+    }
+}
+
 @media (width >1250px) {
     .main .condefault table tbody tr th:first-child {
         width: 150px;
@@ -967,9 +1135,32 @@ button#cancelBtn2:hover {
     .modal-content2 .modal-body2 .right-items2 {
         margin-left: 0px;
     }
+
+    .modal3 {
+        padding: 20px;
+    }
+
+    .modal-content3 {
+        height: 400px;
+    }
+
+    .modal-content3 .modal-body3 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
+    .modal-content3 .modal-body3 .right-items3 {
+        margin-left: 0px;
+    }
 }
 
 @media (width < 400px) {
+
     .selectCategory .con_selectCategory,
     .selectUni .con_selectUni {
         grid-template-columns: 1fr 1fr;

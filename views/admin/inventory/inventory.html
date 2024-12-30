@@ -157,43 +157,8 @@
                     <th>Ultima Actualizacion</th>
                     <th>Acciones</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th><img src="/assets/carne.png" alt=""></th>
-                        <th>Carne de Hamburguesa</th>
-                        <th>Carnicos</th>
-                        <th>100Kg</th>
-                        <th>$5.000</th>
-                        <th>15/08/2025</th>
-                        <th>
-                            <div class="actions">
-                                <a class="edit">
-                                    Editar
-                                </a>
-                                <a class="delete">
-                                    Eliminar
-                                </a>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th><img src="/assets/pan.png" alt=""></th>
-                        <th>Pan de Hamburguesa</th>
-                        <th>Panaderia</th>
-                        <th>50 Unidades</th>
-                        <th>$1.500</th>
-                        <th>15/08/2025</th>
-                        <th>
-                            <div class="actions">
-                                <a class="">
-                                    Editar
-                                </a>
-                                <a class="">
-                                    Eliminar
-                                </a>
-                            </div>
-                        </th>
-                    </tr>
+                <tbody class="tbody">
+
                 </tbody>
             </table>
         </div>
@@ -227,6 +192,20 @@
         </div>
     </div>
 
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items3">
+                    <h1>Ooops!</h1>
+                    <p class="textModal3"></p>
+                    <button id="okBtn3">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <i class="ph-bold ph-plus" id="add"></i>
 
     <div class="addProduct">
@@ -235,15 +214,15 @@
                 <p>Ingresa los Datos:</p>
                 <i class="ph-bold ph-x"></i>
             </div>
-            <label for="photo">Foto</label>
-            <input type="file" id="photo" name="photo" hidden accept="image/*">
-            <input type="text" placeholder="Nombre">
-            <p class="category">Categoria</p>
-            <input type="number" placeholder="Cantidad de Stock">
-            <p class="unidades">Unidad de Medida</p>
-            <input type="number" placeholder="Precio Unitario">
+            <label for="inputPhoto">Foto</label>
+            <input type="file" id="inputPhoto" name="photo" hidden accept="image/*">
+            <input type="text" placeholder="Nombre" id="inputName" autocomplete="off">
+            <p class="category" id="inputCategoria">Categoria</p>
+            <input type="number" placeholder="Cantidad de Stock" id="inputCantidad" autocomplete="off">
+            <p class="unidades" id="inputMedida">Unidad de Medida</p>
+            <input type="number" placeholder="Precio Unitario" id="inputPrice" autocomplete="off">
             <h3>Imagen: <span class="nameImage"></span></h3>
-            <button>Agregar</button>
+            <button id="addInventory">Agregar</button>
         </div>
     </div>
 
@@ -277,23 +256,115 @@
                 <p>Ingresa los Datos:</p>
                 <i class="ph-bold ph-x"></i>
             </div>
-            <input type="text" placeholder="Nombre">
-            <p class="categoryUpdate">Categoria</p>
-            <input type="number" placeholder="Cantidad de Stock">
-            <p class="unidadesUpdate">Unidad de Medida</p>
-            <input type="number" placeholder="Precio Unitario">
-            <button>Actualizar</button>
+            <input type="text" placeholder="Nombre" id="updateName" autocomplete="off">
+            <p class="categoryUpdate" id="updateCategory">Categoria</p>
+            <input type="number" placeholder="Cantidad de Stock" id="updateStock" autocomplete="off">
+            <p class="unidadesUpdate" id="updateMedida">Unidad de Medida</p>
+            <input type="number" placeholder="Precio Unitario" id="updatePrice" autocomplete="off">
+            <button id="btnUpdate">Actualizar</button>
         </div>
     </div>
 
-    <div class="modalDelete">
-        <div class="con_modalDelete">
-            <span></span>
-            <img src="/assets/pan.png" alt="">
-            <h3>Carne de hamburguesa</h3>
-            <h2>$5.000</h2>
-            <h4>Carnicos</h4>
-            <button>Eliminar</button>
+    <div class="loader">
+        <svg class="pl" viewBox="0 0 160 160" width="160px" height="160px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#000"></stop>
+                    <stop offset="100%" stop-color="#fff"></stop>
+                </linearGradient>
+                <mask id="mask1">
+                    <rect x="0" y="0" width="160" height="160" fill="url(#grad)"></rect>
+                </mask>
+                <mask id="mask2">
+                    <rect x="28" y="28" width="104" height="104" fill="url(#grad)"></rect>
+                </mask>
+            </defs>
+
+            <g>
+                <g class="pl__ring-rotate">
+                    <circle class="pl__ring-stroke" cx="80" cy="80" r="72" fill="none" stroke="hsl(223,90%,55%)"
+                        stroke-width="16" stroke-dasharray="452.39 452.39" stroke-dashoffset="452"
+                        stroke-linecap="round" transform="rotate(-45,80,80)"></circle>
+                </g>
+            </g>
+            <g mask="url(#mask1)">
+                <g class="pl__ring-rotate">
+                    <circle class="pl__ring-stroke" cx="80" cy="80" r="72" fill="none" stroke="hsl(193,90%,55%)"
+                        stroke-width="16" stroke-dasharray="452.39 452.39" stroke-dashoffset="452"
+                        stroke-linecap="round" transform="rotate(-45,80,80)"></circle>
+                </g>
+            </g>
+
+            <g>
+                <g stroke-width="4" stroke-dasharray="12 12" stroke-dashoffset="12" stroke-linecap="round"
+                    transform="translate(80,80)">
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(-135,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(-90,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(-45,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(0,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(45,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(90,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(135,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,10%,90%)" points="0,2 0,14"
+                        transform="rotate(180,0,0) translate(0,40)"></polyline>
+                </g>
+            </g>
+            <g mask="url(#mask1)">
+                <g stroke-width="4" stroke-dasharray="12 12" stroke-dashoffset="12" stroke-linecap="round"
+                    transform="translate(80,80)">
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(-135,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(-90,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(-45,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(0,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(45,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(90,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(135,0,0) translate(0,40)"></polyline>
+                    <polyline class="pl__tick" stroke="hsl(223,90%,80%)" points="0,2 0,14"
+                        transform="rotate(180,0,0) translate(0,40)"></polyline>
+                </g>
+            </g>
+
+            <g>
+                <g transform="translate(64,28)">
+                    <g class="pl__arrows" transform="rotate(45,16,52)">
+                        <path fill="hsl(3,90%,55%)"
+                            d="M17.998,1.506l13.892,43.594c.455,1.426-.56,2.899-1.998,2.899H2.108c-1.437,0-2.452-1.473-1.998-2.899L14.002,1.506c.64-2.008,3.356-2.008,3.996,0Z">
+                        </path>
+                        <path fill="hsl(223,10%,90%)"
+                            d="M14.009,102.499L.109,58.889c-.453-1.421,.559-2.889,1.991-2.889H29.899c1.433,0,2.444,1.468,1.991,2.889l-13.899,43.61c-.638,2.001-3.345,2.001-3.983,0Z">
+                        </path>
+                    </g>
+                </g>
+            </g>
+            <g mask="url(#mask2)">
+                <g transform="translate(64,28)">
+                    <g class="pl__arrows" transform="rotate(45,16,52)">
+                        <path fill="hsl(333,90%,55%)"
+                            d="M17.998,1.506l13.892,43.594c.455,1.426-.56,2.899-1.998,2.899H2.108c-1.437,0-2.452-1.473-1.998-2.899L14.002,1.506c.64-2.008,3.356-2.008,3.996,0Z">
+                        </path>
+                        <path fill="hsl(223,90%,80%)"
+                            d="M14.009,102.499L.109,58.889c-.453-1.421,.559-2.889,1.991-2.889H29.899c1.433,0,2.444,1.468,1.991,2.889l-13.899,43.61c-.638,2.001-3.345,2.001-3.983,0Z">
+                        </path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        <div class="textLoader">
+            <p>Estamos subiendo el producto espera un poco</p>
         </div>
     </div>
 

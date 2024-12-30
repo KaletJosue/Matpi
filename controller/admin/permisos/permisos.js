@@ -25,7 +25,7 @@ onAuthStateChanged(auth, (user) => {
             then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
 
-                    if (doc.data().Rol == "Administrador" || doc.data().Rol == "SuperAdmin") {
+                    if (doc.data().Rol == "SuperAdmin") {
 
                         // See Users
                         getDocs(query(collection(db, "Users", "IdUser", "Private_Data"))).
